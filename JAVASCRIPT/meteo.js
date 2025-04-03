@@ -19,67 +19,67 @@ function changeIcone(codeMeteo) {
     switch (codeMeteo) {
         case 0:
             icone = "☀️"; // Ciel clair
-            background = "../IMAGES/default.jpg";
+            background = "IMAGES/default.jpg";
             nom = "Ciel clair"
             break;
         case 1:
             icone = "🌤️"; // Peu nuageux
-            background = "../IMAGES/default.jpg";
+            background = "IMAGES/default.jpg";
             nom = "Peu nuageux"
             break;
         case 2:
             icone = "⛅️"; // Partiellement nuageux
-            background = "../IMAGES/partiellement-nuageux.jpg";
+            background = "IMAGES/partiellement-nuageux.jpg";
             nom = "Partiellement nuageux"
             break;
         case 3:
             icone = "☁️"; // Couvert
-            background = "../IMAGES/couvert.jpg";
+            background = "IMAGES/couvert.jpg";
             nom = "Couvert"
             break;
         case 45:
             icone = "🌫️"; // Brouillard
-            background = "../IMAGES/default.jpg";
+            background = "IMAGES/default.jpg";
             nom = "Brouillard"
             break;
         case 51:
             icone = "☀️🌧️"; // Bruine légère
-            background = "../IMAGES/default.jpg";
+            background = "IMAGES/default.jpg";
             nom = "Bruine légère"
             break;
         case 61:
             icone = "🌧️"; // Pluie légère
-            background = "../IMAGES/pluie-legere.webp";
+            background = "IMAGES/pluie-legere.webp";
             nom = "Pluie légère"
             break;
         case 63:
             icone = "🌧️🌧️"; // Pluie modérée
-            background = "../IMAGES/pluie-legere.webp";
+            background = "IMAGES/pluie-legere.webp";
             nom = "Pluie modérée"
             break;
         case 65:
             icone = "🌧️🌧️🌧️"; // Pluie forte
-            background = "../IMAGES/pluie.webp";
+            background = "IMAGES/pluie.webp";
             nom = "Forte pluie"
             break;
         case 80:
             icone = "🌤️🌧️"; // Averses
-            background = "../IMAGES/averses.webp";
+            background = "IMAGES/averses.webp";
             nom = "Averses"
             break;
         case 95:
             icone = "⛈️"; // Orages
-            background = "../IMAGES/pluie.webp";
+            background = "IMAGES/pluie.webp";
             nom = "Orages"
             break;
         case 96:
             icone = "⛈️🧊"; // Orages avec grêle
-            background = "../IMAGES/default.jpg";
+            background = "IMAGES/default.jpg";
             nom = "Orages avec grêle"
             break
         default:
             icone = "💀"; // On verra si je suis le goat ou pas
-            background = "../IMAGES/default.jpg";
+            background = "IMAGES/default.jpg";
             nom = "Absolute allo salem"
             break
     }
