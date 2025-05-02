@@ -19,7 +19,7 @@ function changeIcone(codeMeteo) {
     switch (codeMeteo) {
         case 0:
             icone = "☀️"; // Ciel clair
-            background = "IMAGES/default.jpg";
+            background = "IMAGES/ensoleille.jpg";
             nom = "Ciel clair"
             break;
         case 1:

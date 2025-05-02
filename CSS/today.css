@@ -1,3 +1,34 @@
 body{
-    background-color: aliceblue;
+    background-color: transparent;
+    padding: -10%;
+    margin: 0;
+    overflow: hidden;
+    text-shadow: 1px white;
+}
+
+body, .fc {
+    color: white !important;
+    text-shadow: 0 0 4px black, 0 0 8px black;
+}
+
+
+#calendar {
+    font-size: 0.8rem !important;
+    max-width: 100%;
+    margin-top: -10%;
+}
+
+.fc-timegrid-slot {
+    height: 25px !important;
+}
+
+.fc-event {
+    min-height: 25px !important;
+    padding: 2px !important;
+}
+
+@media (max-width: 940px) {
+    body{
+        overflow: auto;
+    }
 }
