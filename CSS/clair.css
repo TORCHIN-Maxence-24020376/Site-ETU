@@ -15,6 +15,10 @@ header {
     color: #000;
 }
 
+.Site:active{
+    background-color: #818181;
+}
+
 .Site:hover, .Amphi:hover, .Salle:hover {
     background-color: #d1d1d1;
 }

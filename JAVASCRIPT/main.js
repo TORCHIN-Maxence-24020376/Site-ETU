@@ -235,7 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (menu) {
                 menu.style.maxHeight = "0px";
             }
-        }, 300);
+        }, 0);
     }
 
     // Initialiser la mise à jour des positions des menus

@@ -1,7 +1,7 @@
 /* sombre.css - Thème sombre */
 
 body {
-    background-color: #040f29;
+    background: linear-gradient(135deg,#040f29,#0f317f);
     color: #fff;
 }
 
@@ -11,12 +11,16 @@ header {
 }
 
 .Site, .Amphi, .Salle {
-    background-color: #0a2646;
+    background-color: #083364;
     color: #fff;
 }
 
+.Site:active{
+    background-color: #4582c7;
+}
+
 .Site:hover, .Amphi:hover, .Salle:hover {
-    background-color: #132f4d;
+    background-color: rgb(32, 82, 136);
 }
 
 .button{

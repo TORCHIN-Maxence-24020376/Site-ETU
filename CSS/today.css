@@ -1,6 +1,5 @@
 body{
     background-color: transparent;
-    padding: -10%;
     margin: 0;
     overflow: hidden;
     text-shadow: 1px white;
@@ -10,7 +9,6 @@ body, .fc {
     color: white !important;
     text-shadow: 0 0 4px black, 0 0 8px black;
 }
-
 
 #calendar {
     font-size: 0.8rem !important;

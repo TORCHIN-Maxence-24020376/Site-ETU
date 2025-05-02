@@ -104,9 +104,9 @@ h1 {
 }
 
 .Site, .Amphi {
-    height: 250px;
-    width: 250px;
-    border-radius: 80px;
+    height: 150px;
+    width: 150px;
+    border-radius: 20px;
     margin: 10px;
     display: flex;
     flex-direction: column;
@@ -115,12 +115,12 @@ h1 {
     transition: transform 0.3s ease, background-color 0.3s ease;
     cursor: pointer;
     text-align: center;
-    font-size: 2em;
+    font-size: 1em;
     text-decoration: none;
 }
 
 .Salle{
-    height: 250px;
+    height: 150px;
     width: 120px;
     border-radius: 10px;
     margin: 10px;
@@ -138,10 +138,6 @@ h1 {
 /* Hover effet */
 .Site:hover, .Amphi:hover, .Salle:hover {
     transform: scale(1.05);
-}
-
-.Site:active{
-    background-color: #818181;
 }
 
 .info{
@@ -172,7 +168,7 @@ h1 {
 
 .Site:hover .info{
     display: block;
-    font-size: 20px;
+    font-size: 1em;
 }
 
 
@@ -621,7 +617,7 @@ a{
 #edt-du-jour{
     width: 50%;
     height: 100%;
-    overflow: scroll;
+    overflow: hidden;
     height: 80vh;
     border-radius: 20px;
 }
