@@ -155,12 +155,92 @@
     <section class="Container">
         <!-- Calendrier -->
         <section class="container-calendar">
-            <h1>Emploi du Temps</h1>
-            <label for="groupe">Sélectionner un groupe :</label>
-            <select id="groupe" onchange="loadCalendar()">
-            </select>
-            
-            <div id='calendar'></div>
+                <h1>Emploi du Temps</h1>
+            <section class="Container">
+                <div id="groupe-menu">
+                <!-- Première année -->
+                <div class="year" onclick="toggleSousMenu('premiere-annee')">Première année</div>
+                    <div id="premiere-annee" class="sous-menu">
+                        <!-- Groupe 1 -->
+                        <div class="group" onclick="toggleSousMenu('g1-1')">Groupe 1</div>
+                            <div id="g1-1" class="sous-menu">
+                                <div class="subgroup" data-groupe="1G1A">1G1A</div>
+                                <div class="subgroup" data-groupe="1G1B">1G1B</div>
+                            </div>
+                        <!-- Groupe 2 -->
+                        <div class="group" onclick="toggleSousMenu('g1-2')">Groupe 2</div>
+                            <div id="g1-2" class="sous-menu">
+                                <div class="subgroup" data-groupe="1G2A">1G2A</div>
+                                <div class="subgroup" data-groupe="1G2B">1G2B</div>
+                            </div>
+                        <!-- Groupe 3 -->
+                        <div class="group" onclick="toggleSousMenu('g1-3')">Groupe 3</div>
+                            <div id="g1-3" class="sous-menu">
+                                <div class="subgroup" data-groupe="1G3A">1G3A</div>
+                                <div class="subgroup" data-groupe="1G3B">1G3B</div>
+                            </div>
+                        <!-- Groupe 4 -->
+                        <div class="group" onclick="toggleSousMenu('g1-4')">Groupe 4</div>
+                            <div id="g1-4" class="sous-menu">
+                                <div class="subgroup" data-groupe="1G4A">1G4A</div>
+                                <div class="subgroup" data-groupe="1G4B">1G4B</div>
+                            </div>
+                    </div>
+
+                <!-- Deuxième année -->
+                <div class="year" onclick="toggleSousMenu('deuxieme-annee')">Deuxième année</div>
+                    <div id="deuxieme-annee" class="sous-menu">
+                        <!-- GA1 -->
+                        <div class="group" onclick="toggleSousMenu('g2-ga1')">GA1</div>
+                            <div id="g2-ga1" class="sous-menu">
+                                <div class="subgroup" data-groupe="2GA1-1">2GA1-1</div>
+                                <div class="subgroup" data-groupe="2GA1-2">2GA1-2</div>
+                            </div>
+                        <!-- GA2 -->
+                        <div class="group" onclick="toggleSousMenu('g2-ga2')">GA2</div>
+                            <div id="g2-ga2" class="sous-menu">
+                                <div class="subgroup" data-groupe="2GA2-1">2GA2-1</div>
+                                <div class="subgroup" data-groupe="2GA2-2">2GA2-2</div>
+                            </div>
+                        <!-- GB -->
+                        <div class="group" onclick="toggleSousMenu('g2-gb')">B</div>
+                            <div id="g2-gb" class="sous-menu">
+                                <div class="subgroup" data-groupe="2GB-1">2GB-1</div>
+                                <div class="subgroup" data-groupe="2GB-2">2GB-2</div>
+                            </div>
+                    </div>
+
+                <!-- Troisième année -->
+                <div class="year" onclick="toggleSousMenu('troisieme-annee')">Troisième année</div>
+                    <div id="troisieme-annee" class="sous-menu">
+                        <!-- A1 -->
+                        <div class="group" onclick="toggleSousMenu('g3-a1')">A1</div>
+                            <div id="g3-a1" class="sous-menu">
+                                <div class="subgroup" data-groupe="3A1-1">3A1-1</div>
+                                <div class="subgroup" data-groupe="3A1-2">3A1-2</div>
+                            </div>
+                        <!-- A2 -->
+                        <div class="group" onclick="toggleSousMenu('g3-a2')">A2</div>
+                            <div id="g3-a2" class="sous-menu">
+                                <div class="subgroup" data-groupe="3A2-1">3A2-1</div>
+                                <div class="subgroup" data-groupe="3A2-2">3A2-2</div>
+                            </div>
+                        <!-- B -->
+                        <div class="group" onclick="toggleSousMenu('g3-b')">B</div>
+                            <div id="g3-b" class="sous-menu">
+                                <div class="subgroup" data-groupe="3B-1">3B-1</div>
+                                <div class="subgroup" data-groupe="3B-2">3B-2</div>
+                            </div>
+                    </div>
+                </div>
+                <div id="week-summary">
+                    <div id="summary-this-week" class="week-summary-block"></div>
+                    <div id="summary-next-week" class="week-summary-block"></div>
+                </div>
+            </section>
+            <!-- Conteneur du calendrier -->
+            <div id="calendar"></div>
+
         </section>
     </section>
 

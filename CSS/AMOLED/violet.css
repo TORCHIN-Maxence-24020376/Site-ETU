@@ -92,3 +92,8 @@ a {
 .informations-meteo {
     text-shadow: 1px 1px 2px #111;
 }
+
+.week-summary-block{
+    background-color: #3b1b59;
+    border: #1c0a2b solid 2px;
+}

@@ -111,3 +111,8 @@ a{
 .informations-meteo{    
     text-shadow: 1px 1px 2px #ccc;
 }
+
+
+.week-summary-block{
+    border: #ccc solid 2px;
+}
