@@ -69,23 +69,39 @@
                 <li><a href="index.html#Selection-salle">🛜Connexion réseau</a></li>
             </ul>
             
-            <p class="tkt-frr">.</p>
+            <a class="tkt-frr" href="Snake.html">.</a>
         </div>
         <div>
             <h4>CARTE DES PRISES</h4>
             <p>Cette page contient une carte des prises interactive vous informant de l'adresse IP d'une salle, la présence de prises ainsi que la puissance de la 4g reçue (mesures réalisée avec l'opérateur free, cela semble être les mêmes valeurs pour les autres opérateurs mis à part<a href="https://www.bouyguestelecom.fr/forfaits-mobiles/sans-engagement?url_key=b-you-150-go-serie-speciale-5g-6528&utm_medium=sea_c&utm_source=google&utm_campaign=FORFAIT-M-BOUYGUES&utm_term=tarif%20forfait%20bouygues&gclsrc=aw.ds&gad_source=1&gclid=CjwKCAiAnpy9BhAkEiwA-P8N4n4_Ad9ToKiRtFO9EyGIJJ-U6CSePguVKHUz_UdkG6RNHwKhYW1MMBoCWnAQAvD_BwE">Bouygues Telecom</a>)</p>
-            <p class="tkt-frr">.</p>
+            <a class="tkt-frr" href="Snake.html">.</a>
         </div>
     </section>
     <section id="theme-contenu" class="mega-menu">
         <div><h3>Changer de thème</h3></div>
-        
-        <article>
-            <div onclick="changeTheme('CSS/clair.css')">Clair</div>
-            <div onclick="changeTheme('CSS/sombre.css')">Sombre</div>
-            <div onclick="changeTheme('CSS/AMOLED.css')">AMOLED</div>
-        </article>
-        
+        <section id="theme-select">
+            <article class="theme-type">
+                <article>
+                    <h4>Clair</h4>
+                    <div class="theme" onclick="changeTheme('CSS/CLAIR/blanc.css')">Blanc</div>
+                    <div class="theme" onclick="changeTheme('CSS/CLAIR/diamant.css')">Diamant</div>
+                </article>
+                <article>
+                    <h4>Sombre</h4>
+                    <div class="theme" onclick="changeTheme('CSS/SOMBRE/aqua.css')">Aqua</div>
+                    <div class="theme" onclick="changeTheme('CSS/SOMBRE/vert.css')">Vert</div>
+                    <div class="theme" onclick="changeTheme('CSS/SOMBRE/cristal.css')">Cristal (Violet)</div>
+                    <div class="theme" onclick="changeTheme('CSS/SOMBRE/4b00.css')">4b00</div>
+                </article>
+                <article>
+                    <h4>AMOLED</h4>
+                    <div class="theme" onclick="changeTheme('CSS/AMOLED/AMOLED.css')">AMOLED</div>
+                    <div class="theme" onclick="changeTheme('CSS/AMOLED/violet.css')">Violet</div>
+                    <div class="theme" onclick="changeTheme('CSS/AMOLED/vert.css')">Vert</div>
+                    <div class="theme" onclick="changeTheme('CSS/AMOLED/bleu.css')">Bleu</div>
+                </article>
+            </article>
+        </section>
     </section>
     
 
@@ -277,18 +293,7 @@
                 </div>
             </form>
         </div>
-    </section>
-    
-
-<!--Mise en veille-->
-    <div id="veille" style="display: none;">
-        <h1>Zone de veille</h1>
-        <p>Cette zone est faite pour reposer les écrans OLED</p>
-        <p>(Apparait et disparait si vous vous mettez en plein écran)</p>
-        <div id="modeVeille" style="height: calc(100vh + 200px);"></div>
-    </div>
-
-    
+    </section>    
 
 <script src="JAVASCRIPT/main.js"></script>
 
@@ -312,6 +317,10 @@
     </section>
     
 </footer>
+<!--Mise en veille-->
+<div id="veille" style="display: none;">
+    <div id="modeVeille" style="height: calc(100vh + 200px);"></div>
+  </div>
 </body>
 </html>
 

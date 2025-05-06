@@ -1,0 +1,113 @@
+/* clair.css - Thème Clair */
+
+body {
+    background-color: #fff;
+    color: #000;
+}
+
+header {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.Site, .Amphi, .Salle {
+    background-color: #e3e3e3;
+    color: #000;
+}
+
+.Site:active{
+    background-color: #818181;
+}
+
+.Site:hover, .Amphi:hover, .Salle:hover {
+    background-color: #d1d1d1;
+}
+
+.button{
+    background-color: #e3e3e3;
+}
+
+.button:hover{
+    background-color: #d1d1d1;
+}
+
+.google{
+    background-color: #e3e3e3;
+}
+
+.google:hover{
+    background-color: #d1d1d1;
+}
+
+.google.clicked{
+    border: #ccc solid 3px;
+    color: white !important;
+}
+
+.amu:hover{
+    color: white;
+}
+
+.ametice{
+    background-color: #e3e3e3;
+}
+
+body::-webkit-scrollbar-track {
+    background: lightgrey;
+}
+  
+body::-webkit-scrollbar-thumb {
+    background: grey;
+}
+
+button:hover{
+    background-color: #e3e3e3;
+}
+
+.slides a{
+    color: #000;
+}
+
+.navigation a {
+    color: black;
+}
+
+.navigation a:hover{
+    background-color: lightgrey;
+}
+
+.mega-menu{
+    background-color: lightgrey;
+}
+
+a{
+    color: rgb(35, 104, 108);
+}
+
+.tkt-frr{
+    color: lightgrey;
+}
+
+#theme-contenu article div{
+    background-color: #ffffff;
+}
+
+#theme-contenu article div:hover{
+    background-color: #888;
+}
+
+.overlay {
+    background: linear-gradient(135deg, #ffffff, #f1f1f1);
+}
+
+.previsions div{
+    background-image: url("../../IMAGES/jour_clair.svg");
+}
+
+.previsions div.selected {
+    border: 2px solid black;
+}
+
+.informations-meteo{    
+    text-shadow: 1px 1px 2px #ccc;
+}

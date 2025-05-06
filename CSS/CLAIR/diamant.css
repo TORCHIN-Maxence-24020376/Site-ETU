@@ -1,0 +1,95 @@
+/* diamant.css - Thème Clair*/
+
+body {
+    background: linear-gradient(135deg, #e4f4ff, #c2e9fb);
+    color: #0a0a0a;
+}
+
+header {
+    background-color: #b8e3ff;
+    color: #000;
+}
+
+.Site, .Amphi, .Salle {
+    background-color: #ade4ff;
+    color: #000;
+}
+
+.Site:active {
+    background-color: #2ab5ff;
+}
+
+.Site:hover, .Amphi:hover, .Salle:hover {
+    background-color: #56c4ff;
+}
+
+.button {
+    background-color: #b8e3ff;
+    color: #000;
+}
+
+.button:hover {
+    background-color: #89cfff;
+}
+
+body::-webkit-scrollbar-track {
+    background: #d6f3ff;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #89cfff;
+}
+
+.logo, #GitHub {
+    filter: none;
+}
+
+.slides a {
+    color: #000;
+}
+
+.navigation a {
+    color: #000;
+}
+
+.navigation a:hover {
+    background-color: #a1dbff;
+}
+
+.mega-menu {
+    background-color: #a1dbff;
+}
+
+a {
+    color: #0074b8;
+    font-weight: 600;
+}
+
+.tkt-frr {
+    color: #89cfff;
+}
+
+#theme-contenu article div {
+    background-color: #e0f6ff;
+}
+
+#theme-contenu article div:hover {
+    background-color: #bae9ff;
+}
+
+.overlay {
+    background: linear-gradient(135deg, #d4f1ff, #b8e3ff);
+}
+
+.previsions div {
+    background-image: url("../../IMAGES/jour_clair.svg");
+    border: black;
+}
+
+.previsions div.selected {
+    border: 2px solid black;
+}
+
+.informations-meteo {
+    text-shadow: 1px 1px 2px #aaa;
+}

@@ -67,7 +67,7 @@
             <li><a href="index.html#Selection-salle">🛜Connexion réseau</a></li>
         </ul>
         
-        <p class="tkt-frr">.</p>
+        <a class="tkt-frr" href="Snake.html">.</a>
     </div>
     <div>
         <h4 id="Prof">LIENS PROFS</h4>
@@ -79,18 +79,34 @@
         <p>Cours CHTIOUI : Diaporama de la ressource R3.02 et R3.03 contenant l'analyse avec diagrammes UML et
         le développement efficace : algorithmes de tri, structure de données.</p>
         
-        <p class="tkt-frr">.</p>
+        <a class="tkt-frr" href="Snake.html">.</a>
     </div>
 </section>
 <section id="theme-contenu" class="mega-menu">
     <div><h3>Changer de thème</h3></div>
-    
-    <article>
-        <div onclick="changeTheme('CSS/clair.css')">Clair</div>
-        <div onclick="changeTheme('CSS/sombre.css')">Sombre</div>
-        <div onclick="changeTheme('CSS/AMOLED.css')">AMOLED</div>
-    </article>
-    <p class="tkt-frr">.</p>
+    <section id="theme-select">
+        <article class="theme-type">
+            <article>
+                <h4>Clair</h4>
+                <div class="theme" onclick="changeTheme('CSS/CLAIR/blanc.css')">Blanc</div>
+                <div class="theme" onclick="changeTheme('CSS/CLAIR/diamant.css')">Diamant</div>
+            </article>
+            <article>
+                <h4>Sombre</h4>
+                <div class="theme" onclick="changeTheme('CSS/SOMBRE/aqua.css')">Aqua</div>
+                <div class="theme" onclick="changeTheme('CSS/SOMBRE/vert.css')">Vert</div>
+                <div class="theme" onclick="changeTheme('CSS/SOMBRE/cristal.css')">Cristal (Violet)</div>
+                <div class="theme" onclick="changeTheme('CSS/SOMBRE/4b00.css')">4b00</div>
+            </article>
+            <article>
+                <h4>AMOLED</h4>
+                <div class="theme" onclick="changeTheme('CSS/AMOLED/AMOLED.css')">AMOLED</div>
+                <div class="theme" onclick="changeTheme('CSS/AMOLED/violet.css')">Violet</div>
+                <div class="theme" onclick="changeTheme('CSS/AMOLED/vert.css')">Vert</div>
+                <div class="theme" onclick="changeTheme('CSS/AMOLED/bleu.css')">Bleu</div>
+            </article>
+        </article>
+    </section>
 </section>
 
 <!-- Changement de thème -->
@@ -157,12 +173,7 @@
     </div>
 </section>
 <!--Mise en veille-->
-<div id="veille" style="display: none;">
-    <h1>Zone de veille</h1>
-    <p>Cette zone est faite pour reposer les écrans OLED</p>
-    <p>(Apparait et disparait si vous vous mettez en plein écran)</p>
-    <div id="modeVeille" style="height: calc(100vh + 200px);"></div>
-</div>
+
 <script src="JAVASCRIPT/main.js"></script>
 <footer>
     <section>
@@ -185,6 +196,8 @@
     
 </footer>
 
-
+<div id="veille" style="display: none;">
+    <div id="modeVeille" style="height: calc(100vh + 200px);"></div>
+</div>
 </body>
 </html>

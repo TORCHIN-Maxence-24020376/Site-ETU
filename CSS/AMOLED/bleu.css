@@ -1,0 +1,94 @@
+/* amoled-bleu.css - Thème AMOLED*/
+
+body {
+    background-color: #000;
+    color: #e0f7ff;
+}
+
+header {
+    background-color: #001f33;
+    color: #fff;
+}
+
+.Site, .Amphi, .Salle {
+    background-color: #003f66;
+    color: #fff;
+}
+
+.Site:active {
+    background-color: #00ccff;
+}
+
+.Site:hover, .Amphi:hover, .Salle:hover {
+    background-color: #0099cc;
+}
+
+.button {
+    background-color: #001f33;
+    color: #fff;
+}
+
+.button:hover {
+    background-color: #005580;
+}
+
+body::-webkit-scrollbar-track {
+    background: #001a2e;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #0099cc;
+}
+
+.logo, #GitHub {
+    filter: invert(1);
+}
+
+.slides a {
+    color: #e0f7ff;
+}
+
+.navigation a {
+    color: #fff;
+}
+
+.navigation a:hover {
+    background-color: #005580;
+}
+
+.mega-menu {
+    background-color: #005580;
+}
+
+a {
+    color: #4dd8ff;
+}
+
+.tkt-frr {
+    color: #0099cc;
+}
+
+#theme-contenu article div {
+    background-color: #001f33;
+}
+
+#theme-contenu article div:hover {
+    background-color: #007bb5;
+}
+
+.overlay {
+    background: linear-gradient(135deg, #001f33, #000);
+}
+
+.previsions div {
+    background-image: url("../../IMAGES/jour-sombre.svg");
+    border: white;
+}
+
+.previsions div.selected {
+    border: 2px solid white;
+}
+
+.informations-meteo {
+    text-shadow: 1px 1px 2px #111;
+}

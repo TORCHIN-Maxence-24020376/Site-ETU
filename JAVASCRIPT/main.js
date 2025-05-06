@@ -126,8 +126,8 @@ function togglePanel(panelIdToToggle, panelIdToClose) {
     }
 }
 
-function toggleSousMenu() {
-    const sousMenu = document.getElementById("sous-menu");
+function toggleSousMenu(menuCible) {
+    const sousMenu = document.getElementById(menuCible);
 
     sousMenu.style.display = sousMenu.style.display === 'block' ? 'none' : 'block';
 }
@@ -141,7 +141,7 @@ function toggleFullScreen() {
     if (!document.fullscreenElement) {
         previousTheme = localStorage.getItem('selected-theme');
         veilleElement.style.display = "block";
-        changeTheme('CSS/AMOLED.css');
+        changeTheme('CSS/AMOLED/AMOLED.css');
 
         const requestFullScreen = document.documentElement.requestFullscreen ||
                                   document.documentElement.webkitRequestFullscreen ||

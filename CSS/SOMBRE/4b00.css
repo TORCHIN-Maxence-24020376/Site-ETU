@@ -1,0 +1,94 @@
+/* 4b00.css - Thème sombre */
+
+body {
+    background: linear-gradient(135deg, rgb(69,61,69), #000000);
+    color: #f0f0f0;
+}
+
+header {
+    background-color: #3a333a;
+    color: #fff;
+}
+
+.Site, .Amphi, .Salle {
+    background-color: #4f4550;
+    color: #fff;
+}
+
+.Site:active {
+    background-color: #9b87a6;
+}
+
+.Site:hover, .Amphi:hover, .Salle:hover {
+    background-color: #7a6a84;
+}
+
+.button {
+    background-color: #3a333a;
+    color: #fff;
+}
+
+.button:hover {
+    background-color: #5b4e60;
+}
+
+body::-webkit-scrollbar-track {
+    background: #2e282e;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #7a6a84;
+}
+
+.logo, #GitHub {
+    filter: invert(1);
+}
+
+.slides a {
+    color: #f0f0f0;
+}
+
+.navigation a {
+    color: #ffffff;
+}
+
+.navigation a:hover {
+    background-color: #5b4e60;
+}
+
+.mega-menu {
+    background-color: #5b4e60;
+}
+
+a {
+    color: #cfa8ff;
+}
+
+.tkt-frr {
+    color: #5b4e60;
+}
+
+#theme-contenu article div {
+    background-color: #3a333a;
+}
+
+#theme-contenu article div:hover {
+    background-color: #7a6a84;
+}
+
+.overlay {
+    background: linear-gradient(135deg, #2e282e, #3a333a);
+}
+
+.previsions div {
+    background-image: url("../../IMAGES/jour-sombre.svg");
+    border: white;
+}
+
+.previsions div.selected {
+    border: 2px solid white;
+}
+
+.informations-meteo {
+    text-shadow: 1px 1px 2px #111;
+}

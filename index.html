@@ -70,25 +70,42 @@
                 <li><a href="carte.html">🔌Carte des prises</a></li>
                 <li><a href="index.html#Selection-salle">🛜Connexion réseau</a></li>
             </ul>
-            <p class="tkt-frr">.</p>
+            <a class="tkt-frr" href="Snake.html">.</a>
         </div>
         <div>
             <h4>ACCUEIL</h4>
             <p>Ce site a pour but de partager les différentes ressources utiles au cursus de BUT Informatique à l'IUT d'Aix-Marseille.</p>
             <p>On y retrouve différents types de contenu. Pour plus de détails, consultez les pages ci-dessous : </p>
-            <p class="tkt-frr">.</p>
+            <a class="tkt-frr" href="Snake.html">.</a>
         </div>
     </section>
     <section id="theme-contenu" class="mega-menu">
         <div><h3>Changer de thème</h3></div>
-        
-        <article>
-            <div onclick="changeTheme('CSS/clair.css')">Clair</div>
-            <div onclick="changeTheme('CSS/sombre.css')">Sombre</div>
-            <div onclick="changeTheme('CSS/AMOLED.css')">AMOLED</div>
-        </article>
-        
+        <section id="theme-select">
+            <article class="theme-type">
+                <article>
+                    <h4>Clair</h4>
+                    <div class="theme" onclick="changeTheme('CSS/CLAIR/blanc.css')">Blanc</div>
+                    <div class="theme" onclick="changeTheme('CSS/CLAIR/diamant.css')">Diamant</div>
+                </article>
+                <article>
+                    <h4>Sombre</h4>
+                    <div class="theme" onclick="changeTheme('CSS/SOMBRE/aqua.css')">Aqua</div>
+                    <div class="theme" onclick="changeTheme('CSS/SOMBRE/vert.css')">Vert</div>
+                    <div class="theme" onclick="changeTheme('CSS/SOMBRE/cristal.css')">Cristal (Violet)</div>
+                    <div class="theme" onclick="changeTheme('CSS/SOMBRE/4b00.css')">4b00</div>
+                </article>
+                <article>
+                    <h4>AMOLED</h4>
+                    <div class="theme" onclick="changeTheme('CSS/AMOLED/AMOLED.css')">AMOLED</div>
+                    <div class="theme" onclick="changeTheme('CSS/AMOLED/violet.css')">Violet</div>
+                    <div class="theme" onclick="changeTheme('CSS/AMOLED/vert.css')">Vert</div>
+                    <div class="theme" onclick="changeTheme('CSS/AMOLED/bleu.css')">Bleu</div>
+                </article>
+            </article>
+        </section>
     </section>
+      
     
 
 <!-- Changement de thème format mobile -->
@@ -96,9 +113,25 @@
         <button class="closebtn" onclick="closeTheme()">&times;</button>
         <div class="overlay-content">
             <p>Changer de thème</p>
-            <div class="menu-item" onclick="changeTheme('CSS/clair.css'); closeTheme();">Clair</div>
-            <div class="menu-item" onclick="changeTheme('CSS/sombre.css'); closeTheme();">Sombre</div>
-            <div class="menu-item" onclick="changeTheme('CSS/AMOLED.css'); closeTheme();">AMOLED</div>
+            <div class="menu-item" onclick="toggleSousMenu('clair-menu')">Clair ▼</div>
+            <ul id="clair-menu" class="sous-menu">
+                <li><div onclick="changeTheme('CSS/CLAIR/blanc.css'); closeTheme();">Blanc</div></li>
+                <li><div onclick="changeTheme('CSS/CLAIR/diamant.css'); closeTheme();">Diamant</div></li>
+            </ul>
+            <div class="menu-item" onclick="toggleSousMenu('sombre-menu')">Sombre ▼</div>
+            <ul id="sombre-menu" class="sous-menu">
+                <li><div onclick="changeTheme('CSS/SOMBRE/aqua.css'); closeTheme();">Aqua</div></li>
+                <li><div onclick="changeTheme('CSS/SOMBRE/vert.css'); closeTheme();">Vert</div></li>
+                <li><div onclick="changeTheme('CSS/SOMBRE/cristal.css'); closeTheme();">Cristal (Violet)</div></li>
+                <li><div onclick="changeTheme('CSS/SOMBRE/4b00.css'); closeTheme();">4b00</div></li>
+            </ul>
+            <div class="menu-item" onclick="toggleSousMenu('AMOLED-menu')">AMOLED ▼</div>
+            <ul id="AMOLED-menu" class="sous-menu">
+                <li><div onclick="changeTheme('CSS/AMOLED/AMOLED.css'); closeTheme();">AMOLED</div></li>
+                <li><div onclick="changeTheme('CSS/AMOLED/violet.css'); closeTheme();">Violet</div></li>
+                <li><div onclick="changeTheme('CSS/AMOLED/vert.css'); closeTheme();">Vert</div></li>
+                <li><div onclick="changeTheme('CSS/AMOLED/bleu.css'); closeTheme();">Bleu</div></li>
+            </ul>
         </div>
     </section>
 
@@ -117,8 +150,8 @@
             </div>
                     
             <hr>
-            <a href="#" onclick="toggleSousMenu()">Navigation ▼</a>
-            <ul id="sous-menu">
+            <a href="#" onclick="toggleSousMenu('sous-menu')">Navigation ▼</a>
+            <ul id="sous-menu" class="sous-menu">
                 <li><a href="prof.html">👨‍🏫Sites des profs</a></li>
                 <li><a href="links.html">🖇️Liens utiles</a></li>
                 <li><a href="logiciels.html">💿Logiciels utiles</a></li>
@@ -141,38 +174,6 @@
     </section>
     <hr>
     <h2>Tableau de bord étudiant</h2>
-    
-    <section class="Container Container-meteo">
-        <div id="meteo">
-            <div class="informations-meteo">
-                <div class="meteo-header">
-                  <p id="meteo-date"></p>
-                  <p id="meteo-logo"></p>
-                </div>
-                <div class="meteo-main">
-                  <p id="temperature"></p>
-                  <p id="nom"></p>
-                  <p><span id="vent"></span>  <span id="precipitations"></span></p>
-                </div>
-                <div class="meteo-footer">
-                  <p id="temp_max"></p>
-                  <p id="temp_min"></p>
-                </div>
-            </div>
-        </div>
-        
-    </section>
-    <section class="Container Container-meteo">
-        <div class="previsions">
-            <div id="jour1"><div id="Jour1Date"></div></div>
-            <div id="jour2"><div id="Jour2Date"></div></div>
-            <div id="jour3"><div id="Jour3Date"></div></div>
-            <div id="jour4"><div id="Jour4Date"></div></div>
-            <div id="jour5"><div id="Jour5Date"></div></div>
-            <div id="jour6"><div id="Jour6Date"></div></div>
-            <div id="jour7"><div id="Jour7Date"></div></div>
-        </div>
-    </section>
       
     <section class="Container">
         <iframe title="emploi du temps du jour" src="today.html" id="edt-du-jour"></iframe>
@@ -215,16 +216,38 @@
             </div>
         </article>
     </section>
+    <section class="Container Container-meteo">
+        <div id="meteo">
+            <div class="informations-meteo">
+                <div class="meteo-header">
+                  <p id="meteo-date"></p>
+                  <p id="meteo-logo"></p>
+                </div>
+                <div class="meteo-main">
+                  <p id="temperature"></p>
+                  <p id="nom"></p>
+                  <p><span id="vent"></span>  <span id="precipitations"></span></p>
+                </div>
+                <div class="meteo-footer">
+                  <p id="temp_max"></p>
+                  <p id="temp_min"></p>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    <section class="Container Container-meteo">
+        <div class="previsions">
+            <div id="jour1"><div id="Jour1Date"></div></div>
+            <div id="jour2"><div id="Jour2Date"></div></div>
+            <div id="jour3"><div id="Jour3Date"></div></div>
+            <div id="jour4"><div id="Jour4Date"></div></div>
+            <div id="jour5"><div id="Jour5Date"></div></div>
+            <div id="jour6"><div id="Jour6Date"></div></div>
+            <div id="jour7"><div id="Jour7Date"></div></div>
+        </div>
+    </section>
     
-    
-<!--Mise en veille-->
-    <div id="veille" style="display: none;">
-        <h1>Zone de veille</h1>
-        <p>Cette zone est faite pour reposer les écrans OLED</p>
-        <p>(Apparait et disparait si vous vous mettez en plein écran)</p>
-        <div id="modeVeille" style="height: calc(100vh + 200px);"></div>
-    </div>
-
 <script src="JAVASCRIPT/main.js"></script>
 <script src="JAVASCRIPT/meteo.js"></script>
 
@@ -248,6 +271,10 @@
     </section>
     
 </footer>
+<!--Mise en veille-->
+<div id="veille" style="display: none;">
+    <div id="modeVeille" style="height: calc(100vh + 200px);"></div>
+  </div>
 </body>
 </html>
 
