@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         nowIndicator: true,
         slotMinTime: "08:00:00",
         slotMaxTime: "19:00:00",
-        height: "150vh",
+        height: "80vh",
         contentHeight: "auto",
 
         allDaySlot: false,

@@ -765,13 +765,13 @@ a{
         font-size: 0.8em;
     }
     #meteo {
-        width: 100%;
+        width: 80%;
     }
     .previsions {
-        width: 100%;
+        width: 80%;
     }
     #edt-du-jour{
-        width: 100%;
+        width: 80%;
     }
 }
 
@@ -843,12 +843,40 @@ a{
 
 /* Écran de chargement */
 
+.maia-loader {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    display: flex;
+    gap: 100px;
+    overflow: hidden;
+}
+  
+.cube {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+    position: absolute;
+    border-radius: 5px;
+    border-width: 5px;
+    margin: 20px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+}
+ 
+#MAIA{
+    border-color: white;
+    background-color: black;
+}
+
 .app {
     height: 100vh;
     width: 100vw;
     border: 2px solid black;
     position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background: rgb(20, 20, 25);
@@ -856,13 +884,15 @@ a{
     z-index: 9999;
     top: 0;
     left: 0;
-  }
+}
 
-  .circle {
+.circle {
     height: 300px;
     width: 300px;
     border-radius: 50%;
-    background-image: url("../IMAGES/logo-etu.svg");
+    background: linear-gradient(0deg, blue, purple);
+    background-image: linear-gradient(0deg, blue, purple), url("../IMAGES/logo-etu.svg");
+    background-blend-mode: overlay;
     background-size: cover;
     position: relative;
     display: flex;
@@ -870,94 +900,15 @@ a{
     justify-content: center;
     animation: rotatecircle 3s cubic-bezier(0.175, 0.885, 0.32, 1.275)
       infinite;
-  }
+}
 
-  .border-circle {
-    position: absolute;
-    inset: 0;
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
-    background: linear-gradient(to right, blue, purple);
-  }
-
-  @keyframes rotatecircle {
+@keyframes rotatecircle {
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
+}
 
-  .border-circle-up {
-    animation: trackup 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
-    top: -200px;
-  }
-
-  @keyframes trackup {
-    0% {
-      transform: translateY(0rem);
-    }
-    50% {
-      transform: translateY(-4rem);
-    }
-    100% {
-      transform: translateY(0rem);
-    }
-  }
-
-  .border-circle-down {
-    top: 200px;
-    animation: trackdown 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
-  }
-
-  @keyframes trackdown {
-    0% {
-      transform: translateY(0rem);
-    }
-    50% {
-      transform: translateY(4rem);
-    }
-    100% {
-      transform: translateY(0rem);
-    }
-  }
-
-  .border-circle-left {
-    left: -200px;
-    animation: trackleft 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
-  }
-
-  @keyframes trackleft {
-    0% {
-      transform: translateX(0rem);
-    }
-    50% {
-      transform: translateX(-4rem);
-    }
-    100% {
-      transform: translateX(0rem);
-    }
-  }
-
-  .border-circle-right {
-    left: auto;
-    right: -200px;
-    animation: trackright 2s cubic-bezier(0.455, 0.03, 0.515, 0.955)
-      infinite;
-  }
-
-  @keyframes trackright {
-    0% {
-      transform: translateX(0rem);
-    }
-    50% {
-      transform: translateX(4rem);
-    }
-    100% {
-      transform: translateX(0rem);
-    }
-  }
-
-  @media (max-width: 792px) {
+@media (max-width: 792px) {
     .app {
         height: 100vh;
         width: 100vw;
@@ -965,24 +916,15 @@ a{
         align-items: center;
         justify-content: center;
     }
-
     .circle {
         width: 100px;
         height: 100px;
     }
-    .border-circle-up {
-        top: -50px;
-    }
-
-    .border-circle-down {
-        top: 50px;
-    }
-
-    .border-circle-left {
-        left: -50px;
-    }
-
-    .border-circle-right {
-        right: -50px;
-    }
 }
+.loading-text {
+    font-size: 1.2em;
+    color: white;
+    font-family: monospace;
+    text-align: center;
+  }
+  

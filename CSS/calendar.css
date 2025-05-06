@@ -2,15 +2,15 @@
 .container-calendar{
     flex-direction: column;
     align-items: center;
-    width: 90%;
+    width: 100%;
 }
 
 
 #calendar {
-    min-height: 150vh !important;
-    max-width: 90%;
+    min-height: 80vh !important;
+    max-width: 100%;
     margin: auto;
-    font-size: 1rem;
+    font-size: 0.8em;
 }
 
 .fc-event {
@@ -32,7 +32,7 @@
     bottom: -10px;
 }
 .fc-timegrid-slot {
-    height: 50px !important;
+    height: 30px !important; /* Modifier cette ligne de code modifie la taille du calendrier */
 }
 
 .fc-event {
@@ -190,7 +190,7 @@
 
 .vacances{
     background-image: url("../IMAGES/manette.png") !important;
-    background-position: center;
+    background-position: top;
     background-size: contain;
     background-repeat: no-repeat;
 }
