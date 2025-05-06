@@ -329,7 +329,7 @@ window.addEventListener("load", () => {
     const phrases = [
         "De base, ce site était conçu uniquement pour une seule personne",
         "La version originale était bien différente de la version d'aujourd'hui.\nPas de changement de thèmes... Une seule page... juste une horloge et des cases pour des liens.",
-        "Cyril a été la première personen à rejoindre le projet dans ses débuts, c'est même lui qui a initié la mise en page que vous voyez aujourd'hui.",
+        "Cyril a été la première personne à rejoindre le projet dans ses débuts, c'est même lui qui a initié la mise en page que vous voyez aujourd'hui.",
         "Monsieur Mickael Martin Nevot, aussi connu sous le nom de, \"LE GOAT\" a déjà réalisé un film.",
         "Conseil: N'arrivez pas en retard.",
         "Vous avez jusqu'à 4 absences non justifiées autorisée avant que cela soit déduit de votre moyenne (-0.1 points par compétences)."
