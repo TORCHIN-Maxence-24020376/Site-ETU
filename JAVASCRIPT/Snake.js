@@ -14,7 +14,7 @@ let bestScore= parseInt(localStorage.getItem('bestScore'))||0;
 let dirChanged=false;
 
 const foodImg = new Image();
-foodImg.src   = '../IMAGES/logo-etu.svg';
+foodImg.src   = 'IMAGES/logo-etu.svg';
 
 updateScore();
 updateBest();
