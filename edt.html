@@ -112,15 +112,31 @@
         
     
     <!-- Changement de thème format mobile -->
-        <section id="myTheme" class="overlay">
-            <button class="closebtn" onclick="closeTheme()">&times;</button>
-            <div class="overlay-content">
-                <p>Changer de thème</p>
-                <div class="menu-item" onclick="changeTheme('CSS/clair.css'); closeTheme();">Clair</div>
-                <div class="menu-item" onclick="changeTheme('CSS/sombre.css'); closeTheme();">Sombre</div>
-                <div class="menu-item" onclick="changeTheme('CSS/AMOLED.css'); closeTheme();">AMOLED</div>
-            </div>
-        </section>
+    <section id="myTheme" class="overlay">
+        <button class="closebtn" onclick="closeTheme()">&times;</button>
+        <div class="overlay-content">
+            <p>Changer de thème</p>
+            <div class="menu-item" onclick="toggleSousMenu('clair-menu')">Clair ▼</div>
+            <ul id="clair-menu" class="sous-menu">
+                <li><div onclick="changeTheme('CSS/CLAIR/blanc.css'); closeTheme();">Blanc</div></li>
+                <li><div onclick="changeTheme('CSS/CLAIR/diamant.css'); closeTheme();">Diamant</div></li>
+            </ul>
+            <div class="menu-item" onclick="toggleSousMenu('sombre-menu')">Sombre ▼</div>
+            <ul id="sombre-menu" class="sous-menu">
+                <li><div onclick="changeTheme('CSS/SOMBRE/aqua.css'); closeTheme();">Aqua</div></li>
+                <li><div onclick="changeTheme('CSS/SOMBRE/vert.css'); closeTheme();">Vert</div></li>
+                <li><div onclick="changeTheme('CSS/SOMBRE/cristal.css'); closeTheme();">Cristal (Violet)</div></li>
+                <li><div onclick="changeTheme('CSS/SOMBRE/4b00.css'); closeTheme();">4b00</div></li>
+            </ul>
+            <div class="menu-item" onclick="toggleSousMenu('AMOLED-menu')">AMOLED ▼</div>
+            <ul id="AMOLED-menu" class="sous-menu">
+                <li><div onclick="changeTheme('CSS/AMOLED/AMOLED.css'); closeTheme();">AMOLED</div></li>
+                <li><div onclick="changeTheme('CSS/AMOLED/violet.css'); closeTheme();">Violet</div></li>
+                <li><div onclick="changeTheme('CSS/AMOLED/vert.css'); closeTheme();">Vert</div></li>
+                <li><div onclick="changeTheme('CSS/AMOLED/bleu.css'); closeTheme();">Bleu</div></li>
+            </ul>
+        </div>
+    </section>
     
         <section id="myNav" class="overlay">
             <button class="closebtn" onclick="closeNav()">&times;</button>
