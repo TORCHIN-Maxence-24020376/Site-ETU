@@ -32,22 +32,6 @@
       "purpose": "maskable"
     }
   ],
-  "screenshots": [
-    {
-      "src": "IMAGES/screenshot1.jpg",
-      "sizes": "1280x720",
-      "type": "image/jpeg",
-      "platform": "wide",
-      "label": "Page d'accueil du Site ETU"
-    },
-    {
-      "src": "IMAGES/screenshot2.jpg",
-      "sizes": "1280x720",
-      "type": "image/jpeg",
-      "platform": "wide",
-      "label": "Emploi du temps du BUT Informatique"
-    }
-  ],
   "related_applications": [],
   "prefer_related_applications": false,
   "shortcuts": [

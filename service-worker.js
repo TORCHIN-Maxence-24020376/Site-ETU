@@ -10,16 +10,16 @@ const DYNAMIC_CACHE_NAME = 'site-etu-dynamic-v3';
 
 // Liste des ressources statiques essentielles à mettre en cache
 const STATIC_RESOURCES = [
-  '/',
-  '/index.html',
-  '/offline.html',
-  '/CSS/style.css',
-  '/CSS/clair.css',
-  '/CSS/CLAIR/blanc.css',
-  '/CSS/SOMBRE/aqua.css',
-  '/CSS/AMOLED/AMOLED.css',
-  '/JAVASCRIPT/main.js',
-  '/manifest.json'
+  './',
+  'index.html',
+  'offline.html',
+  'CSS/style.css',
+  'CSS/clair.css',
+  'CSS/CLAIR/blanc.css',
+  'CSS/SOMBRE/aqua.css',
+  'CSS/AMOLED/AMOLED.css',
+  'JAVASCRIPT/main.js',
+  'manifest.json'
 ];
 
 // Installation du Service Worker - Pré-cache des ressources essentielles
