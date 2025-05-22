@@ -4,32 +4,30 @@
  */
 
 // Nom et version du cache
-const CACHE_NAME = 'site-etu-cache-v2';
+const CACHE_NAME = 'site-etu-cache-v3';
+const STATIC_CACHE_NAME = 'site-etu-static-v3';
+const DYNAMIC_CACHE_NAME = 'site-etu-dynamic-v3';
 
-// Liste des ressources à mettre en cache (réduite)
-const RESOURCES_TO_CACHE = [
+// Liste des ressources statiques essentielles à mettre en cache
+const STATIC_RESOURCES = [
   '/',
   '/index.html',
-  '/edt.html',
-  '/today.html',
+  '/offline.html',
   '/CSS/style.css',
   '/CSS/clair.css',
-  '/CSS/sombre.css',
-  '/CSS/AMOLED.css',
-  '/CSS/calendar.css',
+  '/CSS/CLAIR/blanc.css',
+  '/CSS/SOMBRE/aqua.css',
+  '/CSS/AMOLED/AMOLED.css',
   '/JAVASCRIPT/main.js',
-  '/JAVASCRIPT/calendar.js',
-  '/JAVASCRIPT/today.js',
-  '/IMAGES/logo.svg',
-  '/offline.html',
+  '/manifest.json'
 ];
 
-// Installation du Service Worker
+// Installation du Service Worker - Pré-cache des ressources essentielles
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
+    caches.open(STATIC_CACHE_NAME)
       .then((cache) => {
-        return cache.addAll(RESOURCES_TO_CACHE);
+        return cache.addAll(STATIC_RESOURCES);
       })
       .then(() => {
         return self.skipWaiting();
@@ -39,13 +37,13 @@ self.addEventListener('install', (event) => {
 
 // Activation et nettoyage des anciens caches
 self.addEventListener('activate', (event) => {
-  const cacheWhitelist = [CACHE_NAME];
+  const currentCaches = [STATIC_CACHE_NAME, DYNAMIC_CACHE_NAME];
   
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
-          if (cacheWhitelist.indexOf(cacheName) === -1) {
+          if (!currentCaches.includes(cacheName)) {
             return caches.delete(cacheName);
           }
         })
@@ -57,7 +55,8 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Stratégie de cache : Cache first, then network, avec fallback sur offline.html
+// Stratégie de cache : Network first with cache fallback pour les pages de navigation
+// Cache first pour les ressources statiques
 self.addEventListener('fetch', (event) => {
   // Ignorer les requêtes non GET
   if (event.request.method !== 'GET') return;
@@ -65,56 +64,109 @@ self.addEventListener('fetch', (event) => {
   // Ignorer les requêtes provenant d'autres origines
   if (!event.request.url.startsWith(self.location.origin)) return;
   
-  // Ignorer les requêtes vers l'API météo ou d'autres API externes
+  // Ignorer les requêtes vers des API 
   if (event.request.url.includes('/api/')) return;
   
+  const requestUrl = new URL(event.request.url);
+  
+  // Stratégie pour les pages HTML: Network first, fallback to cache, then offline
+  if (event.request.mode === 'navigate' || event.request.destination === 'document') {
+    event.respondWith(
+      fetch(event.request)
+        .then(response => {
+          // Mettre en cache une copie de la réponse
+          const responseClone = response.clone();
+          caches.open(DYNAMIC_CACHE_NAME)
+            .then(cache => cache.put(event.request, responseClone));
+          return response;
+        })
+        .catch(() => {
+          return caches.match(event.request)
+            .then(cachedResponse => {
+              if (cachedResponse) {
+                return cachedResponse;
+              }
+              return caches.match('/offline.html');
+            });
+        })
+    );
+    return;
+  }
+  
+  // Stratégie cache-first pour les ressources statiques (CSS, JS, images)
+  if (
+    event.request.destination === 'style' || 
+    event.request.destination === 'script' || 
+    event.request.destination === 'image' || 
+    event.request.destination === 'font'
+  ) {
+    event.respondWith(
+      caches.match(event.request)
+        .then(cachedResponse => {
+          if (cachedResponse) {
+            return cachedResponse;
+          }
+          
+          return fetch(event.request)
+            .then(response => {
+              // Ne mettre en cache que les réponses valides
+              if (!response || response.status !== 200 || response.type !== 'basic') {
+                return response;
+              }
+              
+              const responseToCache = response.clone();
+              caches.open(DYNAMIC_CACHE_NAME)
+                .then(cache => cache.put(event.request, responseToCache));
+              
+              return response;
+            })
+            .catch(() => {
+              // Retourner une ressource par défaut selon le type
+              if (event.request.destination === 'image') {
+                return caches.match('/IMAGES/offline-image.svg');
+              }
+            });
+        })
+    );
+    return;
+  }
+  
+  // Stratégie par défaut: cache puis réseau
   event.respondWith(
     caches.match(event.request)
-      .then((response) => {
-        // Cache hit - retourner la réponse depuis le cache
-        if (response) {
-          return response;
+      .then(cachedResponse => {
+        if (cachedResponse) {
+          // Mise à jour en arrière-plan
+          fetch(event.request)
+            .then(response => {
+              if (response && response.status === 200) {
+                caches.open(DYNAMIC_CACHE_NAME)
+                  .then(cache => cache.put(event.request, response));
+              }
+            })
+            .catch(() => {/* ignore les erreurs */});
+          
+          return cachedResponse;
         }
         
-        // Pas de correspondance dans le cache, récupérer depuis le réseau
         return fetch(event.request)
-          .then((response) => {
-            // S'assurer que la réponse est valide
+          .then(response => {
             if (!response || response.status !== 200 || response.type !== 'basic') {
               return response;
             }
             
-            // Cloner la réponse car elle ne peut être utilisée qu'une fois
             const responseToCache = response.clone();
-            
-            // Ajouter la réponse au cache pour les futures requêtes
-            caches.open(CACHE_NAME)
-              .then((cache) => {
-                cache.put(event.request, responseToCache);
-              });
+            caches.open(DYNAMIC_CACHE_NAME)
+              .then(cache => cache.put(event.request, responseToCache));
             
             return response;
-          });
-      })
-      .catch(() => {
-        // Si la requête échoue (offline), servir une page hors ligne
-        if (event.request.mode === 'navigate') {
-          return caches.match('/offline.html');
-        }
-        
-        // Pour les ressources images, servir une image de remplacement
-        if (event.request.destination === 'image') {
-          return caches.match('/IMAGES/offline-image.svg');
-        }
-        
-        // Pour les autres ressources, échouer silencieusement
-        return new Response('Contenu non disponible hors ligne', {
-          status: 503,
-          statusText: 'Service Unavailable',
-          headers: new Headers({
-            'Content-Type': 'text/plain'
           })
-        });
+          .catch(() => {
+            // Fallback
+            if (event.request.destination === 'document') {
+              return caches.match('/offline.html');
+            }
+          });
       })
   );
 });

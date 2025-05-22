@@ -1,9 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <line x1="1" y1="1" x2="23" y2="23"></line>
-  <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
-  <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
-  <path d="M10.71 5.05A16 16 0 0 1 22.58 9"></path>
-  <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path>
-  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
-  <line x1="12" y1="20" x2="12" y2="20"></line>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="150px" viewBox="0 0 200 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Image hors ligne</title>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#F5F5F5" x="0" y="0" width="200" height="150" rx="8"></rect>
+        <g transform="translate(50, 35)">
+            <path d="M40,0 L60,0 C82.09139,0 100,17.90861 100,40 L100,60 C100,82.09139 82.09139,100 60,100 L40,100 C17.90861,100 0,82.09139 0,60 L0,40 C0,17.90861 17.90861,0 40,0 Z" fill="#E0E0E0"></path>
+            <path d="M65,40 L73,40 L73,60 L65,60 L65,40 Z M55,30 L63,30 L63,70 L55,70 L55,30 Z M45,35 L53,35 L53,65 L45,65 L45,35 Z M35,45 L43,45 L43,55 L35,55 L35,45 Z M25,50 L33,50 L33,50 L25,50 L25,50 Z" fill="#BDBDBD"></path>
+            <path d="M30,20 L70,20 L80,35 L20,35 L30,20 Z" fill="#9E9E9E"></path>
+            <rect fill="#9E9E9E" x="35" y="65" width="30" height="5" rx="2.5"></rect>
+            <rect fill="#9E9E9E" x="25" y="75" width="50" height="5" rx="2.5"></rect>
+        </g>
+        <text font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#757575">
+            <tspan x="50" y="25">Image non disponible</tspan>
+        </text>
+    </g>
 </svg> 

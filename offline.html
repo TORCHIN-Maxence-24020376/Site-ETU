@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0078d7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <title>Hors ligne - Site ETU</title>
     <link rel="stylesheet" href="CSS/style.css">
     <link id="theme-link" rel="stylesheet" href="CSS/clair.css">
@@ -12,9 +15,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
             text-align: center;
-            padding: 0 20px;
+            padding: 20px;
+            margin-top: 30px;
         }
         
         .offline-icon {
@@ -45,14 +48,25 @@
             font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s;
+            margin: 10px;
         }
         
         .offline-button:hover {
             background-color: var(--primary-color-dark);
         }
+
+        .connection-section {
+            margin-top: 30px;
+            background-color: var(--background-color-secondary);
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+        }
     </style>
 </head>
 <body>
+
     <main class="offline-container">
         <div class="offline-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -65,15 +79,82 @@
                 <line x1="12" y1="20" x2="12" y2="20"></line>
             </svg>
         </div>
-        <h1 class="offline-title">Vous êtes hors ligne</h1>
+        <h2 class="offline-title">Vous êtes hors ligne</h2>
         <p class="offline-message">
             Il semble que vous n'ayez pas de connexion internet. Certaines fonctionnalités du site peuvent ne pas être disponibles.
+            Vous pouvez toujours consulter les configurations réseau ci-dessous pour vous connecter.
         </p>
-        <button class="offline-button" onclick="window.location.href='/'">Retourner à l'accueil</button>
+
+        <!-- Section de sélection de salle pour la configuration réseau -->
+        <section class="connection-section">
+            <h2>Configuration Réseau</h2>
+            <div class="selection-menu">
+                <label for="select-salle">Choisissez une salle :</label>
+                <select id="select-salle" class="select-input" onchange="updateReseauConfig()">
+                    <option value="">-- Sélectionnez une salle --</option>
+                    <option value="I002">I002</option>
+                    <option value="I004">I004</option>
+                    <option value="I009">I009</option>
+                    <option value="I010">I010</option>
+                    <option value="I102">I102</option>
+                    <option value="I104">I104</option>
+                    <option value="I106">I106</option>
+                </select>
+            </div>
+            
+            <div id="réseau-info" class="réseau-info">
+                <h3>Paramètres à utiliser</h3>
+                <form>
+                    <div>
+                        <label for="ip">Adresse IP</label>
+                        <input id="ip" type="text" class="champ-entree" readonly>
+                    </div>
+                    <div>
+                        <label for="Passerelle">Passerelle</label>
+                        <input id="Passerelle" type="text" class="champ-entree" readonly>
+                    </div>
+                    <div>
+                        <label for="dns1">DNS préféré</label>
+                        <input id="dns1" type="text" class="champ-entree" value="10.193.51.5" readonly>
+                    </div>
+                    <div>
+                        <label for="dns2">Autre DNS</label>
+                        <input id="dns2" type="text" class="champ-entree" value="139.124.1.2" readonly>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <div class="button-container">
+            <button class="offline-button" onclick="window.location.reload()">Réessayer la connexion</button>
+            <button class="offline-button" onclick="window.location.href='/'">Retourner à l'accueil</button>
+        </div>
     </main>
 
     <script>
+        // Données des salles avec leurs configurations réseau
+        const roomConfig = {
+            I002: { ip: "10.203.28.***", Passerelle: "10.203.28.1" },
+            I004: { ip: "10.203.28.***", Passerelle: "10.203.28.1" },
+            I009: { ip: "10.203.28.***", Passerelle: "10.203.28.1" },
+            I010: { ip: "10.203.9.***", Passerelle: "10.203.9.1" },
+            I102: { ip: "10.203.28.***", Passerelle: "10.203.28.1"},
+            I104: { ip: "10.203.28.***", Passerelle: "10.203.28.1" },
+            I106: { ip: "10.203.28.***", Passerelle: "10.203.28.1"},
+        };
+
+        // Met à jour les champs en fonction de la salle sélectionnée
+        function updateReseauConfig() {
+            const room = document.getElementById("select-salle").value;
+            const config = roomConfig[room] || { ip: "", Passerelle: "" };
+
+            // Mise à jour des champs
+            document.getElementById("ip").value = config.ip;
+            document.getElementById("Passerelle").value = config.Passerelle;
+        }
+
         window.onload = function() {
+            // Appliquer le thème sauvegardé
             const savedTheme = localStorage.getItem('selected-theme');
             if (savedTheme) {
                 document.getElementById('theme-link').href = savedTheme;
