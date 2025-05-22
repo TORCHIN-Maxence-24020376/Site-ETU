@@ -362,7 +362,7 @@ function initPWA() {
     if ('serviceWorker' in navigator) {
         // Enregistrer le service worker
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/service-worker.js')
+            navigator.serviceWorker.register('./service-worker.js')
                 .catch(() => {
                     // Silencieux en cas d'erreur
                 });
