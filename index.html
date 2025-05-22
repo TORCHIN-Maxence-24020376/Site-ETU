@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ce site web est un site web contenant plusieurs liens afin qu'ils soient facile
-    d'accès pour les étudiants du BUT info d'Aix Marseille">
-    <title>Site ETU - Accueil </title>
-    <link id="theme-link" rel="stylesheet" href="CSS/clair.css">
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="shortcut icon" href="IMAGES/Logo_Site.ico" type="image/x-icon">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Ce site web est un site web contenant plusieurs liens afin qu'ils soient facile d'accès pour les étudiants du BUT info d'Aix Marseille">
+        <meta name="theme-color" content="#0078d7">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <title>Site ETU - Accueil </title>
+        <link id="theme-link" rel="stylesheet" href="CSS/clair.css">
+        <link rel="stylesheet" href="CSS/style.css">
+        <link rel="shortcut icon" href="IMAGES/Logo_Site.ico" type="image/x-icon">
+        <link rel="manifest" href="manifest.json">
+        <link rel="apple-touch-icon" href="IMAGES/Logo_Site.ico">
 </head>
 <body>
     <div id="chargement" class="app">
@@ -168,13 +173,23 @@
         </div>
     </section>
   
-<!-- Barre de redirection vers des sites -->
+    <!-- Barre de redirection vers des sites -->
+    <h1 id="PUBTITLE">Publicité événementielle</h1>
+    <iframe src="https://majik-esport.netlify.app/pub.html" id="PUB" title="Publicité événementielle Majik Esport"></iframe>
     <section class="Container" style="flex-direction: column; align-items: center;">
-        <div class="Site google" onclick="redirectTo('https://www.google.com/',true)"><p>Google</p></div>
-        <div class="Site amu" onclick="redirectTo('https://ent.univ-amu.fr/',true)"><p>AMU ENT</p></div>
-        <div class="Site ametice" onclick="redirectTo('https://ametice.univ-amu.fr/\n',true)"><p>AMeTICE</p></div>
-        <div class="Site edt" onclick="redirectTo('edt.html', false)"><p>Emploi du temps</p></div>
-
+        <div class="Site google" onclick="redirectTo('https://www.google.com/',true)">
+            <p>Google</p>
+        </div>
+        <div class="Site amu" onclick="redirectTo('https://ent.univ-amu.fr/',true)">
+            <p>AMU ENT</p>
+        </div>
+        <div class="Site ametice" onclick="redirectTo('https://ametice.univ-amu.fr/\n',true)">
+            <p>AMeTICE</p>
+        </div>
+        <div class="Site edt" onclick="redirectTo('edt.html', false)">
+            <p>Emploi du temps</p>
+        </div>
+        <button data-pwa-install class="pwa-install-button" style="background-color: #0065e5;">Installer l'application</button>
     </section>
     <hr>
     <h2>Tableau de bord étudiant</h2>
@@ -182,7 +197,7 @@
     <section class="Container">
         <iframe title="emploi du temps du jour" src="today.html" id="edt-du-jour"></iframe>
         <article class="Container" id="Selection-salle">
-            <h1>Sélection Connexion</h1>
+            <h2>Sélection Connexion</h2>
             <div class="selection-menu">
                 <label for="select-salle">Choisissez une salle :</label>
                 <select id="select-salle" class="select-input" onchange="updateReseauConfig()">
@@ -198,7 +213,7 @@
             </div>
             
             <div id="réseau-info" class="réseau-info">
-                <h2>Configuration Réseau</h2>
+                <h3>Configuration Réseau</h3>
                 <form>
                     <div>
                         <label for="ip">Adresse IP</label>
@@ -252,8 +267,7 @@
         </div>
     </section>
     
-<script src="JAVASCRIPT/main.js"></script>
-<script src="JAVASCRIPT/meteo.js"></script>
+<script src="JAVASCRIPT/main.js"></script><script src="JAVASCRIPT/meteo.js"></script>
 
 <footer>
     <section>

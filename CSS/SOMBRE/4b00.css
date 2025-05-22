@@ -97,3 +97,14 @@ a {
     background-color: #3a333a;
     border: #2e282e solid 2px;
 }
+
+.pwa-install-button {
+    background-color: #ff4b00;
+    color: white;
+    border-color: #cc3c00;
+    font-weight: bold;
+}
+
+.pwa-install-button:hover {
+    background-color: #cc3c00;
+}

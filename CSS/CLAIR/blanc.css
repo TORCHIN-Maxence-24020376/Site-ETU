@@ -116,3 +116,13 @@ a{
 .week-summary-block{
     border: #ccc solid 2px;
 }
+
+.pwa-install-button {
+    background-color: #0065e5;
+    color: white;
+    border-color: #0052c2;
+}
+
+.pwa-install-button:hover {
+    background-color: #004298;
+}

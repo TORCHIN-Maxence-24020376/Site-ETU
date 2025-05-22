@@ -88,3 +88,14 @@ a{
 .week-summary-block{
     border: white solid 2px;
 }
+
+.pwa-install-button {
+    background-color: #ffffff;
+    color: #000000 !important;
+    border-color: #999999;
+    font-weight: bold;
+}
+
+.pwa-install-button:hover {
+    background-color: #cccccc;
+}

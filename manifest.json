@@ -1,0 +1,83 @@
+{
+  "name": "Site ETU - BUT Informatique",
+  "short_name": "Site ETU",
+  "description": "Ressources et outils pour les étudiants en BUT Informatique à l'IUT d'Aix-Marseille",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0065e5",
+  "icons": [
+    {
+      "src": "IMAGES/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "IMAGES/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "IMAGES/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "IMAGES/logo-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "IMAGES/screenshot1.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "platform": "wide",
+      "label": "Page d'accueil du Site ETU"
+    },
+    {
+      "src": "IMAGES/screenshot2.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "platform": "wide",
+      "label": "Emploi du temps du BUT Informatique"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Emploi du temps",
+      "short_name": "EDT",
+      "description": "Consulter l'emploi du temps",
+      "url": "/edt.html",
+      "icons": [
+        {
+          "src": "IMAGES/calendar.svg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Sites des professeurs",
+      "short_name": "Profs",
+      "description": "Accéder aux sites des professeurs",
+      "url": "/prof.html",
+      "icons": [
+        {
+          "src": "IMAGES/teacher.svg",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "categories": ["education", "productivity", "utilities"],
+  "lang": "fr",
+  "dir": "ltr",
+  "orientation": "any"
+} 

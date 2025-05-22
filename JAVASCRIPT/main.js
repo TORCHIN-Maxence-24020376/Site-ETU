@@ -60,6 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => googleButton.classList.remove('clicked'), 2000);
         });
     }
+    
+    // Initialiser la PWA
+    initPWA();
 });
 
 
@@ -349,6 +352,197 @@ window.addEventListener("load", () => {
             loadingScreen.style.display = "none";
         }, 300);
     }, totalTime);
+});
+
+/**
+ * Initialise les fonctionnalités PWA
+ */
+function initPWA() {
+    // Vérifier si le navigateur prend en charge les PWA
+    if ('serviceWorker' in navigator) {
+        // Enregistrer le service worker
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js')
+                .catch(() => {
+                    // Silencieux en cas d'erreur
+                });
+        });
+        
+        // Gestion du bouton "Installer l'application"
+        let deferredPrompt;
+        const addToHomeButton = document.querySelector('[data-pwa-install]');
+        
+        if (addToHomeButton) {
+            // Masquer le bouton par défaut
+            addToHomeButton.style.display = 'none';
+            
+            // Attendre l'événement beforeinstallprompt
+            window.addEventListener('beforeinstallprompt', (e) => {
+                // Empêcher Chrome de montrer automatiquement la notification d'installation
+                e.preventDefault();
+                // Stocker l'événement pour l'utiliser plus tard
+                deferredPrompt = e;
+                
+                // S'assurer que le bouton a toujours un style
+                if (!addToHomeButton.style.backgroundColor) {
+                    const themeLink = document.getElementById('theme-link');
+                    const themePath = themeLink ? themeLink.getAttribute('href') : '';
+                    
+                    // Appliquer une couleur selon le thème
+                    if (themePath.includes('AMOLED')) {
+                        if (themePath.includes('vert')) {
+                            addToHomeButton.style.backgroundColor = '#00ff99';
+                            addToHomeButton.style.color = '#000000';
+                        } else if (themePath.includes('violet')) {
+                            addToHomeButton.style.backgroundColor = '#b266ff';
+                            addToHomeButton.style.color = '#000000';
+                        } else if (themePath.includes('bleu')) {
+                            addToHomeButton.style.backgroundColor = '#1a75ff';
+                        } else {
+                            addToHomeButton.style.backgroundColor = '#ffffff';
+                            addToHomeButton.style.color = '#000000';
+                        }
+                    } else if (themePath.includes('SOMBRE')) {
+                        if (themePath.includes('vert')) {
+                            addToHomeButton.style.backgroundColor = '#08ca6d';
+                            addToHomeButton.style.color = '#000000';
+                        } else if (themePath.includes('cristal')) {
+                            addToHomeButton.style.backgroundColor = '#a64ee1';
+                        } else if (themePath.includes('4b00')) {
+                            addToHomeButton.style.backgroundColor = '#ff4b00';
+                        } else {
+                            addToHomeButton.style.backgroundColor = '#60d5e5';
+                            addToHomeButton.style.color = '#081b33';
+                        }
+                    } else {
+                        // Thème clair par défaut
+                        addToHomeButton.style.backgroundColor = '#0065e5';
+                    }
+                }
+                
+                // Afficher le bouton
+                addToHomeButton.style.display = 'inline-block';
+                
+                // Gestionnaire d'événement pour le bouton
+                addToHomeButton.addEventListener('click', () => {
+                    // Masquer le bouton
+                    addToHomeButton.style.display = 'none';
+                    // Afficher la notification d'installation
+                    deferredPrompt.prompt();
+                    // Attendre la réponse de l'utilisateur
+                    deferredPrompt.userChoice.then((choiceResult) => {
+                        // On ne peut utiliser deferredPrompt qu'une fois
+                        deferredPrompt = null;
+                    });
+                });
+            });
+        }
+    }
+}
+
+/**
+ * Vérifie l'heure et affiche des notifications sur l'EDT à certains moments de la journée
+ */
+function checkEdtNotifications() {
+    // On ne vérifie que sur la page EDT
+    if (!window.location.href.includes('edt.html')) return;
+    
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    
+    // Créer un élément pour afficher la notification
+    function createNotification(message) {
+        // Vérifier si une notification existe déjà
+        const existingNotification = document.querySelector('.edt-notification');
+        if (existingNotification) return;
+        
+        const notification = document.createElement('div');
+        notification.className = 'edt-notification';
+        notification.innerHTML = `
+            <div class="edt-notification-content">
+                <p>${message}</p>
+                <button class="edt-notification-close">×</button>
+            </div>
+        `;
+        
+        // Style de la notification
+        notification.style.position = 'fixed';
+        notification.style.top = '70px';
+        notification.style.left = '50%';
+        notification.style.transform = 'translateX(-50%)';
+        notification.style.backgroundColor = 'rgba(255, 215, 0, 0.9)';
+        notification.style.color = '#000';
+        notification.style.padding = '15px 20px';
+        notification.style.borderRadius = '5px';
+        notification.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+        notification.style.zIndex = '1000';
+        notification.style.maxWidth = '80%';
+        notification.style.textAlign = 'center';
+        notification.style.animation = 'fadeIn 0.5s';
+        
+        // Style du bouton de fermeture
+        const closeButton = notification.querySelector('.edt-notification-close');
+        closeButton.style.background = 'none';
+        closeButton.style.border = 'none';
+        closeButton.style.fontSize = '20px';
+        closeButton.style.cursor = 'pointer';
+        closeButton.style.marginLeft = '10px';
+        closeButton.style.verticalAlign = 'middle';
+        
+        // Ajouter au document
+        document.body.appendChild(notification);
+        
+        // Événement de fermeture
+        closeButton.addEventListener('click', () => {
+            notification.style.animation = 'fadeOut 0.5s';
+            setTimeout(() => {
+                notification.remove();
+            }, 500);
+        });
+        
+        // Fermer automatiquement après 30 secondes
+        setTimeout(() => {
+            if (document.body.contains(notification)) {
+                notification.style.animation = 'fadeOut 0.5s';
+                setTimeout(() => {
+                    notification.remove();
+                }, 500);
+            }
+        }, 30000);
+    }
+    
+    // Vérifier l'heure et afficher la notification appropriée
+    if (hours === 7 && minutes <= 30) {
+        createNotification("Bonjour ! L'emploi du temps peut avoir été mis à jour pendant la nuit. Vérifiez bien vos cours d'aujourd'hui.");
+    } else if (hours === 12 && minutes >= 15 && minutes <= 45) {
+        createNotification("Attention ! Des changements peuvent avoir été apportés à l'emploi du temps de cet après-midi.");
+    } else if (hours === 20 && minutes <= 30) {
+        createNotification("Bonsoir ! Pensez à vérifier votre emploi du temps pour demain. Des modifications de dernière minute sont possibles.");
+    }
+}
+
+// Ajouter le style des notifications au document
+document.addEventListener('DOMContentLoaded', function() {
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -20px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; transform: translate(-50%, 0); }
+            to { opacity: 0; transform: translate(-50%, -20px); }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Vérifier les notifications toutes les minutes
+    setInterval(checkEdtNotifications, 60000);
+    
+    // Vérifier immédiatement au chargement de la page
+    checkEdtNotifications();
 });
 
 

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hors ligne - Site ETU</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link id="theme-link" rel="stylesheet" href="CSS/clair.css">
+    <style>
+        .offline-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .offline-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .offline-title {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+        
+        .offline-message {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: var(--text-color-secondary);
+            max-width: 600px;
+        }
+        
+        .offline-button {
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .offline-button:hover {
+            background-color: var(--primary-color-dark);
+        }
+    </style>
+</head>
+<body>
+    <main class="offline-container">
+        <div class="offline-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="1" y1="1" x2="23" y2="23"></line>
+                <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
+                <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
+                <path d="M10.71 5.05A16 16 0 0 1 22.58 9"></path>
+                <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path>
+                <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                <line x1="12" y1="20" x2="12" y2="20"></line>
+            </svg>
+        </div>
+        <h1 class="offline-title">Vous êtes hors ligne</h1>
+        <p class="offline-message">
+            Il semble que vous n'ayez pas de connexion internet. Certaines fonctionnalités du site peuvent ne pas être disponibles.
+        </p>
+        <button class="offline-button" onclick="window.location.href='/'">Retourner à l'accueil</button>
+    </main>
+
+    <script>
+        window.onload = function() {
+            const savedTheme = localStorage.getItem('selected-theme');
+            if (savedTheme) {
+                document.getElementById('theme-link').href = savedTheme;
+            }
+        }
+    </script>
+</body>
+</html> 

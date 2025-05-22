@@ -92,3 +92,14 @@ a{
 .informations-meteo{    
     text-shadow: 1px 1px 2px #222222;
 }
+
+.pwa-install-button {
+    background-color: #60d5e5; 
+    color: #081b33;
+    border-color: #47b8c7;
+    font-weight: bold;
+}
+
+.pwa-install-button:hover {
+    background-color: #47b8c7;
+}

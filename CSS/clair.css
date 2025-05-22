@@ -111,3 +111,13 @@ a{
 .informations-meteo{    
     text-shadow: 1px 1px 2px #ccc;
 }
+
+.pwa-install-button {
+    background-color: #0065e5;
+    color: white;
+    border-color: #0052c2;
+}
+
+.pwa-install-button:hover {
+    background-color: #004298;
+}
