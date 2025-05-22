@@ -86,7 +86,7 @@ self.addEventListener('fetch', (event) => {
               if (cachedResponse) {
                 return cachedResponse;
               }
-              return caches.match('/offline.html');
+              return caches.match('offline.html');
             });
         })
     );
@@ -123,7 +123,7 @@ self.addEventListener('fetch', (event) => {
             .catch(() => {
               // Retourner une ressource par défaut selon le type
               if (event.request.destination === 'image') {
-                return caches.match('/IMAGES/offline-image.svg');
+                return caches.match('IMAGES/offline-image.svg');
               }
             });
         })
@@ -164,7 +164,7 @@ self.addEventListener('fetch', (event) => {
           .catch(() => {
             // Fallback
             if (event.request.destination === 'document') {
-              return caches.match('/offline.html');
+              return caches.match('offline.html');
             }
           });
       })
