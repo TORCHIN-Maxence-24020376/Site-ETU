@@ -1,0 +1,286 @@
+/* pub.css - Styles dédiés à la publicité événementielle */
+/* Isolation complète des styles de la publicité du reste du site */
+
+/* Reset CSS spécifique pour la section pub */
+.pub-container-wrapper,
+.pub-container-wrapper *,
+.pub-container-wrapper *::before,
+.pub-container-wrapper *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    vertical-align: baseline;
+    font-style: normal;
+    line-height: 1.5;
+}
+
+/* Titre de la pub - spécifique et séparé */
+#PUBTITLE{
+    color: #ff6b00 !important;
+    text-shadow: 0 0 10px rgba(0, 204, 255, 0.5) !important;
+    font-family: 'Rajdhani', sans-serif !important;
+    text-align: center !important;
+    margin-bottom: 0 !important; /* Réduit l'espace entre le titre et le conteneur */
+}
+
+/* Conteneur principal avec réinitialisation complète des styles */
+.pub-container-wrapper {
+    /* Variables spécifiques à la pub */
+    --primary-color-pub: #0066ff;
+    --secondary-color-pub: #ff6b00;
+    --accent-color-pub: #00ccff;
+    --bg-color-pub: #0d0d1a;
+    --bg-color-pub-light: #141429; /* Couleur plus claire pour les survols */
+    --text-color-pub: #ffffff;
+    --font-family-pub: 'Rajdhani', sans-serif;
+    
+    /* Isolation complète */
+    all: initial;
+    box-sizing: border-box !important;
+    display: block !important;
+    width: 90% !important; /* Réduit la largeur à 90% */
+    max-width: 1000px !important; /* Largeur maximale */
+    margin: 15px auto 30px !important; /* Centrage horizontal et ajustement marges */
+    padding: 0 !important;
+    font-family: var(--font-family-pub) !important;
+    border: 3px solid var(--secondary-color-pub) !important; /* Ajout d'un contour distinct */
+    border-radius: 12px !important; /* Coins arrondis pour le wrapper */
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3), 
+                inset 0 0 30px rgba(0, 102, 255, 0.1) !important; /* Ombre portée + effet lumineux intérieur */
+    overflow: hidden !important; /* Pour que le contenu respecte les coins arrondis */
+    position: relative !important; /* Pour les effets de position absolue à l'intérieur */
+}
+
+/* Conteneur principal de la pub */
+.pub-container-wrapper .pub-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    padding: 30px 20px !important; /* Plus d'espace vertical */
+    height: 700px !important; /* Hauteur réduite pour grands écrans */
+    overflow: hidden !important;
+    background-color: var(--bg-color-pub) !important;
+    background-image: radial-gradient(circle at top right, rgba(0, 102, 255, 0.1), transparent 70%),
+                      radial-gradient(circle at bottom left, rgba(255, 107, 0, 0.1), transparent 70%) !important; /* Subtil effet de dégradé */
+    margin: 0 !important;
+    font-family: var(--font-family-pub) !important;
+    color: var(--text-color-pub) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    animation: pub-pulse 2s infinite ease-in-out !important;
+}
+
+/* Renommer les animations pour éviter les conflits */
+@keyframes pub-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+@keyframes pub-slide {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Tous les éléments enfants */
+.pub-container-wrapper * {
+    box-sizing: border-box !important;
+    font-family: var(--font-family-pub) !important;
+}
+
+.pub-container-wrapper h1 {
+    font-size: 40px !important;
+    margin-bottom: 20px !important;
+    color: var(--accent-color-pub) !important;
+    text-shadow: 0 0 10px rgba(0, 204, 255, 0.5) !important;
+    margin-top: 0 !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+}
+
+.pub-container-wrapper h1 span {
+    color: var(--secondary-color-pub) !important;
+}
+
+.pub-container-wrapper .pub-date {
+    font-size: 24px !important;
+    margin-bottom: 30px !important;
+    color: var(--text-color-pub) !important;
+    font-weight: normal !important;
+    line-height: 1.5 !important;
+}
+
+.pub-container-wrapper .pub-highlight {
+    background: linear-gradient(135deg, var(--primary-color-pub) 0%, var(--secondary-color-pub) 100%) !important;
+    color: white !important;
+    padding: 15px !important;
+    border-radius: 8px !important;
+    font-size: 26px !important;
+    font-weight: bold !important;
+    margin-bottom: 30px !important;
+    width: auto !important;
+    display: inline-block !important;
+}
+
+.pub-container-wrapper .pub-games {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 20px !important;
+    margin-bottom: 20px !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+}
+
+.pub-container-wrapper .pub-game {
+    background-color: rgba(26, 26, 42, 0.8) !important;
+    padding: 10px 20px !important;
+    border-radius: 5px !important;
+    font-weight: bold !important;
+    margin: 0 !important;
+    display: inline-block !important;
+    transition: transform 0.2s ease, background-color 0.2s ease !important;
+    border: 1px solid rgba(0, 204, 255, 0.2) !important; /* Bordure subtile */
+}
+
+.pub-container-wrapper .pub-game:hover {
+    transform: translateY(-2px) !important;
+    background-color: var(--bg-color-pub-light) !important;
+}
+
+.pub-container-wrapper .pub-cta {
+    display: inline-block !important;
+    background: linear-gradient(135deg, var(--primary-color-pub), var(--secondary-color-pub)) !important;
+    color: white !important;
+    padding: 15px 40px !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    font-size: 18px !important;
+    letter-spacing: 1px !important;
+    text-decoration: none !important;
+    margin-top: 20px !important;
+    transition: transform 0.3s, box-shadow 0.3s !important;
+    border: none !important;
+    cursor: pointer !important;
+}
+
+.pub-container-wrapper .pub-cta:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+.pub-container-wrapper .pub-shine {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.pub-container-wrapper .pub-shine::after {
+    content: '' !important;
+    position: absolute !important;
+    top: -50% !important;
+    left: -50% !important;
+    width: 200% !important;
+    height: 200% !important;
+    background: linear-gradient(
+        to right, 
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    ) !important;
+    transform: rotate(30deg) !important;
+    animation: pub-slide 3s infinite !important;
+    pointer-events: none !important;
+}
+
+.pub-container-wrapper .pub-activities {
+    margin: 10px 0 20px !important;
+    padding: 10px !important;
+    background: rgba(0, 102, 255, 0.1) !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(0, 102, 255, 0.3) !important;
+    width: auto !important;
+    display: inline-block !important;
+}
+
+.pub-container-wrapper .pub-activities h3 {
+    margin-bottom: 10px !important;
+    font-size: 18px !important;
+    color: var(--accent-color-pub) !important;
+    font-weight: bold !important;
+    margin-top: 0 !important;
+    text-align: center !important;
+}
+
+.pub-container-wrapper .pub-activities .pub-games {
+    margin-bottom: 0 !important;
+}
+
+.pub-container-wrapper .pub-activities .pub-game {
+    background-color: rgba(0, 102, 255, 0.2) !important;
+}
+
+/* Hauteurs fixes pour le conteneur selon le format d'écran */
+@media (max-width: 768px) {
+    .pub-container-wrapper {
+        width: 95% !important;
+    }
+    
+    .pub-container-wrapper .pub-container {
+        height: 550px !important;
+        padding: 15px !important;
+    }
+    
+    .pub-container-wrapper h1 {
+        font-size: 34px !important;
+    }
+    
+    .pub-container-wrapper .pub-date {
+        font-size: 20px !important;
+    }
+    
+    .pub-container-wrapper .pub-highlight {
+        font-size: 22px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .pub-container-wrapper {
+        width: 98% !important;
+        border-width: 2px !important;
+    }
+    
+    .pub-container-wrapper .pub-container {
+        height: 450px !important;
+        padding: 10px !important;
+    }
+    
+    .pub-container-wrapper h1 {
+        font-size: 28px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .pub-container-wrapper .pub-date {
+        font-size: 18px !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .pub-container-wrapper .pub-highlight {
+        font-size: 18px !important;
+        padding: 10px !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .pub-container-wrapper .pub-game {
+        padding: 8px 15px !important;
+        font-size: 14px !important;
+    }
+    
+    .pub-container-wrapper .pub-cta {
+        padding: 12px 30px !important;
+        font-size: 16px !important;
+    }
+} 

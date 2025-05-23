@@ -11,9 +11,16 @@
         <title>Site ETU - Accueil </title>
         <link id="theme-link" rel="stylesheet" href="CSS/clair.css">
         <link rel="stylesheet" href="CSS/style.css">
+        <!-- DÉBUT CSS PUBLICITÉ - À SUPPRIMER SI LA PUB N'EST PLUS NÉCESSAIRE -->
+        <link rel="stylesheet" href="CSS/pub.css">
+        <!-- FIN CSS PUBLICITÉ -->
         <link rel="shortcut icon" href="IMAGES/Logo_Site.ico" type="image/x-icon">
         <link rel="manifest" href="manifest.json">
         <link rel="apple-touch-icon" href="IMAGES/Logo_Site.ico">
+        <!-- Fonts pour la publicité -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="chargement" class="app">
@@ -173,9 +180,32 @@
         </div>
     </section>
   
-    <!-- Barre de redirection vers des sites -->
+    <!-- DÉBUT SECTION PUBLICITÉ ÉVÉNEMENTIELLE - À SUPPRIMER SI LA PUB N'EST PLUS NÉCESSAIRE -->
     <h1 id="PUBTITLE">Publicité événementielle</h1>
-    <iframe src="https://majik-esport.netlify.app/pub.html" id="PUB" title="Publicité événementielle Majik Esport"></iframe>
+    <section id="pub-section">
+        <div class="pub-container-wrapper">
+            <div class="pub-container">
+                <h1>MAJIK <span>E SPORTS</span></h1>
+                <div class="pub-date">13 juin 2025 | 14h - 16h</div>
+                <div class="pub-highlight">Tournoi inter-promos</div>
+                <div class="pub-games">
+                    <div class="pub-game">Smash Bros</div>
+                    <div class="pub-game">Mario Kart</div>
+                    <div class="pub-game">Fall Guys</div>
+                </div>
+                <div class="pub-activities">
+                    <h3>Activités en libre accès</h3>
+                    <div class="pub-games">
+                        <div class="pub-game">VR</div>
+                        <div class="pub-game">WorldGuessr</div>
+                    </div>
+                </div>
+                <a href="https://majik-esport.netlify.app/" target="_blank" class="pub-cta">Inscrivez-vous</a>
+            </div>
+        </div>
+    </section>
+    <!-- FIN SECTION PUBLICITÉ ÉVÉNEMENTIELLE -->
+    
     <section class="Container" style="flex-direction: column; align-items: center;">
         <div class="Site google" onclick="redirectTo('https://www.google.com/',true)">
             <p>Google</p>
@@ -293,6 +323,10 @@
 <div id="veille" style="display: none;">
     <div id="modeVeille" style="height: calc(100vh + 200px);"></div>
   </div>
+
+<!-- DÉBUT SCRIPT PUBLICITÉ - À SUPPRIMER SI LA PUB N'EST PLUS NÉCESSAIRE -->
+<script src="JAVASCRIPT/pub.js"></script>
+<!-- FIN SCRIPT PUBLICITÉ -->
 </body>
 </html>
 
