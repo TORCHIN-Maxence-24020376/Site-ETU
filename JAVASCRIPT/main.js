@@ -362,7 +362,12 @@ function initPWA() {
     if ('serviceWorker' in navigator) {
         // Enregistrer le service worker
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./service-worker.js')
+            // Déterminer le bon chemin selon l'environnement
+            const swPath = location.hostname === 'localhost' || location.hostname === '127.0.0.1' 
+                ? './service-worker.js' 
+                : '/Site-ETU/service-worker.js';
+                
+            navigator.serviceWorker.register(swPath)
                 .catch(() => {
                     // Silencieux en cas d'erreur
                 });

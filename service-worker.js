@@ -3,6 +3,9 @@
  * Service Worker pour la mise en cache et le support hors ligne
  */
 
+// Chemin de base pour GitHub Pages
+const BASE_PATH = '/Site-ETU/';
+
 // Nom et version du cache
 const CACHE_NAME = 'site-etu-cache-v3';
 const STATIC_CACHE_NAME = 'site-etu-static-v3';
@@ -10,16 +13,16 @@ const DYNAMIC_CACHE_NAME = 'site-etu-dynamic-v3';
 
 // Liste des ressources statiques essentielles à mettre en cache
 const STATIC_RESOURCES = [
-  './',
-  'index.html',
-  'offline.html',
-  'CSS/style.css',
-  'CSS/clair.css',
-  'CSS/CLAIR/blanc.css',
-  'CSS/SOMBRE/aqua.css',
-  'CSS/AMOLED/AMOLED.css',
-  'JAVASCRIPT/main.js',
-  'manifest.json'
+  BASE_PATH,
+  BASE_PATH + 'index.html',
+  BASE_PATH + 'offline.html',
+  BASE_PATH + 'CSS/style.css',
+  BASE_PATH + 'CSS/clair.css',
+  BASE_PATH + 'CSS/CLAIR/blanc.css',
+  BASE_PATH + 'CSS/SOMBRE/aqua.css',
+  BASE_PATH + 'CSS/AMOLED/AMOLED.css',
+  BASE_PATH + 'JAVASCRIPT/main.js',
+  BASE_PATH + 'manifest.json'
 ];
 
 // Installation du Service Worker - Pré-cache des ressources essentielles
@@ -86,7 +89,7 @@ self.addEventListener('fetch', (event) => {
               if (cachedResponse) {
                 return cachedResponse;
               }
-              return caches.match('offline.html');
+              return caches.match(BASE_PATH + 'offline.html');
             });
         })
     );
@@ -123,7 +126,7 @@ self.addEventListener('fetch', (event) => {
             .catch(() => {
               // Retourner une ressource par défaut selon le type
               if (event.request.destination === 'image') {
-                return caches.match('IMAGES/offline-image.svg');
+                return caches.match(BASE_PATH + 'IMAGES/offline-image.svg');
               }
             });
         })
@@ -164,7 +167,7 @@ self.addEventListener('fetch', (event) => {
           .catch(() => {
             // Fallback
             if (event.request.destination === 'document') {
-              return caches.match('offline.html');
+              return caches.match(BASE_PATH + 'offline.html');
             }
           });
       })
