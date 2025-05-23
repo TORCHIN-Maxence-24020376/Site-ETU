@@ -2,7 +2,7 @@
   "name": "Site ETU - BUT Informatique",
   "short_name": "Site ETU",
   "description": "Ressources et outils pour les étudiants en BUT Informatique à l'IUT d'Aix-Marseille",
-  "start_url": "/index.html",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#0065e5",
@@ -39,7 +39,7 @@
       "name": "Emploi du temps",
       "short_name": "EDT",
       "description": "Consulter l'emploi du temps",
-      "url": "/edt.html",
+      "url": "edt.html",
       "icons": [
         {
           "src": "IMAGES/calendar.svg",
@@ -51,7 +51,7 @@
       "name": "Sites des professeurs",
       "short_name": "Profs",
       "description": "Accéder aux sites des professeurs",
-      "url": "/prof.html",
+      "url": "prof.html",
       "icons": [
         {
           "src": "IMAGES/teacher.svg",

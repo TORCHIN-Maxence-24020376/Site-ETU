@@ -373,65 +373,18 @@ function initPWA() {
         const addToHomeButton = document.querySelector('[data-pwa-install]');
         
         if (addToHomeButton) {
-            // Masquer le bouton par défaut
             addToHomeButton.style.display = 'none';
             
-            // Attendre l'événement beforeinstallprompt
             window.addEventListener('beforeinstallprompt', (e) => {
-                // Empêcher Chrome de montrer automatiquement la notification d'installation
                 e.preventDefault();
-                // Stocker l'événement pour l'utiliser plus tard
                 deferredPrompt = e;
                 
-                // S'assurer que le bouton a toujours un style
-                if (!addToHomeButton.style.backgroundColor) {
-                    const themeLink = document.getElementById('theme-link');
-                    const themePath = themeLink ? themeLink.getAttribute('href') : '';
-                    
-                    // Appliquer une couleur selon le thème
-                    if (themePath.includes('AMOLED')) {
-                        if (themePath.includes('vert')) {
-                            addToHomeButton.style.backgroundColor = '#00ff99';
-                            addToHomeButton.style.color = '#000000';
-                        } else if (themePath.includes('violet')) {
-                            addToHomeButton.style.backgroundColor = '#b266ff';
-                            addToHomeButton.style.color = '#000000';
-                        } else if (themePath.includes('bleu')) {
-                            addToHomeButton.style.backgroundColor = '#1a75ff';
-                        } else {
-                            addToHomeButton.style.backgroundColor = '#ffffff';
-                            addToHomeButton.style.color = '#000000';
-                        }
-                    } else if (themePath.includes('SOMBRE')) {
-                        if (themePath.includes('vert')) {
-                            addToHomeButton.style.backgroundColor = '#08ca6d';
-                            addToHomeButton.style.color = '#000000';
-                        } else if (themePath.includes('cristal')) {
-                            addToHomeButton.style.backgroundColor = '#a64ee1';
-                        } else if (themePath.includes('4b00')) {
-                            addToHomeButton.style.backgroundColor = '#ff4b00';
-                        } else {
-                            addToHomeButton.style.backgroundColor = '#60d5e5';
-                            addToHomeButton.style.color = '#081b33';
-                        }
-                    } else {
-                        // Thème clair par défaut
-                        addToHomeButton.style.backgroundColor = '#0065e5';
-                    }
-                }
-                
-                // Afficher le bouton
                 addToHomeButton.style.display = 'inline-block';
                 
-                // Gestionnaire d'événement pour le bouton
                 addToHomeButton.addEventListener('click', () => {
-                    // Masquer le bouton
                     addToHomeButton.style.display = 'none';
-                    // Afficher la notification d'installation
                     deferredPrompt.prompt();
-                    // Attendre la réponse de l'utilisateur
                     deferredPrompt.userChoice.then((choiceResult) => {
-                        // On ne peut utiliser deferredPrompt qu'une fois
                         deferredPrompt = null;
                     });
                 });
