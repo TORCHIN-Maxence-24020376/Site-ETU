@@ -1,83 +1,101 @@
 /* crystal.css - Thème sombre */
 
+:root {
+    --color-primary: #58176c;
+    --color-secondary: #7a2c8a;
+    --color-accent: #5e1f7c;
+    --color-hover: #b04ccf;
+    --color-active: #b57cf2;
+
+    --color-bg-gradient: linear-gradient(135deg, #3b0f53, #860092);
+    --color-overlay-gradient: linear-gradient(135deg, #2b0f3a, #3c176c);
+
+    --color-text: #f5e9ff;
+    --color-link: #d09eff;
+    --color-shadow: #111;
+
+    --color-scrollbar-track: #3a0f33;
+    --color-scrollbar-thumb: #854ccf;
+}
+
 body {
-    background: linear-gradient(135deg, #3b0f53, #860092);
-    color: #f5e9ff;
+    background: var(--color-bg-gradient);
+    color: var(--color-text);
 }
 
 header {
-    background-color: #58176c;
-    color: #fff;
+    background-color: var(--color-primary);
+    color: var(--color-text);
 }
 
 .Site, .Amphi, .Salle {
-    background-color: #7a2c8a;
-    color: #fff;
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+}
+
+.Site:hover,
+.Amphi:hover,
+.Salle:hover {
+    background-color: var(--color-hover);
 }
 
 .Site:active {
-    background-color: #b57cf2;
-}
-
-.Site:hover, .Amphi:hover, .Salle:hover {
-    background-color: #b04ccf;
+    background-color: var(--color-active);
 }
 
 .button {
-    background-color: #3c176c;
-    color: #fff;
+    background-color: var(--color-primary);
+    color: var(--color-text);
 }
 
 .button:hover {
-    background-color: #5a2c8a;
+    background-color: var(--color-accent);
 }
 
 body::-webkit-scrollbar-track {
-    background: #3a0f33;
+    background: var(--color-scrollbar-track);
 }
 
 body::-webkit-scrollbar-thumb {
-    background: #854ccf;
+    background: var(--color-scrollbar-thumb);
 }
 
-.logo, #GitHub {
+.logo,
+#GitHub {
     filter: invert(1);
 }
 
-.slides a {
-    color: #f5e9ff;
-}
-
+.slides a,
 .navigation a {
-    color: #fff;
+    color: var(--color-text);
 }
 
 .navigation a:hover {
-    background-color: #5e1f7c;
+    background-color: var(--color-accent);
 }
 
 .mega-menu {
-    background-color: #5e1f7c;
+    background-color: var(--color-accent);
 }
 
 a {
-    color: #d09eff;
+    color: var(--color-link);
 }
 
 .tkt-frr {
-    color: #5a2c8a;
+    color: var(--color-accent);
 }
 
 #theme-contenu article div {
-    background-color: #3c176c;
+    background-color: var(--color-primary);
 }
 
 #theme-contenu article div:hover {
-    background-color: #854ccf;
+    background-color: var(--color-hover);
 }
 
 .overlay {
-    background: linear-gradient(135deg, #2b0f3a, #3c176c);
+    background: var(--color-overlay-gradient);
 }
 
 .previsions div {
@@ -90,21 +108,5 @@ a {
 }
 
 .informations-meteo {
-    text-shadow: 1px 1px 2px #111;
-}
-
-.week-summary-block{
-    background-color: #7a2c8a;
-    border: #3c176c solid 2px;
-}
-
-.pwa-install-button {
-    background-color: #a64ee1;
-    color: white;
-    border-color: #8a35c7;
-    font-weight: bold;
-}
-
-.pwa-install-button:hover {
-    background-color: #8a35c7;
+    text-shadow: 1px 1px 2px var(--color-shadow);
 }

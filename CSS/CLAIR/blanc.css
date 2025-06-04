@@ -1,128 +1,132 @@
-/* clair.css - Thème Clair */
+/* clair.css - Thème Clair*/
+
+:root {
+    --color-primary: #f1f1f1;
+    --color-secondary: #e3e3e3;
+    --color-accent: lightgrey;
+    --color-hover: #d1d1d1;
+    --color-active: #818181;
+
+    --color-bg-gradient: linear-gradient(135deg, #ffffff, #f1f1f1);
+    --color-overlay-gradient: linear-gradient(135deg, #ffffff, #f1f1f1);
+
+    --color-text: #000;
+    --color-link: rgb(35, 104, 108);
+    --color-shadow: #ccc;
+
+    --color-scrollbar-track: lightgrey;
+    --color-scrollbar-thumb: grey;
+}
 
 body {
     background-color: #fff;
-    color: #000;
+    color: var(--color-text);
 }
 
 header {
-    background-color: #f1f1f1;
+    background-color: var(--color-primary);
     color: #333;
 }
 
 .Site, .Amphi, .Salle {
-    background-color: #e3e3e3;
-    color: #000;
+    background-color: var(--color-secondary);
+    color: var(--color-text);
 }
 
-.Site:active{
-    background-color: #818181;
+.Site:active {
+    background-color: var(--color-active);
 }
 
 .Site:hover, .Amphi:hover, .Salle:hover {
-    background-color: #d1d1d1;
+    background-color: var(--color-hover);
 }
 
-.button{
-    background-color: #e3e3e3;
+.button {
+    background-color: var(--color-secondary);
 }
 
-.button:hover{
-    background-color: #d1d1d1;
+.button:hover {
+    background-color: var(--color-hover);
 }
 
-.google{
-    background-color: #e3e3e3;
+.google {
+    background-color: var(--color-secondary);
 }
 
-.google:hover{
-    background-color: #d1d1d1;
+.google:hover {
+    background-color: var(--color-hover);
 }
 
-.google.clicked{
+.google.clicked {
     border: #ccc solid 3px;
     color: white !important;
 }
 
-.amu:hover{
+.amu:hover {
     color: white;
 }
 
-.ametice{
-    background-color: #e3e3e3;
+.ametice {
+    background-color: var(--color-secondary);
 }
 
 body::-webkit-scrollbar-track {
-    background: lightgrey;
+    background: var(--color-scrollbar-track);
 }
   
 body::-webkit-scrollbar-thumb {
-    background: grey;
+    background: var(--color-scrollbar-thumb);
 }
 
-button:hover{
-    background-color: #e3e3e3;
+button:hover {
+    background-color: var(--color-secondary);
 }
 
-.slides a{
-    color: #000;
+.slides a {
+    color: var(--color-text);
 }
 
 .navigation a {
-    color: black;
+    color: var(--color-text);
 }
 
-.navigation a:hover{
-    background-color: lightgrey;
+.navigation a:hover {
+    background-color: var(--color-accent);
 }
 
-.mega-menu{
-    background-color: lightgrey;
+.mega-menu {
+    background-color: var(--color-accent);
 }
 
-a{
-    color: rgb(35, 104, 108);
+a {
+    color: var(--color-link);
 }
 
-.tkt-frr{
-    color: lightgrey;
+.tkt-frr {
+    color: var(--color-accent);
 }
 
-#theme-contenu article div{
+#theme-contenu article div {
     background-color: #ffffff;
 }
 
-#theme-contenu article div:hover{
+#theme-contenu article div:hover {
     background-color: #888;
 }
 
 .overlay {
-    background: linear-gradient(135deg, #ffffff, #f1f1f1);
+    background: var(--color-overlay-gradient);
 }
 
-.previsions div{
-    background-image: url("../../IMAGES/jour_clair.svg");
+.previsions div {
+    background-image: url("../IMAGES/jour_clair.svg");
 }
 
 .previsions div.selected {
     border: 2px solid black;
 }
 
-.informations-meteo{    
-    text-shadow: 1px 1px 2px #ccc;
-}
-
-
-.week-summary-block{
-    border: #ccc solid 2px;
-}
-
-.pwa-install-button {
-    background-color: #0065e5;
-    color: white;
-    border-color: #0052c2;
-}
-
-.pwa-install-button:hover {
-    background-color: #004298;
+.informations-meteo {
+    color: #fff;
+    text-shadow: 1px 1px 2px black;
 }

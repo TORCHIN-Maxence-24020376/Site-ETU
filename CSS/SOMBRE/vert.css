@@ -1,83 +1,102 @@
 /* vert.css - Thème Sombre */
 
+:root {
+    --color-primary: #0a2f1d;
+    --color-secondary: #146c43;
+    --color-accent: #145232;
+    --color-hover: #1f8a5c;
+    --color-active: #24b86f;
+
+    --color-bg-gradient: linear-gradient(135deg, #063d25, #0c5f2d);
+    --color-overlay-gradient: linear-gradient(135deg, #0b2e1f, #145232);
+
+    --color-text: #e4ffe1;
+    --color-link: #8cf0c3;
+    --color-shadow: #111;
+
+    --color-scrollbar-track: #0b3a23;
+    --color-scrollbar-thumb: #1f8a5c;
+}
+
+
 body {
-    background: linear-gradient(135deg, #063d25, #0c5f2d);
-    color: #e4ffe1;
+    background: var(--color-bg-gradient);
+    color: var(--color-text);
 }
 
 header {
-    background-color: #0a2f1d;
-    color: #fff;
+    background-color: var(--color-primary);
+    color: var(--color-text);
 }
 
 .Site, .Amphi, .Salle {
-    background-color: #146c43;
-    color: #fff;
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+}
+
+.Site:hover,
+.Amphi:hover,
+.Salle:hover {
+    background-color: var(--color-hover);
 }
 
 .Site:active {
-    background-color: #24b86f;
-}
-
-.Site:hover, .Amphi:hover, .Salle:hover {
-    background-color: #1f8a5c;
+    background-color: var(--color-active);
 }
 
 .button {
-    background-color: #0a2f1d;
-    color: #fff;
+    background-color: var(--color-primary);
+    color: var(--color-text);
 }
 
 .button:hover {
-    background-color: #146c43;
+    background-color: var(--color-accent);
 }
 
 body::-webkit-scrollbar-track {
-    background: #0b3a23;
+    background: var(--color-scrollbar-track);
 }
 
 body::-webkit-scrollbar-thumb {
-    background: #1f8a5c;
+    background: var(--color-scrollbar-thumb);
 }
 
-.logo, #GitHub {
+.logo,
+#GitHub {
     filter: invert(1);
 }
 
-.slides a {
-    color: #d2ffd2;
-}
-
+.slides a,
 .navigation a {
-    color: #e4ffe1;
+    color: var(--color-text);
 }
 
 .navigation a:hover {
-    background-color: #145232;
+    background-color: var(--color-accent);
 }
 
 .mega-menu {
-    background-color: #145232;
+    background-color: var(--color-accent);
 }
 
 a {
-    color: #8cf0c3;
+    color: var(--color-link);
 }
 
 .tkt-frr {
-    color: #145232;
+    color: var(--color-accent);
 }
 
 #theme-contenu article div {
-    background-color: #10432d;
+    background-color: var(--color-primary);
 }
 
 #theme-contenu article div:hover {
-    background-color: #1e8052;
+    background-color: var(--color-hover);
 }
 
 .overlay {
-    background: linear-gradient(135deg, #0b2e1f, #145232);
+    background: var(--color-overlay-gradient);
 }
 
 .previsions div {
@@ -90,21 +109,5 @@ a {
 }
 
 .informations-meteo {
-    text-shadow: 1px 1px 2px #111;
-}
-
-.week-summary-block{
-    background-color: #0c5f2d;
-    border: #0b2e1f solid 2px;
-}
-
-.pwa-install-button {
-    background-color: #08ca6d;
-    color: #000;
-    border-color: #06a056;
-    font-weight: bold;
-}
-
-.pwa-install-button:hover {
-    background-color: #06a056;
+    text-shadow: 1px 1px 2px var(--color-shadow);
 }

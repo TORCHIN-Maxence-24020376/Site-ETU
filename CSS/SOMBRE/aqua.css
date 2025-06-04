@@ -1,86 +1,104 @@
 /* aqua.css - Thème sombre */
 
+:root {
+    --color-primary: #081b33;
+    --color-secondary: #0a2646;
+    --color-accent: #132f4d;
+    --color-hover: #205288;
+    --color-active: #4582c7;
+
+    --color-bg-gradient: linear-gradient(135deg, #040f29, #0f317f);
+    --color-overlay-gradient: linear-gradient(135deg, #0a2646, #081b33);
+
+    --color-text: #ffffff;
+    --color-link: #60d5e5;
+    --color-shadow: #222222;
+
+    --color-scrollbar-track: var(--color-secondary);
+    --color-scrollbar-thumb: var(--color-accent);
+}
+
 body {
-    background: linear-gradient(135deg,#040f29,#0f317f);
-    color: #fff;
+    background: var(--color-bg-gradient);
+    color: var(--color-text);
 }
 
 header {
-    background-color: #081b33;
-    color: #fff;
+    background-color: var(--color-primary);
+    color: var(--color-text);
 }
 
 .Site, .Amphi, .Salle {
-    background-color: #083364;
-    color: #fff;
+    background-color: var(--color-secondary);
+    color: var(--color-text);
 }
 
-.Site:active{
-    background-color: #4582c7;
+.Site:hover,
+.Amphi:hover,
+.Salle:hover {
+    background-color: var(--color-hover);
 }
 
-.Site:hover, .Amphi:hover, .Salle:hover {
-    background-color: rgb(32, 82, 136);
+.Site:active {
+    background-color: var(--color-active);
 }
 
-.button{
-    background-color: #081b33;
-    color: #fff;
+.button {
+    background-color: var(--color-primary);
+    color: var(--color-text);
 }
 
-.button:hover{
-    background-color: #132f4d;
+.button:hover {
+    background-color: var(--color-accent);
 }
 
 body::-webkit-scrollbar-track {
-    background: #0a2646;
-}
-  
-body::-webkit-scrollbar-thumb {
-    background: #132f4d;
+    background: var(--color-scrollbar-track);
 }
 
-.logo, #GitHub{
+body::-webkit-scrollbar-thumb {
+    background: var(--color-scrollbar-thumb);
+}
+
+.logo,
+#GitHub {
     filter: invert(1);
 }
 
-.slides a{
-    color: #fff;
-}
-
+.slides a,
 .navigation a {
-    color: #fff;
+    color: var(--color-text);
 }
 
-.navigation a:hover{
-    background-color: #132f4d;
+.navigation a:hover {
+    background-color: var(--color-accent);
 }
 
-.mega-menu{
-    background-color: #132f4d;
+.mega-menu {
+    background-color: var(--color-accent);
 }
 
-a{
-    color: #60d5e5;
+a {
+    color: var(--color-link);
 }
 
-.tkt-frr{
-    color: #132f4d;
+.tkt-frr {
+    color: var(--color-accent);
 }
 
-#theme-contenu article div{
-    background-color: #081b33;
+#theme-contenu article div {
+    background-color: var(--color-primary);
 }
 
-#theme-contenu article div:hover{
-    background-color: #1a4a73;
+#theme-contenu article div:hover {
+    background-color: var(--color-hover);
 }
 
 .overlay {
-    background: linear-gradient(135deg, #0a2646, #081b33);
+    background: var(--color-overlay-gradient);
 }
 
-.previsions div{
+.previsions div {
     background-image: url("../../IMAGES/jour-sombre.svg");
     border: white;
 }
@@ -89,22 +107,6 @@ a{
     border: 2px solid white;
 }
 
-.informations-meteo{    
-    text-shadow: 1px 1px 2px #222222;
-}
-
-.week-summary-block{
-    background-color: #083364;
-    border: #081b33 solid 2px;
-}
-
-.pwa-install-button {
-    background-color: #60d5e5; 
-    color: #081b33;
-    border-color: #47b8c7;
-    font-weight: bold;
-}
-
-.pwa-install-button:hover {
-    background-color: #47b8c7;
+.informations-meteo {
+    text-shadow: 1px 1px 2px var(--color-shadow);
 }

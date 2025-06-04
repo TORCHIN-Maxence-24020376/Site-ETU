@@ -1,101 +1,133 @@
 /* amoled.css - Thème AMOLED */
 
+:root {
+    --background: #000;
+    --text-color: #fff;
+    --header-bg: #111;
+    --header-text: #fff;
+    --element-bg: #111;
+    --element-text: #fff;
+    --element-hover-bg: #222;
+    --element-active-bg: #818181;
+    --button-bg: #111;
+    --button-text: white;
+    --button-hover-bg: #222;
+    --scrollbar-track: #0a2646;
+    --scrollbar-thumb: #132f4d;
+    --link-color: #60d5e5;
+    --mega-menu-bg: #292929;
+    --theme-content-bg: #111;
+    --theme-content-hover: #888;
+    --overlay-bg: linear-gradient(135deg, #000000, #111111);
+    --previsions-img: url("../../IMAGES/jour-sombre.svg");
+    --previsions-border: 2px solid white;
+    --text-shadow: 1px 1px 2px #222222;
+    --week-summary-bg: transparent;
+    --week-summary-border: white solid 2px;
+    --pwa-button-bg: #ffffff;
+    --pwa-button-text: #000000 !important;
+    --pwa-button-border: #999999;
+    --pwa-button-hover: #cccccc;
+    --filter-invert: 1;
+}
+
 body {
-    background-color: #000;
-    color: #fff
+    background-color: var(--background);
+    color: var(--text-color)
 }
 
 header {
-    background-color: #111;
-    color: #fff;
+    background-color: var(--header-bg);
+    color: var(--header-text);
 }
 
 .Site, .Amphi, .Salle {
-    background-color: #111;
-    color: #fff;
+    background-color: var(--element-bg);
+    color: var(--element-text);
 }
 
 .Site:active{
-    background-color: #818181;
+    background-color: var(--element-active-bg);
 }
 
 .Site:hover, .Amphi:hover, .Salle:hover {
-    background-color: #222;
+    background-color: var(--element-hover-bg);
 }
 
 .button{
-    background-color: #111;
-    color: white;
+    background-color: var(--button-bg);
+    color: var(--button-text);
 }
 
 .button:hover{
-    background-color: #222;
+    background-color: var(--button-hover-bg);
 }
 
 .logo, #GitHub{
-    filter: invert(1);
+    filter: invert(var(--filter-invert));
 }
 
 .slides a{
-    color: white;
+    color: var(--text-color);
 }
 
 .navigation a {
-    color: white;
+    color: var(--text-color);
 }
 
 .navigation a:hover{
-    background-color: #292929;
+    background-color: var(--mega-menu-bg);
 }
 
 .mega-menu{
-    background-color: #292929;
+    background-color: var(--mega-menu-bg);
 }
 
 a{
-    color: #60d5e5;
+    color: var(--link-color);
 }
 
 .tkt-frr{
-    color: #292929;
+    color: var(--text-color);
 }
 
 #theme-contenu article div{
-    background-color: #111;
+    background-color: var(--theme-content-bg);
 }
 
 #theme-contenu article div:hover{
-    background-color: #888;
+    background-color: var(--theme-content-hover);
 }
 
 .overlay {
-    background: linear-gradient(135deg, #000000, #111111);
+    background: var(--overlay-bg);
 }
 
 .previsions div{
-    background-image: url("../../IMAGES/jour-sombre.svg");
+    background-image: var(--previsions-img);
     border: white;
 }
 
 .previsions div.selected {
-    border: 2px solid white;
+    border: var(--previsions-border);
 }
 
 .informations-meteo{    
-    text-shadow: 1px 1px 2px #222222;
+    text-shadow: var(--text-shadow);
 }
 
 .week-summary-block{
-    border: white solid 2px;
+    background-color: var(--week-summary-bg);
+    border: var(--week-summary-border);
 }
 
 .pwa-install-button {
-    background-color: #ffffff;
-    color: #000000 !important;
-    border-color: #999999;
+    background-color: var(--pwa-button-bg);
+    color: var(--pwa-button-text);
+    border-color: var(--pwa-button-border);
     font-weight: bold;
 }
 
 .pwa-install-button:hover {
-    background-color: #cccccc;
+    background-color: var(--pwa-button-hover);
 }

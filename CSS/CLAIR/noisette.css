@@ -1,21 +1,32 @@
-/* diamant.css - Thème Clair*/
+/* noisette.css - Thème Clair*/
+
+/*
+C08368
+A37150
+CC9B7D 
+9B5649
+904B3E
+9B665A
+D7B09A
+986846
+*/
 
 :root {
-    --color-primary: #b8e3ff;
-    --color-secondary: #ade4ff;
-    --color-accent: #a1dbff;
-    --color-hover: #56c4ff;
-    --color-active: #2ab5ff;
+    --color-primary: #A37150;
+    --color-secondary: #D7B09A;
+    --color-accent: #CC9B7D;
+    --color-hover: #9B665A;
+    --color-active: #986846;
 
-    --color-bg-gradient: linear-gradient(135deg, #e4f4ff, #c2e9fb);
-    --color-overlay-gradient: linear-gradient(135deg, #d4f1ff, #b8e3ff);
+    --color-bg-gradient: linear-gradient(135deg, #C08368, #904B3E);
+    --color-overlay-gradient: linear-gradient(135deg, #9B5649, #904B3E);
 
-    --color-text: #0a0a0a;
-    --color-link: #0074b8;
-    --color-shadow: #aaa;
+    --color-text: #904B3E;
+    --color-link: #9B5649;
+    --color-shadow: #986846;
 
-    --color-scrollbar-track: #d6f3ff;
-    --color-scrollbar-thumb: #89cfff;
+    --color-scrollbar-track: #D7B09A;
+    --color-scrollbar-thumb: #9B5649;
 }
 
 body {
