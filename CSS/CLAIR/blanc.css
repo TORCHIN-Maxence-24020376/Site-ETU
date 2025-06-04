@@ -119,7 +119,7 @@ a {
 }
 
 .previsions div {
-    background-image: url("../IMAGES/jour_clair.svg");
+    background-image: url("../../IMAGES/jour_clair.svg");
 }
 
 .previsions div.selected {

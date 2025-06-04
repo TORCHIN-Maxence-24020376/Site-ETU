@@ -13,7 +13,7 @@ D7B09A
 
 :root {
     --color-primary: #A37150;
-    --color-secondary: #D7B09A;
+    --color-secondary: #9B665A;
     --color-accent: #CC9B7D;
     --color-hover: #9B665A;
     --color-active: #986846;
@@ -21,7 +21,7 @@ D7B09A
     --color-bg-gradient: linear-gradient(135deg, #C08368, #904B3E);
     --color-overlay-gradient: linear-gradient(135deg, #9B5649, #904B3E);
 
-    --color-text: #904B3E;
+    --color-text: #D7B09A;
     --color-link: #9B5649;
     --color-shadow: #986846;
 
@@ -30,7 +30,7 @@ D7B09A
 }
 
 body {
-    background-color: var(--color-bg-gradient);
+    background: var(--color-bg-gradient);
     color: var(--color-text);
 }
 
@@ -130,7 +130,7 @@ a {
 }
 
 .previsions div {
-    background-image: url("../IMAGES/jour_clair.svg");
+    background-image: url("../../IMAGES/jour_clair.svg");
 }
 
 .previsions div.selected {
