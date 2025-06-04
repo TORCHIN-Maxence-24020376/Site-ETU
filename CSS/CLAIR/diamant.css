@@ -19,7 +19,7 @@
 }
 
 body {
-    background-color: #fff;
+    background-color: var(--color-bg-gradient);
     color: var(--color-text);
 }
 
