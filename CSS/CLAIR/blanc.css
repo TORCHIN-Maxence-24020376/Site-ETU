@@ -7,8 +7,8 @@
     --color-hover: #d1d1d1;
     --color-active: #818181;
 
-    --color-bg-gradient: linear-gradient(135deg, #ffffff, #f1f1f1);
-    --color-overlay-gradient: linear-gradient(135deg, #ffffff, #f1f1f1);
+    --color-bg-gradient: #fff;
+    --color-overlay-gradient: #fff;
 
     --color-text: #000;
     --color-link: rgb(35, 104, 108);
@@ -19,7 +19,7 @@
 }
 
 body {
-    background-color: #fff;
+    background-color: var(--color-bg-gradient);
     color: var(--color-text);
 }
 
