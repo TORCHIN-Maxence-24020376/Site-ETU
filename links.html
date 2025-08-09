@@ -165,106 +165,185 @@ Informatique.">
 
 <!--Section dédiée aux liens utiles au BUT Informatique.-->
 <h1>Liens Utiles</h1>
-<section class="Container">
-    <a class="Site" target="_blank" href="https://labtech.univ-amu.fr/portal/webclient/#/launchitems"
-       title="Machines virtuelles IUT">
-        <p class="name">VDI</p>
-        <p class="info">Service de poste de travail AMU virtualisé.</p>
-    </a>
-    <a class="Site" target="_blank" href="https://cplusplus.com/reference/cctype/?kw=cctype" title="Prédicats C++">
-        <p class="name">Prédicats C++</p>
-        <p class="info">Liste des prédicats du langage C++.</p>
-    </a>
-    <a class="Site" target="_blank" href="https://chatgpt.com/" title="Si besoin d'explications">
-        <p class="name">Chat GPT</p>
-        <p class="info">Intelligence Artificielle.</p>
-    </a>
-    <a class="Site" target="_blank" href="https://gemini.google.com/app?hl=fr" title="Si besoin d'explications">
-        <p class="name">Gemini</p>
-        <p class="info">Intelligence Artificielle (Google).</p>
 
-    </a>
-    <a class="Site" target="_blank" href="https://claude.ai/" title="Si besoin d'explications">
-        <p class="name">Claude</p>
-        <p class="info">Intelligence Artificielle.</p>
+<!-- Barre de recherche -->
+<div class="search-container">
+    <input type="text" id="search-input" placeholder="Rechercher un lien..." aria-label="Rechercher un lien">
+    <button id="search-button" aria-label="Rechercher">
+        <img src="IMAGES/search.svg" alt="Rechercher" class="search-icon">
+    </button>
+</div>
 
-    </a>
-    <a class="Site" target="_blank" href="https://GitHub.com/" title="GitHub">
-        <p class="name">GitHub</p>
-        <p class="info">Service en ligne d'hébergement de code.</p>
-    </a>
-    <a class="Site" target="_blank" href="https://www3.ntu.edu.sg/home/ehchua/programming/index.html">
-        <p class="name">YAIP Java</p>
-        <p class="info">Exercices de Java pour la ressource R2.01.</p>
-    </a>
-    <a class="Site" target="_blank" href="https://distrosea.com/fr/" title="Distributions Linux">
-        <p class="name">Distrosea</p>
-        <p class="info">Outil d'essai de distribution Linux.</p>
-    </a>
-    <a class="Site" target="_blank" href="https://www.w3schools.com/howto/" title="Tutoriels web">
-        <p class="name">w3schools</p>
-        <p class="info">Site web éducatif pour l'apprentissage informatique.</p>
-    </a>
-    <a class="Site" target="_blank" href="https://discord.com/channels/@me" title="Pour communiquer">
-        <p class="name">Discord</p>
-        <p class="info">Plateforme de messagerie instantanée.</p>
-    </a>
+<!-- Filtres par catégorie -->
+<div class="category-filters">
+    <button class="category-filter active" data-category="all">Tous</button>
+    <button class="category-filter" data-category="outils-academiques">Outils académiques</button>
+    <button class="category-filter" data-category="ia">IA & Assistance</button>
+    <button class="category-filter" data-category="dev">Développement</button>
+    <button class="category-filter" data-category="bureautique">Bureautique</button>
+    <button class="category-filter" data-category="utilitaires">Utilitaires</button>
+</div>
 
-    <a class="Site" target="_blank" href="https://www.figma.com/fr-fr/" title="Design web">
-        <p class="name">Figma</p>
-        <p class="info">Editeur de graphiques et outil de prototypage.</p>
-    </a>
-    <a class="Site" target="_blank" href="https://www.whitescreen.online/fr/ecran-fausse-mise-a-jour-windows-11/"
-       title="Fausse mise à jour">
-        <p class="name">Whitescreen</p>
-        <p class="info">Outil de test d'écran.</p>
-    </a>
+<!-- Conteneur des liens par catégories -->
+<section class="categories-container">
+    <!-- Outils académiques -->
+    <div class="category-section" id="outils-academiques">
+        <h2>Outils académiques</h2>
+        <div class="Container">
+            <a class="Site" target="_blank" href="https://labtech.univ-amu.fr/portal/webclient/#/launchitems"
+               title="Machines virtuelles IUT" data-category="outils-academiques">
+                <div class="site-icon logo"><img src="IMAGES/vdi.svg" alt="VDI"></div>
+                <p class="name">VDI</p>
+                <p class="info">Service de poste de travail AMU virtualisé.</p>
+            </a>
+            <a class="Site" target="_blank" href="https://www3.ntu.edu.sg/home/ehchua/programming/index.html"
+               data-category="outils-academiques">
+                <div class="site-icon"><img src="IMAGES/java.svg" alt="Java"></div>
+                <p class="name">YAIP Java</p>
+                <p class="info">Exercices de Java pour la ressource R2.01.</p>
+            </a>
+            <a class="Site" target="_blank" href="https://livesql.oracle.com/next/" title="Site pour opérer avec les bases de données"
+               data-category="outils-academiques">
+                <div class="site-icon"><img src="IMAGES/database.svg" alt="Base de données"></div>
+                <p class="name">Live SQL</p>
+                <p class="info">Service en ligne SQL Oracle.</p>
+            </a>
+            <a class="Site" target="_blank" href="https://javafxhope.netlify.app/" title="Site contenant des informations sur javafx"
+               data-category="outils-academiques">
+                <div class="site-icon"><img src="IMAGES/javafx.svg" alt="JavaFX"></div>
+                <p class="name">Docu JAVAFX</p>
+                <p class="info">Documentation sur JAVAFX</p>
+            </a>
+        </div>
+    </div>
 
-    <a class="Site" target="_blank" href="https://graphonline.top/fr" title="Outil de visualisation des graphes">
-        <p class="name">GraphOnline</p>
-        <p class="info">Outil de visualisation des graphes.</p>
-    </a>
+    <!-- IA & Assistance -->
+    <div class="category-section" id="ia">
+        <h2>IA & Assistance</h2>
+        <div class="Container">
+            <a class="Site" target="_blank" href="https://chatgpt.com/" title="Si besoin d'explications"
+               data-category="ia">
+                <div class="site-icon logo"><img src="IMAGES/chatgpt.svg" alt="ChatGPT"></div>
+                <p class="name">Chat GPT</p>
+                <p class="info">Intelligence Artificielle.</p>
+            </a>
+            <a class="Site" target="_blank" href="https://gemini.google.com/app?hl=fr" title="Si besoin d'explications"
+               data-category="ia">
+                <div class="site-icon"><img src="IMAGES/gemini.svg" alt="Gemini"></div>
+                <p class="name">Gemini</p>
+                <p class="info">Intelligence Artificielle (Google).</p>
+            </a>
+            <a class="Site" target="_blank" href="https://claude.ai/" title="Si besoin d'explications"
+               data-category="ia">
+                <div class="site-icon"><img src="IMAGES/claude.svg" alt="Claude"></div>
+                <p class="name">Claude</p>
+                <p class="info">Intelligence Artificielle.</p>
+            </a>
+        </div>
+    </div>
 
-    <a class="Site" target="_blank" href="https://drive.google.com/drive/my-drive?hl=fr" title="Pour partager des
-        fichiers">
-        <p class="name">Google Drive</p>
-        <p class="info">Service de stockage cloud et suite bureautique.</p>
-    </a>
-    <a class="Site" target="_blank" href="https://docs.google.com/document/?usp=docs_home&hl=fr" title="Créer et
-        partager des documents">
-        <p class="name">Google Docs</p>
-        <p class="info">Service de traitement de texte en ligne.</p>
-    </a>
+    <!-- Développement -->
+    <div class="category-section" id="dev">
+        <h2>Développement</h2>
+        <div class="Container">
+            <a class="Site" target="_blank" href="https://cplusplus.com/reference/cctype/?kw=cctype" title="Prédicats C++"
+               data-category="dev">
+                <div class="site-icon"><img src="IMAGES/cpp.svg" alt="C++"></div>
+                <p class="name">Prédicats C++</p>
+                <p class="info">Liste des prédicats du langage C++.</p>
+            </a>
+            <a class="Site" target="_blank" href="https://GitHub.com/" title="GitHub"
+               data-category="dev">
+                <div class="site-icon logo"><img src="IMAGES/github.svg" alt="GitHub"></div>
+                <p class="name">GitHub</p>
+                <p class="info">Service en ligne d'hébergement de code.</p>
+            </a>
+            <a class="Site" target="_blank" href="https://www.w3schools.com/howto/" title="Tutoriels web"
+               data-category="dev">
+                <div class="site-icon"><img src="IMAGES/w3schools.svg" alt="W3Schools"></div>
+                <p class="name">w3schools</p>
+                <p class="info">Site web éducatif pour l'apprentissage informatique.</p>
+            </a>
+            <a class="Site" target="_blank" href="https://www.figma.com/fr-fr/" title="Design web"
+               data-category="dev">
+                <div class="site-icon"><img src="IMAGES/figma.svg" alt="Figma"></div>
+                <p class="name">Figma</p>
+                <p class="info">Editeur de graphiques et outil de prototypage.</p>
+            </a>
+            <a class="Site" target="_blank" href="https://graphonline.top/fr" title="Outil de visualisation des graphes"
+               data-category="dev">
+                <div class="site-icon logo"><img src="IMAGES/graph.svg" alt="Graphe"></div>
+                <p class="name">GraphOnline</p>
+                <p class="info">Outil de visualisation des graphes.</p>
+            </a>
+        </div>
+    </div>
 
-    <a class="Site" target="_blank" href="https://docs.google.com/presentation/?usp=slides_home&hl=fr" title="Créer
-         et partager des présentations">
-        <p class="name">Google Slides</p>
-        <p class="info">Service de présentation en ligne.</p>
-    </a>
+    <!-- Bureautique -->
+    <div class="category-section" id="bureautique">
+        <h2>Bureautique</h2>
+        <div class="Container">
+            <a class="Site" target="_blank" href="https://drive.google.com/drive/my-drive?hl=fr" title="Pour partager des fichiers"
+               data-category="bureautique">
+                <div class="site-icon"><img src="IMAGES/gdrive.svg" alt="Google Drive"></div>
+                <p class="name">Google Drive</p>
+                <p class="info">Service de stockage cloud et suite bureautique.</p>
+            </a>
+            <a class="Site" target="_blank" href="https://docs.google.com/document/?usp=docs_home&hl=fr" title="Créer et partager des documents"
+               data-category="bureautique">
+                <div class="site-icon"><img src="IMAGES/gdocs.svg" alt="Google Docs"></div>
+                <p class="name">Google Docs</p>
+                <p class="info">Service de traitement de texte en ligne.</p>
+            </a>
+            <a class="Site" target="_blank" href="https://docs.google.com/presentation/?usp=slides_home&hl=fr" title="Créer et partager des présentations"
+               data-category="bureautique">
+                <div class="site-icon"><img src="IMAGES/gslides.svg" alt="Google Slides"></div>
+                <p class="name">Google Slides</p>
+                <p class="info">Service de présentation en ligne.</p>
+            </a>
+            <a class="Site" target="_blank" href="https://docs.google.com/forms/?usp=forms_home&hl=fr" title="Créer et partager des formulaires"
+               data-category="bureautique">
+                <div class="site-icon"><img src="IMAGES/gforms.svg" alt="Google Forms"></div>
+                <p class="name">Google Forms</p>
+                <p class="info">Service d'administration d'enquêtes en ligne.</p>
+            </a>
+            <a class="Site" target="_blank" href="https://docs.google.com/spreadsheets/?usp=sheets_home&hl=fr" title="Créer et partager des tableurs"
+               data-category="bureautique">
+                <div class="site-icon"><img src="IMAGES/gsheets.svg" alt="Google Sheets"></div>
+                <p class="name">Google Sheets</p>
+                <p class="info">Service de tableur en ligne.</p>
+            </a>
+        </div>
+    </div>
 
-    <a class="Site" target="_blank" href="https://docs.google.com/forms/?usp=forms_home&hl=fr" title="Créer et
-        partager des formulaires">
-        <p class="name">Google Forms</p>
-        <p class="info">Service d'administration d'enquêtes en ligne.</p>
-    </a>
-
-    <a class="Site" target="_blank" href="https://docs.google.com/spreadsheets/?usp=sheets_home&hl=fr" title="Créer
-        et partager des tableurs">
-        <p class="name">Google Sheets</p>
-        <p class="info">Service de tableur en ligne.</p>
-    </a>
-
-    <a class="Site" target="_blank" href="https://livesql.oracle.com/next/" title="Site pour opérer avec les bases de données">
-        <p class="name">Live SQL</p>
-        <p class="info">Service en ligne SQL Oracle.</p>
-    </a>
-    <a class="Site" target="_blank" href="https://javafxhope.netlify.app/" title="Site contenant des informations sur javafx">
-        <p class="name">Docu JAVAFX</p>
-        <p class="info">Documentation sur JAVAFX</p>
-    </a>
+    <!-- Utilitaires -->
+    <div class="category-section" id="utilitaires">
+        <h2>Utilitaires</h2>
+        <div class="Container">
+            <a class="Site" target="_blank" href="https://distrosea.com/fr/" title="Distributions Linux"
+               data-category="utilitaires">
+                <div class="site-icon"><img src="IMAGES/linux.svg" alt="Linux"></div>
+                <p class="name">Distrosea</p>
+                <p class="info">Outil d'essai de distribution Linux.</p>
+            </a>
+            <a class="Site" target="_blank" href="https://discord.com/channels/@me" title="Pour communiquer"
+               data-category="utilitaires">
+                <div class="site-icon"><img src="IMAGES/discord.svg" alt="Discord"></div>
+                <p class="name">Discord</p>
+                <p class="info">Plateforme de messagerie instantanée.</p>
+            </a>
+            <a class="Site" target="_blank" href="https://www.whitescreen.online/fr/ecran-fausse-mise-a-jour-windows-11/"
+               title="Fausse mise à jour" data-category="utilitaires">
+                <div class="site-icon"><img src="IMAGES/screen.svg" alt="Écran"></div>
+                <p class="name">Whitescreen</p>
+                <p class="info">Outil de test d'écran.</p>
+            </a>
+        </div>
+    </div>
 </section>
 
 <script src="JAVASCRIPT/main.js"></script>
+<script src="JAVASCRIPT/search.js"></script>
 <footer>
     <section>
         <h3>Apporter ma contribution</h3>

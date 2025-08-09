@@ -926,6 +926,176 @@ a{
 }
   
 
+/* Styles pour la barre de recherche et les catégories */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    max-width: 500px;
+    position: relative;
+}
+
+#search-input {
+    width: 100%;
+    padding: 12px 50px 12px 15px;
+    border-radius: 25px;
+    border: 2px solid var(--color-accent);
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#search-input:focus {
+    outline: none;
+    box-shadow: 0 0 5px var(--color-active);
+}
+
+#search-button {
+    position: absolute;
+    right: 5px;
+    margin: 0;
+    padding: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-icon {
+    width: 24px;
+    height: 24px;
+    filter: invert(1);
+    transition: transform 0.2s ease;
+}
+
+#search-button:hover .search-icon {
+    transform: scale(1.1);
+}
+
+/* Filtres par catégorie */
+.category-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.category-filter {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid var(--color-accent);
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.category-filter:hover {
+    background-color: var(--color-hover);
+    transform: translateY(-2px);
+}
+
+.category-filter.active {
+    background-color: var(--color-active);
+    font-weight: bold;
+}
+
+/* Organisation par catégories */
+.categories-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.category-section {
+    margin-bottom: 40px;
+}
+
+.category-section h2 {
+    position: relative;
+    text-align: left;
+    margin-left: 20px;
+    padding-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.category-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--color-active);
+}
+
+/* Styles pour les icônes des sites */
+.site-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.site-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Animation pour les sites qui apparaissent/disparaissent */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(20px); }
+}
+
+.Site.visible {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.Site.hidden {
+    display: none;
+}
+
+/* Adaptations responsives */
+@media (max-width: 792px) {
+    .category-filters {
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 10px 0;
+        justify-content: flex-start;
+        max-width: 100%;
+    }
+    
+    .category-filter {
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+
+    .category-section h2 {
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .category-section h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
 
 
 
