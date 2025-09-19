@@ -1,0 +1,175 @@
+[
+    {
+        "link": "https://labtech.univ-amu.fr/portal/webclient/#/launchitems",
+        "name": "VDI",
+        "logo": "vdi.svg",
+        "info": "Service de poste de travail AMU virtualisé.",
+        "category": "Outils académiques",
+        "invert": true
+    },
+
+    {
+        "link": "https://www3.ntu.edu.sg/home/ehchua/programming/index.html",
+        "name": "YAIP Java",
+        "logo": "java.svg",
+        "info": "Exercices de Java pour la ressource R2.01.",
+        "category": "Outils académiques",
+        "invert": false
+    },
+    {
+        "link": "https://livesql.oracle.com/next/",
+        "name": "Live SQL",
+        "logo": "database.svg",
+        "info": "Service en ligne SQL Oracle.",
+        "category": "Outils académiques",
+        "invert": false
+    },
+    {
+        "link": "https://javafxhope.netlify.app/",
+        "name": "Docu JAVAFX",
+        "logo": "javafx.svg",
+        "info": "Documentation sur JAVAFX",
+        "category": "Outils académiques",
+        "invert": false
+    },
+
+    {
+        "link": "https://chatgpt.com/",
+        "name": "Chat GPT",
+        "logo": "chatgpt.svg",
+        "info": "Intelligence Artificielle.",
+        "category": "IA & Assistance",
+        "invert": true
+    },
+    {
+        "link": "https://gemini.google.com/app?hl=fr",
+        "name": "Gemini",
+        "logo": "gemini.svg",
+        "info": "Intelligence Artificielle (Google).",
+        "category": "IA & Assistance",
+        "invert": false
+    },
+    {
+        "link": "https://claude.ai/",
+        "name": "Claude",
+        "logo": "claude.svg",
+        "info": "Intelligence Artificielle.",
+        "category": "IA & Assistance",
+        "invert": false
+    },
+
+    {
+        "link": "https://cplusplus.com/reference/cctype/?kw=cctype",
+        "name": "Prédicats C++",
+        "logo": "cpp.svg",
+        "info": "Liste des prédicats du langage C++.",
+        "category": "Développement",
+        "invert": false
+    },
+    {
+        "link": "https://github.com/",
+        "name": "GitHub",
+        "logo": "github.svg",
+        "info": "Service en ligne d'hébergement de code.",
+        "category": "Développement",
+        "invert": true
+    },
+    {
+        "link": "https://www.w3schools.com/howto/",
+        "name": "w3schools",
+        "logo": "w3schools.svg",
+        "info": "Site web éducatif pour l'apprentissage informatique.",
+        "category": "Développement",
+        "invert": false
+    },
+    {
+        "link": "https://www.figma.com/fr-fr/",
+        "name": "Figma",
+        "logo": "figma.svg",
+        "info": "Éditeur de graphiques et outil de prototypage.",
+        "category": "Développement",
+        "invert": false
+    },
+    {
+        "link": "https://graphonline.top/fr",
+        "name": "GraphOnline",
+        "logo": "graph.svg",
+        "info": "Outil de visualisation des graphes.",
+        "category": "Développement",
+        "invert": true
+    },
+
+    {
+        "link": "https://drive.google.com/drive/my-drive?hl=fr",
+        "name": "Google Drive",
+        "logo": "gdrive.svg",
+        "info": "Service de stockage cloud et suite bureautique.",
+        "category": "Bureautique",
+        "invert": false
+    },
+    {
+        "link": "https://docs.google.com/document/?usp=docs_home&hl=fr",
+        "name": "Google Docs",
+        "logo": "gdocs.svg",
+        "info": "Service de traitement de texte en ligne.",
+        "category": "Bureautique",
+        "invert": false
+    },
+    {
+        "link": "https://docs.google.com/presentation/?usp=slides_home&hl=fr",
+        "name": "Google Slides",
+        "logo": "gslides.svg",
+        "info": "Service de présentation en ligne.",
+        "category": "Bureautique",
+        "invert": false
+    },
+    {
+        "link": "https://docs.google.com/forms/?usp=forms_home&hl=fr",
+        "name": "Google Forms",
+        "logo": "gforms.svg",
+        "info": "Service d'administration d'enquêtes en ligne.",
+        "category": "Bureautique",
+        "invert": false
+    },
+    {
+        "link": "https://docs.google.com/spreadsheets/?usp=sheets_home&hl=fr",
+        "name": "Google Sheets",
+        "logo": "gsheets.svg",
+        "info": "Service de tableur en ligne.",
+        "category": "Bureautique",
+        "invert": false
+    },
+
+    {
+        "link": "https://distrosea.com/fr/",
+        "name": "Distrosea",
+        "logo": "linux.svg",
+        "info": "Outil d'essai de distribution Linux.",
+        "category": "Utilitaires",
+        "invert": false
+    },
+    {
+        "link": "https://discord.com/channels/@me",
+        "name": "Discord",
+        "logo": "discord.svg",
+        "info": "Plateforme de messagerie instantanée.",
+        "category": "Utilitaires",
+        "invert": false
+    },
+    {
+        "link": "https://www.whitescreen.online/fr/ecran-fausse-mise-a-jour-windows-11/",
+        "name": "Whitescreen",
+        "logo": "screen.svg",
+        "info": "Outil de test d'écran.",
+        "category": "Utilitaires",
+        "invert": true
+    },
+    {
+        "link": "https://www.reddit.com/r/infoaix/s/LghRj9T28B",
+        "name": "Reddit",
+        "logo": "reddit.Svg",
+        "info": "Reddit du BUT",
+        "category": "Utilitaires",
+        "invert": false
+    }
+]

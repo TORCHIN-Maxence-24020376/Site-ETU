@@ -1,0 +1,109 @@
+[
+    {
+        "link": "https://www.jetbrains.com/fr-fr/lp/toolbox/",
+        "name": "JetBrains Toolbox",
+        "logo": "jetbrains.svg",
+        "info": "Suite d'outils de développement professionnel.",
+        "category": "ide",
+        "invert": false
+    },
+
+    {
+        "link": "https://code.visualstudio.com/download",
+        "name": "Visual Studio Code",
+        "logo": "vscode.svg",
+        "info": "Editeur de code extensible.",
+        "category": "ide",
+        "invert": false
+    },
+
+    {
+        "link": "https://www.qt.io/download-dev",
+        "name": "QT Creator",
+        "logo": "qt.svg",
+        "info": "Logiciel utilisé pour coder en C++.",
+        "category": "ide",
+        "invert": false
+    },
+
+    {
+        "link": "https://www.eclipse.org/downloads/",
+        "name": "Eclipse",
+        "logo": "eclipse.svg",
+        "info": "IDE open source utilisé pour coder en Java.",
+        "category": "ide",
+        "invert": false
+    },
+
+    {
+        "link": "https://www.cursor.com/",
+        "name": "Cursor",
+        "logo": "cursor.svg",
+        "info": "IDE assisté par IA.",
+        "category": "ide",
+        "invert": true
+    },
+
+    {
+        "link": "https://www.mysql.com/downloads/",
+        "name": "MySQL",
+        "logo": "mysql.svg",
+        "info": "Système de gestion de base de données.",
+        "category": "dev-tools",
+        "invert": false
+    },
+
+    {
+        "link": "https://jupyter.org/install",
+        "name": "Jupyter",
+        "logo": "jupyter.svg",
+        "info": "Outil dédié à la programmation en Python.",
+        "category": "dev-tools",
+        "invert": false
+    },
+
+    {
+        "link": "https://www.spyder-ide.org/download/",
+        "name": "Spyder",
+        "logo": "spyder.svg",
+        "info": "Environnement de développement en Python.",
+        "category": "dev-tools",
+        "invert": false
+    },
+
+    {
+        "link": "https://dpetersanderson.github.io/download.html",
+        "name": "MARS",
+        "logo": "mars.svg",
+        "info": "Emulateur pour coder en Assembleur.",
+        "category": "dev-tools",
+        "invert": false
+    },
+
+    {
+        "link": "https://staruml.io/",
+        "name": "StarUML",
+        "logo": "staruml.png",
+        "info": "Outil de génie logiciel dédié à la modélisation UML.",
+        "category": "modelisation",
+        "invert": false
+    },
+
+    {
+        "link": "https://www.looping-mcd.fr/",
+        "name": "Looping",
+        "logo": "looping.svg",
+        "info": "Logiciel pour visulaiser les MCD.",
+        "category": "modelisation",
+        "invert": false
+    },
+
+    {
+        "link": "https://www.netacad.com/fr/resources/lab-downloads?courseLang=fr-FR",
+        "name": "Packet Tracer",
+        "logo": "cisco.svg",
+        "info": "Simulateur de matériel réseau Cisco.",
+        "category": "reseau",
+        "invert": true
+    }
+]

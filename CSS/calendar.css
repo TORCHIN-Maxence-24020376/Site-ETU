@@ -1,50 +1,100 @@
+/*Fichier CSS pour l'EDT*/
 
-.container-calendar{
+#calendar-grid{
+    border-radius: 5px;
+    padding: 1rem;
+    width: 95vw;
+}
+
+#edt-du-jour{
+    border-radius: 5px;
+    padding: 1rem;
+    overflow-y: scroll;
+    width: 100%;
+    &::-webkit-scrollbar {
+        width: 12px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+    }
+}
+
+.edt-du-jour{
+    display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 50%;
 }
 
+.cour{
+    background-color: #0099ff;
+    border-radius: 20px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: 3rem;
+    min-height: 1px;
+    transition: all ease-in-out 0.3s;
+    border: white 2px solid;
 
-#calendar {
-    min-height: 80vh !important;
-    max-width: 100%;
-    margin: auto;
+    overflow-y: scroll;
+
+    &:hover{
+        background-color: rgb(70, 70, 70);
+        backdrop-filter: blur(5px);
+        min-height: 13em;
+        z-index: 1000 !important;
+    }
+
+    display: flex;
+    flex-direction: column;
+    color: var(--text);
+
+    div{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &::-webkit-scrollbar {
+        width: 12px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+    }
+}
+
+.name{
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.location{
+    font-weight: bold;
     font-size: 0.8em;
+    color: orange;
 }
 
-.fc-event {
-    white-space: normal !important;
-    height: auto !important;
-    border-radius: 12px;
-    min-height: 50px;
-    overflow: hidden;
-    padding: 5px;
-    position: relative;
+.prof, .time{
+    color: var(--less-important-text);
+    font-style: italic;
+    font-size: 0.8em;
+    color: aquamarine;
 }
 
-.fc-event:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.8);
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -10px;
-}
-.fc-timegrid-slot {
-    height: 30px !important; /* Modifier cette ligne de code modifie la taille du calendrier */
+@media (max-width: 768px) {
+    .name{
+        font-size: 0.8em;
+    
+    }
 }
 
-.fc-event {
-    min-height: 50px !important;
-    padding: 5px !important;
-    transition: all ease-in-out 0.3s !important;
-}
+.calendar-grid button img { width: 20px; height: 20px; }
+.calendar-grid button:hover { filter: brightness(1.1); }
+.calendar-grid button:active { transform: translateY(1px); }
 
-.event-details {
-    line-height: 1 !important;
-    padding: 5px !important;
-}
 
 @keyframes clignoter {
     0% {transform : scale(0.9); box-shadow: -10px -10px 20px red, 10px 10px 20px grey; }
@@ -212,6 +262,9 @@
 
     .event-details {
         padding: 3px !important;
+    }
+    .edt-du-jour{
+        width: 95%;
     }
 }
 

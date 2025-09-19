@@ -95,7 +95,7 @@ h1 {
 }
 
 /* Conteneur des éléments */
-.Container {
+.Container, .recepteur {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;

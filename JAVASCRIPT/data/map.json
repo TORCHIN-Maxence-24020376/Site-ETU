@@ -1,0 +1,218 @@
+[
+    {
+        "name": "Amphi Ouest",
+        "type": "Amphi",
+        "info": "Prises: Non • 4G: ? barres",
+        "ip": "",
+        "category": "amphis",
+        "idText": "Amphi%20OUEST"
+    },
+
+    {
+        "name": "Amphi Nord",
+        "type": "Amphi",
+        "info": "Prises: Oui • 4G: 0 barres",
+        "ip": "",
+        "category": "amphis",
+        "idText": "Amphi%20NORD"
+    },
+
+    {
+        "name": "Amphi Est",
+        "type": "Amphi",
+        "info": "Prises: Non • 4G: 2-3 barres",
+        "ip": "",
+        "category": "amphis",
+        "idText": "Amphi%20EST"
+    },
+
+    {
+        "name": "I002",
+        "type": "Salle",
+        "info": "Prise: Oui • 4G: 2 barres • IP: 10.203.28.***",
+        "ip": "10.203.28.***",
+        "category": "rdc",
+        "idText": "TP%20I-002"
+    },
+
+    {
+        "name": "I004",
+        "type": "Salle",
+        "info": "Prise: Oui • 4G: 1-2 barres • IP: 10.203.28.***",
+        "ip": "10.203.28.***",
+        "category": "rdc",
+        "idText": "TP%20I-004"
+    },
+
+    {
+        "name": "I009",
+        "type": "Salle",
+        "info": "Prise: Oui • 4G: 1 barre • IP: 10.203.28.***",
+        "ip": "10.203.28.***",
+        "category": "rdc",
+        "idText": "TP%20I-009"
+    },
+
+    {
+        "name": "I010",
+        "type": "Salle",
+        "info": "Prise: Oui • 4G: 0-1 barre • IP: 10.203.9.***",
+        "ip": "10.203.9.***",
+        "category": "rdc",
+        "idText": "TP%20I-010"
+    },
+
+    {
+        "name": "I102",
+        "type": "Salle",
+        "info": "Prise: Non • 4G: ? barres • IP: 10.203.28.***",
+        "ip": "10.203.28.***",
+        "category": "etage-1",
+        "idText": "TP%20I-102"
+    },
+
+    {
+        "name": "I104",
+        "type": "Salle",
+        "info": "Prise: Oui • 4G: ? barres • IP: 10.203.28.***",
+        "ip": "10.203.28.***",
+        "category": "etage-1",
+        "idText": "TP%20I-104"
+    },
+
+    {
+        "name": "I106",
+        "type": "Salle",
+        "info": "Prise: Oui • 4G: ? barres • IP: 10.203.9.***",
+        "ip": "10.203.9.***",
+        "category": "etage-1",
+        "idText": "TP%20I-106"
+    },
+
+    {
+        "name": "I107",
+        "type": "Salle",
+        "info": "Prise: Non • 4G: ? barres",
+        "ip": "",
+        "category": "etage-1",
+        "idText": "TD%20I-107"
+    },
+
+    {
+        "name": "I109",
+        "type": "Salle",
+        "info": "Prise: Non • 4G: 1-4 barres",
+        "ip": "",
+        "category": "etage-1",
+        "idText": "TD%20I-109"
+    },
+
+    {
+        "name": "I110",
+        "type": "Salle",
+        "info": "Prise: Oui • 4G: ? barres",
+        "ip": "",
+        "category": "etage-1",
+        "idText": "Mobile%20%2F%20TD%20I-110"
+    },
+
+    {
+        "name": "I111",
+        "type": "Salle",
+        "info": "Prise: Non • 4G: 2 barres",
+        "ip": "",
+        "category": "etage-1",
+        "idText": "TD%20I-111"
+    },
+
+    {
+        "name": "I202",
+        "type": "Salle",
+        "info": "Prise: Une seule • 4G: 1-2 barres",
+        "ip": "",
+        "category": "etage-2",
+        "idText": "TD%20I-202"
+    },
+
+    {
+        "name": "I205",
+        "type": "Salle",
+        "info": "Prise: Oui • 4G: 1-3 barres",
+        "ip": "",
+        "category": "etage-2",
+        "idText": "TD%20I-205"
+    },
+
+    {
+        "name": "I206",
+        "type": "Salle",
+        "info": "Prise: Non • 4G: 1-2 barres",
+        "ip": "",
+        "category": "etage-2",
+        "idText": "TD%20I-206"
+    },
+
+    {
+        "name": "I207",
+        "type": "Salle",
+        "info": "Prise: Oui • 4G: 2 barres",
+        "ip": "",
+        "category": "etage-2",
+        "idText": "TD%20I-207"
+    },
+
+    {
+        "name": "I208",
+        "type": "Salle",
+        "info": "Prise: ? • 4G: ? barres",
+        "ip": "",
+        "category": "etage-2",
+        "idText": "TD%20I-208"
+    },
+
+    {
+        "name": "I209",
+        "type": "Salle",
+        "info": "Prise: ? • 4G: ? barres",
+        "ip": "",
+        "category": "etage-2",
+        "idText": "TD%20I-209"
+    },
+
+    {
+        "name": "I211",
+        "type": "Salle",
+        "info": "Prise: Non • 4G: 2 barres",
+        "ip": "",
+        "category": "etage-2",
+        "idText": "TD%20I-211"
+    },
+
+    {
+        "name": "I212",
+        "type": "Salle",
+        "info": "Prise: Non • 4G: 2 barres",
+        "ip": "",
+        "category": "etage-2",
+        "idText": "TD%20I-212"
+    },
+
+    {
+        "name": "I213",
+        "type": "Salle",
+        "info": "Prise: ? • 4G: ? barres",
+        "ip": "",
+        "category": "etage-2",
+        "idText": "TD%20I-213"
+    },
+
+    {
+        "name": "I214",
+        "type": "Salle",
+        "info": "Prise: ? • 4G: ? barres",
+        "ip": "",
+        "category": "etage-2",
+        "idText": "Mobile%20%2F%20TD%20I-214"
+    }
+]
+  

@@ -1,0 +1,37 @@
+[
+    {
+        "link": "https://ens.casali.me/accueil-enseignement/",
+        "name": "Cours CASALI",
+        "logo": "cpp.svg",
+        "info": "C++",
+        "invert": false
+    },
+    {
+        "link": "https://mickael-martin-nevot.com/univ-amu/iut/but-informatique/",
+        "name": "Cours NEVOT",
+        "logo": "nevot.webp",
+        "info": "Linux HTML CSS PHP SQL PLSQL",
+        "invert": false
+    },
+    {
+        "link": "https://mmorancey.perso.math.cnrs.fr/TutorielPython.html",
+        "name": "Cours MORANCEY",
+        "logo": "python.svg",
+        "info": "Python",
+        "invert": false
+    },
+    {
+        "link": "https://amubox.univ-amu.fr/s/7yNmac4wxbq7zJL",
+        "name": "Cours FLOUVAT",
+        "logo": "java.svg",
+        "info": "Java",
+        "invert": false
+    },
+    {
+        "link": "https://amubox.univ-amu.fr/s/CPWtzDRm8cXoLtC",
+        "name": "Cours CHTIOUI",
+        "logo": "uml.svg",
+        "info": "Diagrammes UML, structure de données et algorithmes",
+        "invert": false
+    }
+]

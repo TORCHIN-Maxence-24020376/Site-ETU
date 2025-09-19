@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Cette partie du Site ETU est dédiée aux différents logiciels utiles pendant le
-  cursus.">
+  <meta name="description" content="Cette partie du Site ETU est dédiée aux différents logiciels utiles pendant lecursus.">
   <title>Logiciels ETU</title>
   <link id="theme-link" rel="stylesheet" href="CSS/SOMBRE/aqua.css">
   <link rel="stylesheet" href="CSS/style.css">
-  <link rel="shortcut icon" href="IMAGES/Logo_Site.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="IMAGES/logo-etu.svg" type="image/x-icon">
 </head>
 <body>
   <div id="chargement" class="app">
@@ -21,286 +20,202 @@
     </div>
     <p class="loading-text" id="loading-text"></p>
   </div>
-<!-- Barre de navigation -->
-<header id="main-header">
-  <div class="options">
-    <a href="index.html" title="Retour à l'accueil"><img src="IMAGES/home.svg" alt="accueil" class="logo"></a>
-    <a href="edt.html" title="Accéder à son emploi du temps"><img class="logo" src="IMAGES/calendar.svg" alt="Emploi du temps"></a>
-    <div id="mails">
-        <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank" title="Redirection vers la messagerie Gmail"><img class="logo mails" src="IMAGES/gmail.svg" alt="gmail"></a>
-        <a href="https://outlook.office.com/mail/" target="_blank" title="Redirection vers la messagerie Outlook"><img class="logo mails" src="IMAGES/outlook.svg" alt="outlook"></a>
+  <!-- Barre de navigation -->
+  <header id="main-header">
+    <div class="options">
+      <a href="index.html" title="Retour à l'accueil"><img src="IMAGES/home.svg" alt="accueil" class="logo"></a>
+      <a href="edt.html" title="Accéder à son emploi du temps"><img class="logo" src="IMAGES/calendar.svg" alt="Emploi du temps"></a>
+      <div id="mails">
+          <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank" title="Redirection vers la messagerie Gmail"><img class="logo mails" src="IMAGES/gmail.svg" alt="gmail"></a>
+          <a href="https://outlook.office.com/mail/" target="_blank" title="Redirection vers la messagerie Outlook"><img class="logo mails" src="IMAGES/outlook.svg" alt="outlook"></a>
+      </div>
+  </div>
+    <nav>
+      <!-- Barre de Navigation téléphone -->
+      <div class="tel-header">
+        <button class="respons" onclick="togglePanel('myNav', 'myTheme')"><img class="logo" src="IMAGES/sommaire-logo.svg" alt="Logo affichant le sommaire"></button>
+        <div id="clock"></div>
+        <div class="respons">
+            <a href="#modeVeille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen()"><img src="IMAGES/veille.svg" class="logo" alt="Veille"></a>
+            <button class="respons" onclick="togglePanel('myTheme', 'myNav')"><img class="logo" src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></button>
+        </div>
     </div>
-</div>
-  <nav>
-    <!-- Barre de Navigation téléphone -->
-    <div class="tel-header">
-      <button class="respons" onclick="togglePanel('myNav', 'myTheme')"><img class="logo" src="IMAGES/sommaire-logo.svg" alt="Logo affichant le sommaire"></button>
-      <div id="clock"></div>
-      <div class="respons">
-          <a href="#modeVeille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen()"><img src="IMAGES/veille.svg" class="logo" alt="Veille"></a>
-          <button class="respons" onclick="togglePanel('myTheme', 'myNav')"><img class="logo" src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></button>
-      </div>
-  </div>
-      <!-- Barre de Navigation Ordinateur-->
-      <div class="navigation">
-          <a href="#" id="navigation">Navigation</a>
-          <a id="ent" href="https://ent.univ-amu.fr/" target="_blank">ENT</a>
-          <a id="ametice" href="https://ametice.univ-amu.fr/" target="_blank">AMeTICE</a>
-          <!--Rajouter des liens ici-->
-      </div>
-  </nav>
-  <div class="disparait options">
-      <a href="#modeVeille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen()"><img src="IMAGES/veille.svg" class="logo" alt="Veille"></a>
-      <a href="#" id="theme"><img class="logo" src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></a>
-  </div>
-</header>
-<section id="navigation-contenu" class="mega-menu">
-  <div>
-    <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="edt.html">Voir mon EDT</a></li>
-        <li><a href="https://discord.gg/qj9hJC3bTK" target="_blank" title="Rejoindre le serveur discord">Rejoindre le serveur discord</a></li>
-    </ul>
-  </div>
-  <div>
-      <h4>AUTRES PAGES</h4>
+        <!-- Barre de Navigation Ordinateur-->
+        <div class="navigation">
+            <a href="#" id="navigation">Navigation</a>
+            <a id="ent" href="https://ent.univ-amu.fr/" target="_blank">ENT</a>
+            <a id="ametice" href="https://ametice.univ-amu.fr/" target="_blank">AMeTICE</a>
+            <!--Rajouter des liens ici-->
+        </div>
+    </nav>
+    <div class="disparait options">
+        <a href="#modeVeille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen()"><img src="IMAGES/veille.svg" class="logo" alt="Veille"></a>
+        <a href="#" id="theme"><img class="logo" src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></a>
+    </div>
+  </header>
+  <section id="navigation-contenu" class="mega-menu">
+    <div>
       <ul>
-          <li><a href="prof.html">👨‍🏫Sites des profs</a></li>
-          <li><a href="links.html">🖇️Liens utiles</a></li>
-          <li><a href="logiciels.html">💿Logiciels utiles</a></li>
-          <li><a href="carte.html">🔌Carte des prises</a></li>
-          <li><a href="index.html#Selection-salle">🛜Connexion réseau</a></li>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="edt.html">Voir mon EDT</a></li>
+          <li><a href="https://discord.gg/qj9hJC3bTK" target="_blank" title="Rejoindre le serveur discord">Rejoindre le serveur discord</a></li>
       </ul>
-      
-      <a class="tkt-frr" href="Snake.html">.</a>
-  </div>
-  <div>
-      <h4 id="Logiciel">LOGICIELS UTILES</h4>
-      <p>Cette section regroupe les différents logiciels utiles pour programmer en BUT Informatique. Ci-dessous
-      se trouve plus de détails concernant chaque logiciel.</p>
-  </div>
-</section>
-<section id="theme-contenu" class="mega-menu">
-  <div><h3>Changer de thème</h3></div>
-  <section id="theme-select">
-      <article class="theme-type">
-          <article>
-              <h4>Clair</h4>
-              <div class="theme" onclick="changeTheme('CSS/CLAIR/blanc.css')">Blanc</div>
-              <div class="theme" onclick="changeTheme('CSS/CLAIR/diamant.css')">Diamant</div>
-              <div class="theme" onclick="changeTheme('CSS/CLAIR/noisette.css')">Noisette</div>
-          </article>
-          <article>
-              <h4>Sombre</h4>
-              <div class="theme" onclick="changeTheme('CSS/SOMBRE/aqua.css')">Aqua</div>
-              <div class="theme" onclick="changeTheme('CSS/SOMBRE/vert.css')">Vert</div>
-              <div class="theme" onclick="changeTheme('CSS/SOMBRE/cristal.css')">Cristal (Violet)</div>
-              <div class="theme" onclick="changeTheme('CSS/SOMBRE/4b00.css')">4b00</div>
-          </article>
-          <article>
-              <h4>AMOLED</h4>
-              <div class="theme" onclick="changeTheme('CSS/AMOLED/AMOLED.css')">AMOLED</div>
-              <div class="theme" onclick="changeTheme('CSS/AMOLED/violet.css')">Violet</div>
-              <div class="theme" onclick="changeTheme('CSS/AMOLED/vert.css')">Vert</div>
-              <div class="theme" onclick="changeTheme('CSS/AMOLED/bleu.css')">Bleu</div>
-          </article>
-      </article>
+    </div>
+    <div>
+        <h4>AUTRES PAGES</h4>
+        <ul>
+            <li><a href="prof.html">👨‍🏫Sites des profs</a></li>
+            <li><a href="links.html">🖇️Liens utiles</a></li>
+            <li><a href="logiciels.html">💿Logiciels utiles</a></li>
+            <li><a href="carte.html">🔌Carte des prises</a></li>
+            <li><a href="index.html#Selection-salle">🛜Connexion réseau</a></li>
+        </ul>
+
+        <a class="tkt-frr" href="Snake.html">.</a>
+    </div>
+    <div>
+        <h4 id="Logiciel">LOGICIELS UTILES</h4>
+        <p>Cette section regroupe les différents logiciels utiles pour programmer en BUT Informatique. Ci-dessous
+        se trouve plus de détails concernant chaque logiciel.</p>
+    </div>
   </section>
-</section>
-
-<!-- Changement de thème -->
-<section id="myTheme" class="overlay">
-  <button class="closebtn" onclick="closeTheme()">&times;</button>
-  <div class="overlay-content">
-      <p>Changer de thème</p>
-      <div class="menu-item" onclick="toggleSousMenu('clair-menu')">Clair ▼</div>
-      <ul id="clair-menu" class="sous-menu">
-          <li><div onclick="changeTheme('CSS/CLAIR/blanc.css'); closeTheme();">Blanc</div></li>
-          <li><div onclick="changeTheme('CSS/CLAIR/diamant.css'); closeTheme();">Diamant</div></li>
-          <li><div onclick="changeTheme('CSS/CLAIR/noisette.css'); closeTheme();">Noisette</div></li>
-      </ul>
-      <div class="menu-item" onclick="toggleSousMenu('sombre-menu')">Sombre ▼</div>
-      <ul id="sombre-menu" class="sous-menu">
-          <li><div onclick="changeTheme('CSS/SOMBRE/aqua.css'); closeTheme();">Aqua</div></li>
-          <li><div onclick="changeTheme('CSS/SOMBRE/vert.css'); closeTheme();">Vert</div></li>
-          <li><div onclick="changeTheme('CSS/SOMBRE/cristal.css'); closeTheme();">Cristal (Violet)</div></li>
-          <li><div onclick="changeTheme('CSS/SOMBRE/4b00.css'); closeTheme();">4b00</div></li>
-      </ul>
-      <div class="menu-item" onclick="toggleSousMenu('AMOLED-menu')">AMOLED ▼</div>
-      <ul id="AMOLED-menu" class="sous-menu">
-          <li><div onclick="changeTheme('CSS/AMOLED/AMOLED.css'); closeTheme();">AMOLED</div></li>
-          <li><div onclick="changeTheme('CSS/AMOLED/violet.css'); closeTheme();">Violet</div></li>
-          <li><div onclick="changeTheme('CSS/AMOLED/vert.css'); closeTheme();">Vert</div></li>
-          <li><div onclick="changeTheme('CSS/AMOLED/bleu.css'); closeTheme();">Bleu</div></li>
-      </ul>
-  </div>
-</section>
-
-<section id="myNav" class="overlay">
-  <button class="closebtn" onclick="closeNav()">&times;</button>
-  <div class="overlay-content">
-    <div class="liens-principaux">
-      <div>
-          <a href="index.html">Accueil</a>
-          <a href="edt.html">Voir mon EDT</a>
-      </div>
-      <div>
-          <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank" title="Redirection vers la messagerie Gmail">Gmail</a>
-          <a href="https://outlook.office.com/mail/" target="_blank" title="Redirection vers la messagerie Outlook">Outlook</a>
-      </div>
-  </div>
-      <hr>
-      <a href="#" onclick="toggleSousMenu()">Navigation ▼</a>
-      <ul id="sous-menu">
-          <li><a href="prof.html">👨‍🏫Sites des profs</a></li>
-          <li><a href="links.html">🖇️Liens utiles</a></li>
-          <li><a href="logiciels.html">💿Logiciels utiles</a></li>
-          <li><a href="carte.html">🔌Carte des prises</a></li>
-          <li><a href="index.html#Selection-salle">🛜Connexion réseau</a></li>
-      </ul>
-      <hr>
-      <a href="https://ent.univ-amu.fr/" target="_blank">ENT</a> <br>
-      <a href="https://ametice.univ-amu.fr" target="_blank">AMeTICE</a><br>
-      <a href="https://discord.gg/qj9hJC3bTK" target="_blank" title="Rejoindre le serveur discord">Serveur discord</a>
-  </div>
-</section>
-<!--Section dédiée aux logiciels utiles afin de programmer en BUT Informatique-->
-<h1>Logiciels utiles</h1>
-
-<!-- Barre de recherche -->
-<div class="search-container">
-  <input type="text" id="search-input" placeholder="Rechercher un logiciel..." aria-label="Rechercher un logiciel">
-  <button id="search-button" aria-label="Rechercher">
-      <img src="IMAGES/search.svg" alt="Rechercher" class="search-icon">
-  </button>
-</div>
-
-<!-- Filtres par catégorie -->
-<div class="category-filters">
-  <button class="category-filter active" data-category="all">Tous</button>
-  <button class="category-filter" data-category="ide">IDE & Éditeurs</button>
-  <button class="category-filter" data-category="dev-tools">Outils de développement</button>
-  <button class="category-filter" data-category="modelisation">Modélisation</button>
-  <button class="category-filter" data-category="reseau">Réseau & Systèmes</button>
-</div>
-
-<!-- Conteneur des logiciels par catégories -->
-<section class="categories-container">
-  <!-- IDE & Éditeurs -->
-  <div class="category-section" id="ide">
-    <h2>IDE & Éditeurs</h2>
-    <div class="Container">
-      <a class="Site" target="_blank" href="https://www.jetbrains.com/fr-fr/lp/toolbox/" data-category="ide">
-        <div class="site-icon"><img src="IMAGES/jetbrains.svg" alt="JetBrains"></div>
-        <p class="name">JetBrains Toolbox</p>
-        <p class="info">Suite d'outils de développement professionnel.</p>
-      </a>
-      <a class="Site" target="_blank" href="https://code.visualstudio.com/download" data-category="ide">
-        <div class="site-icon"><img src="IMAGES/vscode.svg" alt="VS Code"></div>
-        <p class="name">Visual Studio Code</p>
-        <p class="info">Editeur de code extensible.</p>
-      </a>
-      <a class="Site" target="_blank" href="https://www.qt.io/download-dev" data-category="ide">
-        <div class="site-icon"><img src="IMAGES/qt.svg" alt="QT"></div>
-        <p class="name">QT Creator</p>
-        <p class="info">Logiciel utilisé pour coder en C++.</p>
-      </a>
-      <a class="Site" target="_blank" href="https://www.eclipse.org/downloads/" data-category="ide">
-        <div class="site-icon"><img src="IMAGES/eclipse.svg" alt="Eclipse"></div>
-        <p class="name">Eclipse</p>
-        <p class="info">IDE open source utilisé pour coder en Java.</p>
-      </a>
-      <a class="Site" target="_blank" href="https://www.cursor.com/" title="IDE assisté par IA" data-category="ide">
-        <div class="site-icon"><img src="IMAGES/cursor.svg" alt="Cursor"></div>
-        <p class="name">Cursor</p>
-        <p class="info">IDE assisté par IA.</p>
-      </a>
-    </div>
-  </div>
-
-  <!-- Outils de développement -->
-  <div class="category-section" id="dev-tools">
-    <h2>Outils de développement</h2>
-    <div class="Container">
-      <a class="Site" target="_blank" href="https://www.mysql.com/downloads/" data-category="dev-tools">
-        <div class="site-icon"><img src="IMAGES/mysql.svg" alt="MySQL"></div>
-        <p class="name">MySQL</p>
-        <p class="info">Système de gestion de base de données.</p>
-      </a>
-      <a class="Site" target="_blank" href="https://jupyter.org/install" data-category="dev-tools">
-        <div class="site-icon"><img src="IMAGES/jupyter.svg" alt="Jupyter"></div>
-        <p class="name">Jupyter</p>
-        <p class="info">Outil dédié à la programmation en Python.</p>
-      </a>
-      <a class="Site" target="_blank" href="https://www.spyder-ide.org/download/" data-category="dev-tools">
-        <div class="site-icon"><img src="IMAGES/spyder.svg" alt="Spyder"></div>
-        <p class="name">Spyder</p>
-        <p class="info">Environnement de développement en Python.</p>
-      </a>
-      <a class="Site" href="https://dpetersanderson.github.io/download.html" target="_blank" title="Emulateur pour coder en Assembleur" data-category="dev-tools">
-        <div class="site-icon"><img src="IMAGES/mars.svg" alt="MARS"></div>
-        <p class="name">MARS</p>
-        <p class="info">Emulateur pour coder en Assembleur.</p>
-      </a>
-    </div>
-  </div>
-
-  <!-- Modélisation -->
-  <div class="category-section" id="modelisation">
-    <h2>Modélisation</h2>
-    <div class="Container">
-      <a class="Site" target="_blank" href="https://staruml.io/" data-category="modelisation">
-        <div class="site-icon"><img src="IMAGES/staruml.svg" alt="StarUML"></div>
-        <p class="name">StarUML</p>
-        <p class="info">Outil de génie logiciel dédié à la modélisation UML.</p>
-      </a>
-      <a class="Site" href="https://www.looping-mcd.fr/" target="_blank" title="Logiciel pour visulaiser les MCD" data-category="modelisation">
-        <div class="site-icon"><img src="IMAGES/looping.svg" alt="Looping"></div>
-        <p class="name">Looping</p>
-        <p class="info">Logiciel pour visulaiser les MCD.</p>
-      </a>
-    </div>
-  </div>
-
-  <!-- Réseau & Systèmes -->
-  <div class="category-section" id="reseau">
-    <h2>Réseau & Systèmes</h2>
-    <div class="Container">
-      <a class="Site" target="_blank" href="https://www.netacad.com/fr/resources/lab-downloads?courseLang=fr-FR" data-category="reseau">
-        <div class="site-icon"><img src="IMAGES/cisco.svg" alt="Cisco"></div>
-        <p class="name">Packet Tracer</p>
-        <p class="info">Simulateur de matériel réseau Cisco.</p>
-      </a>
-    </div>
-  </div>
-</section>
-
-<script src="JAVASCRIPT/main.js"></script>
-<script src="JAVASCRIPT/search.js"></script>
-<footer>
-  <section>
-      <h3>Apporter ma contribution</h3>
-      <p>Vous pouvez apporter votre contribution à ce projet via le lien GitHub en cliquant sur le logo.</p>
-      <a href="https://GitHub.com/TORCHIN-Maxence-24020376/Site-ETU" target="_blank" title="Lien vers le repo GitHub"><img src="IMAGES/GitHub.svg" alt="GitHub" id="GitHub"></a>
+  <section id="theme-contenu" class="mega-menu">
+    <div><h3>Changer de thème</h3></div>
+    <section id="theme-select">
+        <article class="theme-type">
+            <article>
+                <h4>Clair</h4>
+                <div class="theme" onclick="changeTheme('CSS/CLAIR/blanc.css')">Blanc</div>
+                <div class="theme" onclick="changeTheme('CSS/CLAIR/diamant.css')">Diamant</div>
+                <div class="theme" onclick="changeTheme('CSS/CLAIR/noisette.css')">Noisette</div>
+            </article>
+            <article>
+                <h4>Sombre</h4>
+                <div class="theme" onclick="changeTheme('CSS/SOMBRE/aqua.css')">Aqua</div>
+                <div class="theme" onclick="changeTheme('CSS/SOMBRE/vert.css')">Vert</div>
+                <div class="theme" onclick="changeTheme('CSS/SOMBRE/cristal.css')">Cristal (Violet)</div>
+                <div class="theme" onclick="changeTheme('CSS/SOMBRE/4b00.css')">4b00</div>
+            </article>
+            <article>
+                <h4>AMOLED</h4>
+                <div class="theme" onclick="changeTheme('CSS/AMOLED/AMOLED.css')">AMOLED</div>
+                <div class="theme" onclick="changeTheme('CSS/AMOLED/violet.css')">Violet</div>
+                <div class="theme" onclick="changeTheme('CSS/AMOLED/vert.css')">Vert</div>
+                <div class="theme" onclick="changeTheme('CSS/AMOLED/bleu.css')">Bleu</div>
+            </article>
+        </article>
+    </section>
   </section>
 
-  <section>
-      <h3>Description</h3>
-      <p>Site de ressources du département Informatique de l'IUT d'Aix-en-Provence. Réalisé par Maxence TORCHIN et Cyril TAMINE, 2024.</p>
-      <p>Ce site contient tout ce qui vous sera utile lors de vos années de BUT info à Aix-en-Provence.</p>
+  <!-- Changement de thème -->
+  <section id="myTheme" class="overlay">
+    <button class="closebtn" onclick="closeTheme()">&times;</button>
+    <div class="overlay-content">
+        <p>Changer de thème</p>
+        <div class="menu-item" onclick="toggleSousMenu('clair-menu')">Clair ▼</div>
+        <ul id="clair-menu" class="sous-menu">
+            <li><div onclick="changeTheme('CSS/CLAIR/blanc.css'); closeTheme();">Blanc</div></li>
+            <li><div onclick="changeTheme('CSS/CLAIR/diamant.css'); closeTheme();">Diamant</div></li>
+            <li><div onclick="changeTheme('CSS/CLAIR/noisette.css'); closeTheme();">Noisette</div></li>
+        </ul>
+        <div class="menu-item" onclick="toggleSousMenu('sombre-menu')">Sombre ▼</div>
+        <ul id="sombre-menu" class="sous-menu">
+            <li><div onclick="changeTheme('CSS/SOMBRE/aqua.css'); closeTheme();">Aqua</div></li>
+            <li><div onclick="changeTheme('CSS/SOMBRE/vert.css'); closeTheme();">Vert</div></li>
+            <li><div onclick="changeTheme('CSS/SOMBRE/cristal.css'); closeTheme();">Cristal (Violet)</div></li>
+            <li><div onclick="changeTheme('CSS/SOMBRE/4b00.css'); closeTheme();">4b00</div></li>
+        </ul>
+        <div class="menu-item" onclick="toggleSousMenu('AMOLED-menu')">AMOLED ▼</div>
+        <ul id="AMOLED-menu" class="sous-menu">
+            <li><div onclick="changeTheme('CSS/AMOLED/AMOLED.css'); closeTheme();">AMOLED</div></li>
+            <li><div onclick="changeTheme('CSS/AMOLED/violet.css'); closeTheme();">Violet</div></li>
+            <li><div onclick="changeTheme('CSS/AMOLED/vert.css'); closeTheme();">Vert</div></li>
+            <li><div onclick="changeTheme('CSS/AMOLED/bleu.css'); closeTheme();">Bleu</div></li>
+        </ul>
+    </div>
   </section>
-  
-  <section>
-    <h3>Créateurs</h3>
-    <iframe title="signature TORCHIN Maxence" src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/bleu.html"  style="height: 150px; width: 300px;"></iframe>
-    <iframe title="signature TAMINE Cyril" src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/cyril.html" style="height: 150px; width: 300px;"></iframe>
+
+  <section id="myNav" class="overlay">
+    <button class="closebtn" onclick="closeNav()">&times;</button>
+    <div class="overlay-content">
+      <div class="liens-principaux">
+        <div>
+            <a href="index.html">Accueil</a>
+            <a href="edt.html">Voir mon EDT</a>
+        </div>
+        <div>
+            <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank" title="Redirection vers la messagerie Gmail">Gmail</a>
+            <a href="https://outlook.office.com/mail/" target="_blank" title="Redirection vers la messagerie Outlook">Outlook</a>
+        </div>
+    </div>
+        <hr>
+        <a href="#" onclick="toggleSousMenu()">Navigation ▼</a>
+        <ul id="sous-menu">
+            <li><a href="prof.html">👨‍🏫Sites des profs</a></li>
+            <li><a href="links.html">🖇️Liens utiles</a></li>
+            <li><a href="logiciels.html">💿Logiciels utiles</a></li>
+            <li><a href="carte.html">🔌Carte des prises</a></li>
+            <li><a href="index.html#Selection-salle">🛜Connexion réseau</a></li>
+        </ul>
+        <hr>
+        <a href="https://ent.univ-amu.fr/" target="_blank">ENT</a> <br>
+        <a href="https://ametice.univ-amu.fr" target="_blank">AMeTICE</a><br>
+        <a href="https://discord.gg/qj9hJC3bTK" target="_blank" title="Rejoindre le serveur discord">Serveur discord</a>
+    </div>
   </section>
-  
-</footer>
-<!--Mise en veille-->
-<div id="veille" style="display: none;">
-  <div id="modeVeille" style="height: calc(100vh + 200px);"></div>
-</div>
+  <!--Section dédiée aux logiciels utiles afin de programmer en BUT Informatique-->
+  <h1>Logiciels utiles</h1>
+
+  <!-- Barre de recherche -->
+  <div class="search-container">
+    <input type="text" id="search-input" placeholder="Rechercher un logiciel..." aria-label="Rechercher un logiciel">
+    <button id="search-button" aria-label="Rechercher">
+        <img src="IMAGES/search.svg" alt="Rechercher" class="search-icon">
+    </button>
+  </div>
+
+  <!-- Filtres par catégorie -->
+  <div class="category-filters">
+    <button class="category-filter active" data-category="all">Tous</button>
+    <button class="category-filter" data-category="ide">IDE & Éditeurs</button>
+    <button class="category-filter" data-category="dev-tools">Outils de développement</button>
+    <button class="category-filter" data-category="modelisation">Modélisation</button>
+    <button class="category-filter" data-category="reseau">Réseau & Systèmes</button>
+  </div>
+
+  <!-- Conteneur des logiciels par catégories -->
+  <section class="categories-container">
+
+  </section>
+
+  <script src="JAVASCRIPT/loader.js"></script>
+  <script src="JAVASCRIPT/main.js"></script>
+  <script src="JAVASCRIPT/data/softwares.js"></script>
+
+  <footer>
+    <section>
+        <h3>Apporter ma contribution</h3>
+        <p>Vous pouvez apporter votre contribution à ce projet via le lien GitHub en cliquant sur le logo.</p>
+        <a href="https://GitHub.com/TORCHIN-Maxence-24020376/Site-ETU" target="_blank" title="Lien vers le repo GitHub"><img src="IMAGES/GitHub.svg" alt="GitHub" id="GitHub"></a>
+    </section>
+
+    <section>
+        <h3>Description</h3>
+        <p>Site de ressources du département Informatique de l'IUT d'Aix-en-Provence. Réalisé par Maxence TORCHIN et Cyril TAMINE, 2024.</p>
+        <p>Ce site contient tout ce qui vous sera utile lors de vos années de BUT info à Aix-en-Provence.</p>
+    </section>
+
+    <section>
+      <h3>Créateurs</h3>
+      <iframe title="signature TORCHIN Maxence" src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/bleu.html"  style="height: 150px; width: 300px;"></iframe>
+      <iframe title="signature TAMINE Cyril" src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/cyril.html" style="height: 150px; width: 300px;"></iframe>
+    </section>
+
+  </footer>
+  <!--Mise en veille-->
+  <div id="veille" style="display: none;">
+    <div id="modeVeille" style="height: calc(100vh + 200px);"></div>
+  </div>
 
 </body>
 </html>

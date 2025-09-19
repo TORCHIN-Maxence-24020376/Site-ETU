@@ -7,7 +7,7 @@
     <title>Cours des professeurs ETU</title>
     <link id="theme-link" rel="stylesheet" href="CSS/SOMBRE/aqua.css">
     <link rel="stylesheet" href="CSS/style.css">
-    <link rel="shortcut icon" href="IMAGES/Logo_Site.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="IMAGES/logo-etu.svg" type="image/x-icon">
 </head>
 <body>
     <div id="chargement" class="app">
@@ -20,8 +20,8 @@
         </div>
         <p class="loading-text" id="loading-text"></p>
     </div>
-<!-- Barre de navigation -->
-<header id="main-header">
+    <!-- Barre de navigation -->
+    <header id="main-header">
     <div class="options">
         <a href="index.html" title="Retour à l'accueil"><img src="IMAGES/home.svg" alt="accueil" class="logo"></a>
         <a href="edt.html" title="Accéder à son emploi du temps"><img class="logo" src="IMAGES/calendar.svg" alt="Emploi du temps"></a>
@@ -51,8 +51,8 @@
         <a href="#modeVeille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen()"><img src="IMAGES/veille.svg" class="logo" alt="Veille"></a>
         <a href="#" id="theme"><img class="logo" src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></a>
     </div>
-</header>
-<section id="navigation-contenu" class="mega-menu">
+    </header>
+    <section id="navigation-contenu" class="mega-menu">
     <div>
         <ul>
             <li><a href="index.html">Accueil</a></li>
@@ -75,17 +75,11 @@
     <div>
         <h4 id="Prof">LIENS PROFS</h4>
         <p>Cette section regroupe les différents liens amenant aux sites des professeurs du département.</p>
-        <p>Cours CASALI : Regroupe les cours de C++ de la ressource R1.01.</p>
-        <p>Cours NEVOT : Regroupe les différentes ressources Web, bases de données et Linux.</p>
-        <p>Cours MORANCEY : Tutoriel Python, mais également de ses différentes librairies tels que Numpy, Pandas et
-        Matplolib.</p>
-        <p>Cours CHTIOUI : Diaporama de la ressource R3.02 et R3.03 contenant l'analyse avec diagrammes UML et
-        le développement efficace : algorithmes de tri, structure de données.</p>
         
         <a class="tkt-frr" href="Snake.html">.</a>
     </div>
-</section>
-<section id="theme-contenu" class="mega-menu">
+    </section>
+    <section id="theme-contenu" class="mega-menu">
     <div><h3>Changer de thème</h3></div>
     <section id="theme-select">
         <article class="theme-type">
@@ -111,10 +105,10 @@
             </article>
         </article>
     </section>
-</section>
+    </section>
 
-<!-- Changement de thème -->
-<section id="myTheme" class="overlay">
+    <!-- Changement de thème -->
+    <section id="myTheme" class="overlay">
     <button class="closebtn" onclick="closeTheme()">&times;</button>
     <div class="overlay-content">
         <p>Changer de thème</p>
@@ -139,9 +133,9 @@
             <li><div onclick="changeTheme('CSS/AMOLED/bleu.css'); closeTheme();">Bleu</div></li>
         </ul>
     </div>
-</section>
+    </section>
 
-<section id="myNav" class="overlay">
+    <section id="myNav" class="overlay">
     <button class="closebtn" onclick="closeNav()">&times;</button>
     <div class="overlay-content">
         <div class="liens-principaux">
@@ -168,57 +162,40 @@
         <a href="https://ametice.univ-amu.fr" target="_blank">AMeTICE</a><br>
         <a href="https://discord.gg/qj9hJC3bTK" target="_blank" title="Rejoindre le serveur discord">Serveur discord</a>
     </div>
-</section>
-
-<!-- Section dédiée aux cours des professeurs -->
- <h1>Cours professeurs</h1>
-<section class="Container">
-    <div class="Site" onclick="redirectTo('https://ens.casali.me/accueil-enseignement/',true)">
-        <p class="name">Cours CASALI</p>
-        <p class="info">C++</p>
-    </div>
-    <div class="Site" onclick="redirectTo('https://mickael-martin-nevot.com/univ-amu/iut/but-informatique/',true)">
-        <p class="name">Cours NEVOT</p>
-        <p class="info">Linux HTML CSS PHP SQL PLSQL</p>
-    </div>
-    <div class="Site" onclick="redirectTo('https://mmorancey.perso.math.cnrs.fr/TutorielPython.html',true)">
-        <p class="name">Cours MORANCEY</p>
-        <p class="info">Python</p>
-    </div>
-    <div class="Site" onclick="redirectTo('https://amubox.univ-amu.fr/s/7yNmac4wxbq7zJL', true)">
-        <p class="name">Cours FLOUVAT</p>
-        <p class="info">Java</p>
-    </div>
-    <div class="Site" onclick="redirectTo('https://amubox.univ-amu.fr/s/CPWtzDRm8cXoLtC', true)">
-        <p class="name">Cours CHTIOUI</p>
-        <p class="info">Diagrammes UML, structure de données et algorithmes</p>
-    </div>
-</section>
-<!--Mise en veille-->
-
-<script src="JAVASCRIPT/main.js"></script>
-<footer>
-    <section>
-        <h3>Apporter ma contribution</h3>
-        <p>Vous pouvez apporter votre contribution à ce projet via le lien GitHub en cliquant sur le logo.</p>
-        <a href="https://GitHub.com/TORCHIN-Maxence-24020376/Site-ETU" target="_blank" title="Lien vers le repo GitHub"><img src="IMAGES/GitHub.svg" alt="GitHub" id="GitHub"></a>
     </section>
 
-    <section>
-        <h3>Description</h3>
-        <p>Site de ressources du département Informatique de l'IUT d'Aix-en-Provence. Réalisé par Maxence TORCHIN et Cyril TAMINE, 2024.</p>
-        <p>Ce site contient tout ce qui vous sera utile lors de vos années de BUT info à Aix-en-Provence.</p>
+    <!-- Section dédiée aux cours des professeurs -->
+    <h1>Cours professeurs</h1>
+    <section class="recepteur">
     </section>
+    <!--Mise en veille-->
+
+    <script src="JAVASCRIPT/loader.js"></script>
+    <script src="JAVASCRIPT/data/teachers.js"></script>
+    <script src="JAVASCRIPT/main.js"></script>
     
-    <section>
-        <h3>Créateurs</h3>
-        <iframe title="signature TORCHIN Maxence" src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/bleu.html"  style="height: 150px; width: 300px;"></iframe>
-        <iframe title="signature TAMINE Cyril" src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/cyril.html" style="height: 150px; width: 300px;"></iframe>
-    </section>
-    
-</footer>
+    <footer>
+        <section>
+            <h3>Apporter ma contribution</h3>
+            <p>Vous pouvez apporter votre contribution à ce projet via le lien GitHub en cliquant sur le logo.</p>
+            <a href="https://GitHub.com/TORCHIN-Maxence-24020376/Site-ETU" target="_blank" title="Lien vers le repo GitHub"><img src="IMAGES/GitHub.svg" alt="GitHub" id="GitHub"></a>
+        </section>
 
-<div id="veille" style="display: none;">
+        <section>
+            <h3>Description</h3>
+            <p>Site de ressources du département Informatique de l'IUT d'Aix-en-Provence. Réalisé par Maxence TORCHIN et Cyril TAMINE, 2024.</p>
+            <p>Ce site contient tout ce qui vous sera utile lors de vos années de BUT info à Aix-en-Provence.</p>
+        </section>
+
+        <section>
+            <h3>Créateurs</h3>
+            <iframe title="signature TORCHIN Maxence" src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/bleu.html"  style="height: 150px; width: 300px;"></iframe>
+            <iframe title="signature TAMINE Cyril" src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/cyril.html" style="height: 150px; width: 300px;"></iframe>
+        </section>
+
+    </footer>
+
+    <div id="veille" style="display: none;">
     <div id="modeVeille" style="height: calc(100vh + 200px);"></div>
 </div>
 </body>

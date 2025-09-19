@@ -9,7 +9,7 @@
     <link id="theme-link" rel="stylesheet" href="CSS/SOMBRE/aqua.css">
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/calendar.css">
-    <link rel="shortcut icon" href="IMAGES/Logo_Site.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="IMAGES/logo-etu.svg" type="image/x-icon">
 
 </head>
 <body>
@@ -24,7 +24,7 @@
         <p class="loading-text" id="loading-text"></p>
     </div>
     <!-- Barre de navigation -->
-        <header id="main-header">
+    <header id="main-header">
             <div class="options">
                 <a href="index.html" title="Retour à l'accueil"><img src="IMAGES/home.svg" alt="accueil" class="logo"></a>
                 <a href="edt.html" title="Accéder à son emploi du temps"><img class="logo" src="IMAGES/calendar.svg" alt="Emploi du temps"></a>
@@ -55,8 +55,8 @@
                 <a href="#modeVeille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen()"><img src="IMAGES/veille.svg" class="logo" alt="Veille"></a>
                 <a href="#" id="theme"><img class="logo" src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></a>
             </div>
-        </header>
-        <section id="navigation-contenu" class="mega-menu">
+    </header>
+    <section id="navigation-contenu" class="mega-menu">
             <div>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
@@ -79,11 +79,11 @@
             <div>
                 <h4>Emploi du temps</h4>
                 <p>Cette page vous permet de consulter votre emploi du temps en sélectionant votre groupe.</p>
-                <p>Très bientôt vous pourrez le télécharger et avoir un onglet vous montrant les examens à l'avance.</p>
+                <p>Ils sont actualisé au levé du soleil, 12h15 et 20h00</p>
                 <a class="tkt-frr" href="Snake.html">.</a>
             </div>
-        </section>
-        <section id="theme-contenu" class="mega-menu">
+    </section>
+    <section id="theme-contenu" class="mega-menu">
             <div><h3>Changer de thème</h3></div>
             <section id="theme-select">
                 <article class="theme-type">
@@ -109,7 +109,7 @@
                     </article>
                 </article>
             </section>
-        </section>
+    </section>
         
     
     <!-- Changement de thème format mobile -->
@@ -140,7 +140,7 @@
         </div>
     </section>
     
-        <section id="myNav" class="overlay">
+    <section id="myNav" class="overlay">
             <button class="closebtn" onclick="closeNav()">&times;</button>
             <div class="overlay-content">
                 <div class="liens-principaux">
@@ -167,7 +167,7 @@
                 <a href="https://ametice.univ-amu.fr" target="_blank">AMeTICE</a><br>
                 <a href="https://discord.gg/qj9hJC3bTK" target="_blank" title="Rejoindre le serveur discord">Serveur discord</a>
             </div>
-        </section>
+    </section>
     
 
     <section class="Container">
@@ -257,16 +257,15 @@
                 </div>
             </section>
             <!-- Conteneur du calendrier -->
-            <div id="calendar"></div>
+            <div class="calendar-grid" id="calendar-grid"></div>
 
         </section>
     </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.5/index.global.min.js"></script>
+    <script src="JAVASCRIPT/loader.js"></script>
     <script src="JAVASCRIPT/main.js"></script>
     <script src="JAVASCRIPT/calendar.js"></script>
+    <script src="JAVASCRIPT/edt-warn.js"></script>
     <footer>
         <section>
             <h3>Apporter ma contribution</h3>

@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Ce site web est un site web contenant plusieurs liens afin qu'ils soient facile d'accès pour les étudiants du BUT info d'Aix Marseille">
-        <meta name="theme-color" content="#0078d7">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-        <title>Site ETU - Accueil </title>
-        <link id="theme-link" rel="stylesheet" href="CSS/SOMBRE/aqua.css">
-        <link rel="stylesheet" href="CSS/style.css">
-        <link rel="shortcut icon" href="IMAGES/Logo_Site.ico" type="image/x-icon">
-        <link rel="manifest" href="manifest.json">
-        <link rel="apple-touch-icon" href="IMAGES/Logo_Site.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ce site web est un site web contenant plusieurs liens afin qu'ils soient facile d'accès pour les étudiants du BUT info d'Aix Marseille">
+    <meta name="theme-color" content="#0078d7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Site ETU - Accueil </title>
+    <link id="theme-link" rel="stylesheet" href="CSS/SOMBRE/aqua.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="shortcut icon" href="IMAGES/logo-etu.svg" type="image/x-icon">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="IMAGES/Logo_Site.ico">
+    <link rel="stylesheet" href="CSS/calendar.css">
 </head>
 <body>
     <div id="chargement" class="app">
@@ -26,7 +27,8 @@
         </div>
         <p class="loading-text" id="loading-text"></p>
     </div>
-<!-- Barre de navigation -->
+
+    <!-- Barre de navigation -->
     <header id="main-header">
         <div class="options">
             <a href="index.html" title="Retour à l'accueil"><img src="IMAGES/home.svg" alt="accueil" class="logo"></a>
@@ -114,10 +116,8 @@
             </article>
         </section>
     </section>
-      
-    
 
-<!-- Changement de thème format mobile -->
+    <!-- Changement de thème format mobile -->
     <section id="myTheme" class="overlay">
         <button class="closebtn" onclick="closeTheme()">&times;</button>
         <div class="overlay-content">
@@ -173,27 +173,30 @@
             <a href="https://ametice.univ-amu.fr" target="_blank">AMeTICE</a><br>
             <a href="https://discord.gg/qj9hJC3bTK" target="_blank" title="Rejoindre le serveur discord">Serveur discord</a>
         </div>
-    </section>    
+    </section>
+
     <section class="Container" style="flex-direction: column; align-items: center;">
-        <div class="Site google" onclick="redirectTo('https://www.google.com/',true)">
+        <a class="Site google" onclick="redirectTo('https://www.google.com/',true)">
             <p>Google</p>
-        </div>
-        <div class="Site amu" onclick="redirectTo('https://ent.univ-amu.fr/',true)">
+        </a>
+        <a class="Site amu" href="https://ent.univ-amu.fr/" target="_blank">
             <p>AMU ENT</p>
-        </div>
-        <div class="Site ametice" onclick="redirectTo('https://ametice.univ-amu.fr/\n',true)">
+        </a>
+        <a class="Site ametice" href="https://ametice.univ-amu.fr" target="_blank">
             <p>AMeTICE</p>
-        </div>
-        <div class="Site edt" onclick="redirectTo('edt.html', false)">
+        </a>
+        <a class="Site edt" href="edt.html">
             <p>Emploi du temps</p>
-        </div>
+        </a>
         <button data-pwa-install class="pwa-install-button" style="background-color: #0065e5;">Installer l'application</button>
     </section>
     <hr>
     <h2>Tableau de bord étudiant</h2>
-      
     <section class="Container">
-        <iframe title="emploi du temps du jour" src="today.html" id="edt-du-jour"></iframe>
+        <article class="edt-du-jour">
+            <h3 id="date-du-jour"></h3>
+            <div id="edt-du-jour" class="calendar-grid"></div>
+        </article>
         <article class="Container" id="Selection-salle">
             <h2>Sélection Connexion</h2>
             <div class="selection-menu">
@@ -265,36 +268,37 @@
         </div>
     </section>
     
-<script src="JAVASCRIPT/main.js"></script><script src="JAVASCRIPT/meteo.js"></script>
+    <script src="JAVASCRIPT/loader.js"></script>
+    <script src="JAVASCRIPT/main.js"></script>
+    <script src="JAVASCRIPT/meteo.js"></script>
+    <script src="JAVASCRIPT/network.js"></script>
+    <script src="JAVASCRIPT/today.js"></script>
+    <script src="JAVASCRIPT/pwa.js"></script>
 
-<footer>
-    <section>
-        <h3>Apporter ma contribution</h3>
-        <p>Vous pouvez apporter votre contribution à ce projet via le lien GitHub en cliquant sur le logo.</p>
-        <a href="https://GitHub.com/TORCHIN-Maxence-24020376/Site-ETU" target="_blank" title="Lien vers le repo GitHub"><img src="IMAGES/GitHub.svg" alt="GitHub" id="GitHub"></a>
-    </section>
+    <footer>
+        <section>
+            <h3>Apporter ma contribution</h3>
+            <p>Vous pouvez apporter votre contribution à ce projet via le lien GitHub en cliquant sur le logo.</p>
+            <a href="https://GitHub.com/TORCHIN-Maxence-24020376/Site-ETU" target="_blank" title="Lien vers le repo GitHub"><img src="IMAGES/GitHub.svg" alt="GitHub" id="GitHub"></a>
+        </section>
 
-    <section>
-        <h3>Description</h3>
-        <p>Site de ressources du département Informatique de l'IUT d'Aix-en-Provence. Réalisé par Maxence TORCHIN et Cyril TAMINE, 2024.</p>
-        <p>Ce site contient tout ce qui vous sera utiles lors de vos années de BUT info à Aix-en-Provence.</p>
-    </section>
-    
-    <section>
-        <h3>Créateurs</h3>
-        <iframe title="signature TORCHIN Maxence" src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/bleu.html"  style="height: 150px; width: 300px;"></iframe>
-        <iframe title="signature TAMINE Cyril" src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/cyril.html" style="height: 150px; width: 300px;"></iframe>
-    </section>
-    
-</footer>
-<!--Mise en veille-->
-<div id="veille" style="display: none;">
-    <div id="modeVeille" style="height: calc(100vh + 200px);"></div>
-  </div>
+        <section>
+            <h3>Description</h3>
+            <p>Site de ressources du département Informatique de l'IUT d'Aix-en-Provence. Réalisé par Maxence TORCHIN et Cyril TAMINE, 2024.</p>
+            <p>Ce site contient tout ce qui vous sera utiles lors de vos années de BUT info à Aix-en-Provence.</p>
+        </section>
 
-<!-- DÉBUT SCRIPT PUBLICITÉ - À SUPPRIMER SI LA PUB N'EST PLUS NÉCESSAIRE -->
-<script src="JAVASCRIPT/pub.js"></script>
-<!-- FIN SCRIPT PUBLICITÉ -->
+        <section>
+            <h3>Créateurs</h3>
+            <iframe title="signature TORCHIN Maxence" src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/bleu.html"  style="height: 150px; width: 300px;"></iframe>
+            <iframe title="signature TAMINE Cyril" src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/cyril.html" style="height: 150px; width: 300px;"></iframe>
+        </section>
+
+    </footer>
+    <!--Mise en veille-->
+    <div id="veille" style="display: none;">
+        <div id="modeVeille" style="height: calc(100vh + 200px);"></div>
+    </div>
 </body>
 </html>
 

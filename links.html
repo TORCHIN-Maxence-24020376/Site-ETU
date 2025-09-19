@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cette partie du Site ETU est dédiée aux liens utiles durant ce cursus de BUT
-Informatique.">
+    <meta name="description" content="Cette partie du Site ETU est dédiée aux liens utiles durant ce cursus de BUTInformatique.">
     <title>Liens Utiles ETU</title>
     <link id="theme-link" rel="stylesheet" href="CSS/SOMBRE/aqua.css">
     <link rel="stylesheet" href="CSS/style.css">
-    <link rel="shortcut icon" href="IMAGES/Logo_Site.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="IMAGES/logo-etu.svg" type="image/x-icon">
 </head>
 <body>
     <div id="chargement" class="app">
@@ -21,8 +20,8 @@ Informatique.">
         </div>
         <p class="loading-text" id="loading-text"></p>
     </div>
-<!-- Barre de navigation -->
-<header id="main-header">
+    <!-- Barre de navigation -->
+    <header id="main-header">
     <div class="options">
         <a href="index.html" title="Retour à l'accueil"><img src="IMAGES/home.svg" alt="accueil" class="logo"></a>
         <a href="edt.html" title="Accéder à son emploi du temps"><img class="logo" src="IMAGES/calendar.svg" alt="Emploi du temps"></a>
@@ -53,8 +52,8 @@ Informatique.">
         <a href="#modeVeille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen()"><img src="IMAGES/veille.svg" class="logo" alt="Veille"></a>
         <a href="#" id="theme"><img class="logo" src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></a>
     </div>
-</header>
-<section id="navigation-contenu" class="mega-menu">
+    </header>
+    <section id="navigation-contenu" class="mega-menu">
     <div>
         <ul>
             <li><a href="index.html">Accueil</a></li>
@@ -77,8 +76,8 @@ Informatique.">
         <h4>LIENS UTILES</h4>
         <p>Grace à cette page, vous pouvez accéder à une grande quantité de liens utiles pour le cursus de BUT Informatique à l'IUT d'Aix-Marseille.</p>
     </div>
-</section>
-<section id="theme-contenu" class="mega-menu">
+    </section>
+    <section id="theme-contenu" class="mega-menu">
     <div><h3>Changer de thème</h3></div>
     <section id="theme-select">
         <article class="theme-type">
@@ -104,10 +103,10 @@ Informatique.">
             </article>
         </article>
     </section>
-</section>
+    </section>
 
-<!-- Changement de thème -->
-<section id="myTheme" class="overlay">
+    <!-- Changement de thème -->
+    <section id="myTheme" class="overlay">
     <button class="closebtn" onclick="closeTheme()">&times;</button>
     <div class="overlay-content">
         <p>Changer de thème</p>
@@ -132,242 +131,91 @@ Informatique.">
             <li><div onclick="changeTheme('CSS/AMOLED/bleu.css'); closeTheme();">Bleu</div></li>
         </ul>
     </div>
-</section>
+    </section>
 
-<section id="myNav" class="overlay">
-    <button class="closebtn" onclick="closeNav()">&times;</button>
-    <div class="overlay-content">
-        <div class="liens-principaux">
-            <div>
-                <a href="index.html">Accueil</a>
-                <a href="edt.html">Voir mon EDT</a>
+    <section id="myNav" class="overlay">
+        <button class="closebtn" onclick="closeNav()">&times;</button>
+        <div class="overlay-content">
+            <div class="liens-principaux">
+                <div>
+                    <a href="index.html">Accueil</a>
+                    <a href="edt.html">Voir mon EDT</a>
+                </div>
+                <div>
+                    <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank" title="Redirection vers la messagerie Gmail">Gmail</a>
+                    <a href="https://outlook.office.com/mail/" target="_blank" title="Redirection vers la messagerie Outlook">Outlook</a>
+                </div>
             </div>
-            <div>
-                <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank" title="Redirection vers la messagerie Gmail">Gmail</a>
-                <a href="https://outlook.office.com/mail/" target="_blank" title="Redirection vers la messagerie Outlook">Outlook</a>
-            </div>
+            <hr>
+            <a href="#" onclick="toggleSousMenu()">Navigation ▼</a>
+            <ul id="sous-menu">
+                <li><a href="prof.html">👨‍🏫Sites des profs</a></li>
+                <li><a href="links.html">🖇️Liens utiles</a></li>
+                <li><a href="logiciels.html">💿Logiciels utiles</a></li>
+                <li><a href="carte.html">🔌Carte des prises</a></li>
+                <li><a href="index.html#Selection-salle">🛜Connexion réseau</a></li>
+            </ul>
+            <hr>
+            <a href="https://ent.univ-amu.fr/" target="_blank">ENT</a> <br>
+            <a href="https://ametice.univ-amu.fr" target="_blank">AMeTICE</a><br>
+            <a href="https://discord.gg/qj9hJC3bTK" target="_blank" title="Rejoindre le serveur discord">Serveur discord</a>
         </div>
-        <hr>
-        <a href="#" onclick="toggleSousMenu()">Navigation ▼</a>
-        <ul id="sous-menu">
-            <li><a href="prof.html">👨‍🏫Sites des profs</a></li>
-            <li><a href="links.html">🖇️Liens utiles</a></li>
-            <li><a href="logiciels.html">💿Logiciels utiles</a></li>
-            <li><a href="carte.html">🔌Carte des prises</a></li>
-            <li><a href="index.html#Selection-salle">🛜Connexion réseau</a></li>
-        </ul>
-        <hr>
-        <a href="https://ent.univ-amu.fr/" target="_blank">ENT</a> <br>
-        <a href="https://ametice.univ-amu.fr" target="_blank">AMeTICE</a><br>
-        <a href="https://discord.gg/qj9hJC3bTK" target="_blank" title="Rejoindre le serveur discord">Serveur discord</a>
-    </div>
-</section>
-
-<!--Section dédiée aux liens utiles au BUT Informatique.-->
-<h1>Liens Utiles</h1>
-
-<!-- Barre de recherche -->
-<div class="search-container">
-    <input type="text" id="search-input" placeholder="Rechercher un lien..." aria-label="Rechercher un lien">
-    <button id="search-button" aria-label="Rechercher">
-        <img src="IMAGES/search.svg" alt="Rechercher" class="search-icon">
-    </button>
-</div>
-
-<!-- Filtres par catégorie -->
-<div class="category-filters">
-    <button class="category-filter active" data-category="all">Tous</button>
-    <button class="category-filter" data-category="outils-academiques">Outils académiques</button>
-    <button class="category-filter" data-category="ia">IA & Assistance</button>
-    <button class="category-filter" data-category="dev">Développement</button>
-    <button class="category-filter" data-category="bureautique">Bureautique</button>
-    <button class="category-filter" data-category="utilitaires">Utilitaires</button>
-</div>
-
-<!-- Conteneur des liens par catégories -->
-<section class="categories-container">
-    <!-- Outils académiques -->
-    <div class="category-section" id="outils-academiques">
-        <h2>Outils académiques</h2>
-        <div class="Container">
-            <a class="Site" target="_blank" href="https://labtech.univ-amu.fr/portal/webclient/#/launchitems"
-               title="Machines virtuelles IUT" data-category="outils-academiques">
-                <div class="site-icon logo"><img src="IMAGES/vdi.svg" alt="VDI"></div>
-                <p class="name">VDI</p>
-                <p class="info">Service de poste de travail AMU virtualisé.</p>
-            </a>
-            <a class="Site" target="_blank" href="https://www3.ntu.edu.sg/home/ehchua/programming/index.html"
-               data-category="outils-academiques">
-                <div class="site-icon"><img src="IMAGES/java.svg" alt="Java"></div>
-                <p class="name">YAIP Java</p>
-                <p class="info">Exercices de Java pour la ressource R2.01.</p>
-            </a>
-            <a class="Site" target="_blank" href="https://livesql.oracle.com/next/" title="Site pour opérer avec les bases de données"
-               data-category="outils-academiques">
-                <div class="site-icon"><img src="IMAGES/database.svg" alt="Base de données"></div>
-                <p class="name">Live SQL</p>
-                <p class="info">Service en ligne SQL Oracle.</p>
-            </a>
-            <a class="Site" target="_blank" href="https://javafxhope.netlify.app/" title="Site contenant des informations sur javafx"
-               data-category="outils-academiques">
-                <div class="site-icon"><img src="IMAGES/javafx.svg" alt="JavaFX"></div>
-                <p class="name">Docu JAVAFX</p>
-                <p class="info">Documentation sur JAVAFX</p>
-            </a>
-        </div>
-    </div>
-
-    <!-- IA & Assistance -->
-    <div class="category-section" id="ia">
-        <h2>IA & Assistance</h2>
-        <div class="Container">
-            <a class="Site" target="_blank" href="https://chatgpt.com/" title="Si besoin d'explications"
-               data-category="ia">
-                <div class="site-icon logo"><img src="IMAGES/chatgpt.svg" alt="ChatGPT"></div>
-                <p class="name">Chat GPT</p>
-                <p class="info">Intelligence Artificielle.</p>
-            </a>
-            <a class="Site" target="_blank" href="https://gemini.google.com/app?hl=fr" title="Si besoin d'explications"
-               data-category="ia">
-                <div class="site-icon"><img src="IMAGES/gemini.svg" alt="Gemini"></div>
-                <p class="name">Gemini</p>
-                <p class="info">Intelligence Artificielle (Google).</p>
-            </a>
-            <a class="Site" target="_blank" href="https://claude.ai/" title="Si besoin d'explications"
-               data-category="ia">
-                <div class="site-icon"><img src="IMAGES/claude.svg" alt="Claude"></div>
-                <p class="name">Claude</p>
-                <p class="info">Intelligence Artificielle.</p>
-            </a>
-        </div>
-    </div>
-
-    <!-- Développement -->
-    <div class="category-section" id="dev">
-        <h2>Développement</h2>
-        <div class="Container">
-            <a class="Site" target="_blank" href="https://cplusplus.com/reference/cctype/?kw=cctype" title="Prédicats C++"
-               data-category="dev">
-                <div class="site-icon"><img src="IMAGES/cpp.svg" alt="C++"></div>
-                <p class="name">Prédicats C++</p>
-                <p class="info">Liste des prédicats du langage C++.</p>
-            </a>
-            <a class="Site" target="_blank" href="https://GitHub.com/" title="GitHub"
-               data-category="dev">
-                <div class="site-icon logo"><img src="IMAGES/github.svg" alt="GitHub"></div>
-                <p class="name">GitHub</p>
-                <p class="info">Service en ligne d'hébergement de code.</p>
-            </a>
-            <a class="Site" target="_blank" href="https://www.w3schools.com/howto/" title="Tutoriels web"
-               data-category="dev">
-                <div class="site-icon"><img src="IMAGES/w3schools.svg" alt="W3Schools"></div>
-                <p class="name">w3schools</p>
-                <p class="info">Site web éducatif pour l'apprentissage informatique.</p>
-            </a>
-            <a class="Site" target="_blank" href="https://www.figma.com/fr-fr/" title="Design web"
-               data-category="dev">
-                <div class="site-icon"><img src="IMAGES/figma.svg" alt="Figma"></div>
-                <p class="name">Figma</p>
-                <p class="info">Editeur de graphiques et outil de prototypage.</p>
-            </a>
-            <a class="Site" target="_blank" href="https://graphonline.top/fr" title="Outil de visualisation des graphes"
-               data-category="dev">
-                <div class="site-icon logo"><img src="IMAGES/graph.svg" alt="Graphe"></div>
-                <p class="name">GraphOnline</p>
-                <p class="info">Outil de visualisation des graphes.</p>
-            </a>
-        </div>
-    </div>
-
-    <!-- Bureautique -->
-    <div class="category-section" id="bureautique">
-        <h2>Bureautique</h2>
-        <div class="Container">
-            <a class="Site" target="_blank" href="https://drive.google.com/drive/my-drive?hl=fr" title="Pour partager des fichiers"
-               data-category="bureautique">
-                <div class="site-icon"><img src="IMAGES/gdrive.svg" alt="Google Drive"></div>
-                <p class="name">Google Drive</p>
-                <p class="info">Service de stockage cloud et suite bureautique.</p>
-            </a>
-            <a class="Site" target="_blank" href="https://docs.google.com/document/?usp=docs_home&hl=fr" title="Créer et partager des documents"
-               data-category="bureautique">
-                <div class="site-icon"><img src="IMAGES/gdocs.svg" alt="Google Docs"></div>
-                <p class="name">Google Docs</p>
-                <p class="info">Service de traitement de texte en ligne.</p>
-            </a>
-            <a class="Site" target="_blank" href="https://docs.google.com/presentation/?usp=slides_home&hl=fr" title="Créer et partager des présentations"
-               data-category="bureautique">
-                <div class="site-icon"><img src="IMAGES/gslides.svg" alt="Google Slides"></div>
-                <p class="name">Google Slides</p>
-                <p class="info">Service de présentation en ligne.</p>
-            </a>
-            <a class="Site" target="_blank" href="https://docs.google.com/forms/?usp=forms_home&hl=fr" title="Créer et partager des formulaires"
-               data-category="bureautique">
-                <div class="site-icon"><img src="IMAGES/gforms.svg" alt="Google Forms"></div>
-                <p class="name">Google Forms</p>
-                <p class="info">Service d'administration d'enquêtes en ligne.</p>
-            </a>
-            <a class="Site" target="_blank" href="https://docs.google.com/spreadsheets/?usp=sheets_home&hl=fr" title="Créer et partager des tableurs"
-               data-category="bureautique">
-                <div class="site-icon"><img src="IMAGES/gsheets.svg" alt="Google Sheets"></div>
-                <p class="name">Google Sheets</p>
-                <p class="info">Service de tableur en ligne.</p>
-            </a>
-        </div>
-    </div>
-
-    <!-- Utilitaires -->
-    <div class="category-section" id="utilitaires">
-        <h2>Utilitaires</h2>
-        <div class="Container">
-            <a class="Site" target="_blank" href="https://distrosea.com/fr/" title="Distributions Linux"
-               data-category="utilitaires">
-                <div class="site-icon"><img src="IMAGES/linux.svg" alt="Linux"></div>
-                <p class="name">Distrosea</p>
-                <p class="info">Outil d'essai de distribution Linux.</p>
-            </a>
-            <a class="Site" target="_blank" href="https://discord.com/channels/@me" title="Pour communiquer"
-               data-category="utilitaires">
-                <div class="site-icon"><img src="IMAGES/discord.svg" alt="Discord"></div>
-                <p class="name">Discord</p>
-                <p class="info">Plateforme de messagerie instantanée.</p>
-            </a>
-            <a class="Site" target="_blank" href="https://www.whitescreen.online/fr/ecran-fausse-mise-a-jour-windows-11/"
-               title="Fausse mise à jour" data-category="utilitaires">
-                <div class="site-icon"><img src="IMAGES/screen.svg" alt="Écran"></div>
-                <p class="name">Whitescreen</p>
-                <p class="info">Outil de test d'écran.</p>
-            </a>
-        </div>
-    </div>
-</section>
-
-<script src="JAVASCRIPT/main.js"></script>
-<script src="JAVASCRIPT/search.js"></script>
-<footer>
-    <section>
-        <h3>Apporter ma contribution</h3>
-        <p>Vous pouvez apporter votre contribution à ce projet via le lien GitHub en cliquant sur le logo.</p>
-        <a href="https://GitHub.com/TORCHIN-Maxence-24020376/Site-ETU" target="_blank" title="Lien vers le repo GitHub"><img src="IMAGES/GitHub.svg" alt="GitHub" id="GitHub"></a>
     </section>
 
-    <section>
-        <h3>Description</h3>
-        <p>Site de ressources du département Informatique de l'IUT d'Aix-en-Provence. Réalisé par Maxence TORCHIN et Cyril TAMINE, 2024.</p>
-        <p>Ce site contient tout ce qui vous sera utile lors de vos années de BUT info à Aix-en-Provence.</p>
+    <!--Section dédiée aux liens utiles au BUT Informatique.-->
+    <h1>Liens Utiles</h1>
+    <!-- Barre de recherche -->
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Rechercher un lien..." aria-label="Rechercher un lien">
+        <button id="search-button" aria-label="Rechercher">
+            <img src="IMAGES/search.svg" alt="Rechercher" class="search-icon">
+        </button>
+    </div>
+
+    <!-- Filtres par catégorie -->
+    <div class="category-filters">
+        <button class="category-filter active" data-category="all">Tous</button>
+        <button class="category-filter" data-category="outils-academiques">Outils académiques</button>
+        <button class="category-filter" data-category="ia">IA & Assistance</button>
+        <button class="category-filter" data-category="dev">Développement</button>
+        <button class="category-filter" data-category="bureautique">Bureautique</button>
+        <button class="category-filter" data-category="utilitaires">Utilitaires</button>
+    </div>
+
+    <!-- Conteneur des liens par catégories -->
+    <section class="categories-container">
+
     </section>
+
+    <script src="JAVASCRIPT/loader.js"></script>
+    <script src="JAVASCRIPT/main.js"></script>
+    <script src="JAVASCRIPT/pwa.js"></script>
+    <script src="JAVASCRIPT/data/links.js"></script>
     
-    <section>
-        <h3>Créateurs</h3>
-        <iframe title="signature TORCHIN Maxence" src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/bleu.html"  style="height: 150px; width: 300px;"></iframe>
-        <iframe title="signature TAMINE Cyril" src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/cyril.html" style="height: 150px; width: 300px;"></iframe>
-    </section>
-    
-</footer>
-<!--Mise en veille-->
-<div id="veille" style="display: none;">
-    <div id="modeVeille" style="height: calc(100vh + 200px);"></div>
-  </div>
+    <footer>
+        <section>
+            <h3>Apporter ma contribution</h3>
+            <p>Vous pouvez apporter votre contribution à ce projet via le lien GitHub en cliquant sur le logo.</p>
+            <a href="https://GitHub.com/TORCHIN-Maxence-24020376/Site-ETU" target="_blank" title="Lien vers le repo GitHub"><img src="IMAGES/GitHub.svg" alt="GitHub" id="GitHub"></a>
+        </section>
+
+        <section>
+            <h3>Description</h3>
+            <p>Site de ressources du département Informatique de l'IUT d'Aix-en-Provence. Réalisé par Maxence TORCHIN et Cyril TAMINE, 2024.</p>
+            <p>Ce site contient tout ce qui vous sera utile lors de vos années de BUT info à Aix-en-Provence.</p>
+        </section>
+
+        <section>
+            <h3>Créateurs</h3>
+            <iframe title="signature TORCHIN Maxence" src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/bleu.html"  style="height: 150px; width: 300px;"></iframe>
+            <iframe title="signature TAMINE Cyril" src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/cyril.html" style="height: 150px; width: 300px;"></iframe>
+        </section>
+
+    </footer>
+    <!--Mise en veille-->
+    <div id="veille" style="display: none;">
+        <div id="modeVeille" style="height: calc(100vh + 200px);"></div>
+    </div>
 
 </body>
 </html>
