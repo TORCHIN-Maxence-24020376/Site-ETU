@@ -133,7 +133,14 @@
         "category": "etage-2",
         "idText": "TD%20I-202"
     },
-
+    {
+        "name": "BDE",
+        "type": "Salle",
+        "info": "Prise: Oui • 4G: 2 barres • Excellent Wifi • IP: CacaProut",
+        "ip": "CacaProut",
+        "category": "etage-2",
+        "idText": "BDE"
+    },
     {
         "name": "I205",
         "type": "Salle",
@@ -209,10 +216,9 @@
     {
         "name": "I214",
         "type": "Salle",
-        "info": "Prise: ? • 4G: ? barres",
+        "info": "Prise: Oui • 4G: ? barres",
         "ip": "",
         "category": "etage-2",
         "idText": "Mobile%20%2F%20TD%20I-214"
     }
 ]
-  

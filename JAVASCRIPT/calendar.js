@@ -1,12 +1,3 @@
-/*\
-  Nouveau calendrier (grille maison) + ancien système de sélection des groupes
-  - Conserve le menu de groupes (div.year/group/subgroup)
-  - Parse ICS hérité de l'ancien (prof/salle + classes CSS)
-  - Ajoute les classes .resource-*, .exam-event, .SAE, .autonomie, .vacances
-  - Navigation semaine (icônes sous IMAGES/)
-  - Résumé de semaine (#summary-this-week / #summary-next-week)
-  - Cache par groupe (évite re-fetch à chaque navigation)
-\*/
 (function () {
   // --- Réglages d'affichage
   const START_HOUR = 7;
@@ -307,8 +298,9 @@
     try { events = await loadICS(CURRENT_GROUP); }
     catch(e){ const p=document.createElement("p"); p.textContent="Impossible de charger l’EDT."; p.style.padding="1rem"; host.appendChild(p); return; }
 
-    // Filtrage semaine courante
-    const weekEvents = events.filter(e => e.start >= monday && e.start <= addDays(sunday,1));
+    // Filtrage semaine courante (borne haute EXCLUSIVE)
+    const nextMonday = addDays(monday, 7);
+    const weekEvents = events.filter(e => e.start >= monday && e.start < nextMonday);
     const byDay = Array.from({length:7}, ()=>[]);
     for (const ev of weekEvents){ const idx=(ev.start.getDay()+6)%7; byDay[idx].push(ev); }
     byDay.forEach(list=>list.sort((a,b)=>a.start-b.start));
@@ -351,8 +343,9 @@
       }
     }
 
-    // Résumés
-    scanWeeks(weekEvents, monday);
+    // Résumés (on scanne la semaine affichée **et** la suivante)
+    const twoWeeksEvents = events.filter(e => e.start >= monday && e.start < addDays(monday, 14));
+    scanWeeks(twoWeeksEvents, monday);
   }
 
   // --- Sélection de groupe (réutilise le HTML existant #groupe-menu)

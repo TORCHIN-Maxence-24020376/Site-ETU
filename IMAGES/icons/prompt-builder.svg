@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Prompt Builder — Logo</title>
+  <desc id="desc">Hexagon outline with a &lt;/&gt; code mark and a sparkle, representing multi‑model AI prompt building.</desc>
+
+  <defs>
+    <!-- Gradient for strokes/fills -->
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+
+    <!-- Soft glow for the hex stroke -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background is transparent so it works on light or dark headers -->
+  <!-- Hexagon container -->
+  <polygon
+    points="32,128 80,44.35 176,44.35 224,128 176,211.65 80,211.65"
+    fill="none"
+    stroke="url(#g1)"
+    stroke-width="14"
+    stroke-linejoin="round"
+    filter="url(#glow)"
+  />
+
+  <!-- Code mark: <  /  > -->
+  <path d="M110 128 L80 100 M80 100 L110 72" fill="none" stroke="url(#g1)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M132 72 L124 128" fill="none" stroke="url(#g1)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M146 72 L176 100 M176 100 L146 128" fill="none" stroke="url(#g1)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Sparkle (AI magic) -->
+  <g transform="translate(0,0)">
+    <path d="M190 58 L190 74 M182 66 L198 66 M185 59 L195 73 M185 73 L195 59"
+          fill="none" stroke="url(#g1)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Three dots for multi‑model support -->
+  <circle cx="96" cy="176" r="4.5" fill="url(#g1)"/>
+  <circle cx="128" cy="176" r="4.5" fill="url(#g1)"/>
+  <circle cx="160" cy="176" r="4.5" fill="url(#g1)"/>
+
+</svg>

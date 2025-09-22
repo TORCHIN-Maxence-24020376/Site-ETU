@@ -1,18 +1,18 @@
+// JAVASCRIPT/links.js
 (() => {
-    const DATA_URL      = "JAVASCRIPT/data/links.json";
-    const LOGO_BASE     = "IMAGES/icons/";
+    const DATA_URL = "JAVASCRIPT/data/links.json";
+    const LOGO_BASE = "IMAGES/icons/";
     const FALLBACK_LOGO = "logo.svg";
 
     let ALL = [];
     let currentQuery = "";
-    let currentCat   = "all"; // correspond à data-category des boutons
+    let currentCat = "all"; // slug ou "all"
 
     function ready(fn) {
         document.readyState === "loading"
             ? document.addEventListener("DOMContentLoaded", fn, { once: true })
             : fn();
     }
-
     ready(init);
 
     async function init() {
@@ -21,15 +21,10 @@
             console.warn("Container .categories-container/.recepteur introuvable");
             return;
         }
-
-        // Récup & normalisation
         const data = await fetchJSON(DATA_URL);
         ALL = normalize(data);
 
-        // UI: recherche + filtres
         wireSearchAndFilters(container);
-
-        // 1er rendu
         render(applyFilters(), container);
     }
 
@@ -39,49 +34,62 @@
         return r.json();
     }
 
+    function slugifyCat(label) {
+        return String(label || "")
+        .toLowerCase()
+        .normalize("NFD").replace(/\p{Diacritic}/gu, "")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)/g, "");
+    }
+
     function normalize(arr) {
-        return (Array.isArray(arr) ? arr : []).map(it => ({
+        return (Array.isArray(arr) ? arr : []).map(it => {
+        const catLabel = String(it.category ?? "Autres").trim();
+        return {
             link: String(it.link ?? "").trim(),
             name: String(it.name ?? "").trim(),
             logo: String(it.logo ?? "").trim(),
             info: String(it.info ?? "").trim(),
-            category: String(it.category ?? "Autres").trim(),
-            // règle invert → "" ou "logo"
-            invert: (it.invert && String(it.invert).toLowerCase() !== "false") ? "logo" : ""
-        }));
-    }
+            categoryLabel: catLabel,
+            categorySlug: slugifyCat(catLabel),
+            invert: (it.invert && String(it.invert).toLowerCase() !== "false") ? "logo" : "",
+            tags: Array.from(new Set(((it.tags ?? [])).map(t => String(t ?? "").trim()).filter(Boolean)))
+        };
+    });
+}
 
     function stripAccents(s) {
-        return s.normalize("NFD").replace(/\p{Diacritic}/gu, "");
+        if (s == null) return "";
+        return String(s).normalize("NFD").replace(/\p{Diacritic}/gu, "");
     }
 
     function applyFilters() {
         const q = stripAccents(currentQuery).toLowerCase();
-        return ALL.filter(it => {
+
+        return ALL
+            .filter(it => {
             const name = stripAccents(it.name).toLowerCase();
             const info = stripAccents(it.info).toLowerCase();
-            const catOk = (currentCat === "all") || (it.category && slugifyCat(it.category) === currentCat);
-            const qOk = !q || name.includes(q) || info.includes(q);
-            return catOk && qOk;
-        }).sort((a, b) => a.name.localeCompare(b.name, "fr", { sensitivity: "base" }));
-    }
+            const tagsT = stripAccents((it.tags || []).join(" ")).toLowerCase();
 
-    function slugifyCat(label) {
-        return label
-            .toLowerCase()
-            .normalize("NFD").replace(/\p{Diacritic}/gu, "")
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/(^-|-$)/g, "");
+            const catOk =
+                (currentCat === "all") ||
+                (it.categorySlug === currentCat) ||
+                (it.categoryLabel === currentCat); // compat si un bouton envoie le libellé
+
+            const qOk = !q || name.includes(q) || info.includes(q) || tagsT.includes(q);
+            return catOk && qOk;
+            })
+            .sort((a, b) => a.name.localeCompare(b.name, "fr", { sensitivity: "base" }));
     }
 
     function groupByCategory(list) {
         const map = new Map();
         for (const it of list) {
-            const label = it.category || "Autres";
+            const label = it.categoryLabel || "Autres";
             if (!map.has(label)) map.set(label, []);
             map.get(label).push(it);
         }
-        // tri catégories alpha
         return [...map.entries()].sort((a, b) => a[0].localeCompare(b[0], "fr", { sensitivity: "base" }));
     }
 
@@ -93,7 +101,6 @@
             return;
         }
 
-        // Groupe par catégorie et ne crée que celles qui ont au moins 1 item (les autres restent invisibles)
         const grouped = groupByCategory(list);
         const frag = document.createDocumentFragment();
 
@@ -108,9 +115,7 @@
             const grid = document.createElement("div");
             grid.className = "Container";
 
-            for (const it of items) {
-                grid.appendChild(makeCard(it));
-            }
+            for (const it of items) grid.appendChild(makeCard(it));
 
             section.appendChild(h2);
             section.appendChild(grid);
@@ -118,8 +123,6 @@
         }
 
         container.appendChild(frag);
-
-        // Met à jour l’état visuel des boutons filtres (active)
         refreshFilterButtons();
     }
 
@@ -138,7 +141,7 @@
         a.title = it.info || "";
 
         const img = document.createElement("img");
-        img.className = "site-icon " + it.invert; // ajoute "logo" si invert=true
+        img.className = "site-icon " + it.invert;
         img.src = resolveLogoPath(it.logo);
         img.alt = "Logo";
         img.loading = "lazy";
@@ -158,9 +161,8 @@
         return a;
     }
 
-    // ——— UI ———
     function wireSearchAndFilters(container) {
-        const input  = document.getElementById("search-input");
+        const input = document.getElementById("search-input");
         const button = document.getElementById("search-button");
         const filterBtns = [...document.querySelectorAll(".category-filter")];
 
@@ -179,7 +181,7 @@
         if (filterBtns.length) {
             filterBtns.forEach(btn => {
                 btn.addEventListener("click", () => {
-                    currentCat = btn.dataset.category || "all";
+                    currentCat = btn.dataset.category || "all"; // attendu: slug
                     render(applyFilters(), container);
                 });
             });
@@ -193,5 +195,4 @@
             btn.classList.toggle("active", cat === currentCat);
         });
     }
-
 })();

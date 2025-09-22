@@ -1073,16 +1073,20 @@ a{
 /* Adaptations responsives */
 @media (max-width: 792px) {
     .category-filters {
-        flex-direction: row;
-        overflow-x: auto;
+        display: flex;
+        flex-direction: column;
         padding: 10px 0;
         justify-content: flex-start;
         max-width: 100%;
+        gap: 0;
     }
     
     .category-filter {
         flex-shrink: 0;
         white-space: nowrap;
+        margin: 0;
+        border-radius: 0;
+        height: 3em;
     }
 
     .category-section h2 {

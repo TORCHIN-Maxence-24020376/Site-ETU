@@ -5,16 +5,17 @@
         "logo": "vdi.svg",
         "info": "Service de poste de travail AMU virtualisé.",
         "category": "Outils académiques",
-        "invert": true
+        "invert": true,
+        "tags": ["AMU", "virtualisation", "desktop", "VDI", "IUT"]
     },
-
     {
         "link": "https://www3.ntu.edu.sg/home/ehchua/programming/index.html",
         "name": "YAIP Java",
         "logo": "java.svg",
         "info": "Exercices de Java pour la ressource R2.01.",
         "category": "Outils académiques",
-        "invert": false
+        "invert": false,
+        "tags": ["Java", "exercices", "programmation", "cours", "BUT"]
     },
     {
         "link": "https://livesql.oracle.com/next/",
@@ -22,24 +23,26 @@
         "logo": "database.svg",
         "info": "Service en ligne SQL Oracle.",
         "category": "Outils académiques",
-        "invert": false
+        "invert": false,
+        "tags": ["SQL", "Oracle", "base de données", "requêtes", "SGBD"]
     },
     {
         "link": "https://javafxhope.netlify.app/",
         "name": "Docu JAVAFX",
         "logo": "javafx.svg",
         "info": "Documentation sur JAVAFX",
-        "category": "Outils académiques",
-        "invert": false
+        "category": "Utilitaires",
+        "invert": false,
+        "tags": ["JavaFX", "Java", "GUI", "documentation", "graphique"]
     },
-
     {
         "link": "https://chatgpt.com/",
         "name": "Chat GPT",
         "logo": "chatgpt.svg",
         "info": "Intelligence Artificielle.",
         "category": "IA & Assistance",
-        "invert": true
+        "invert": true,
+        "tags": ["IA", "ChatGPT", "OpenAI", "assistance", "Clanka", "Clanker"]
     },
     {
         "link": "https://gemini.google.com/app?hl=fr",
@@ -47,7 +50,8 @@
         "logo": "gemini.svg",
         "info": "Intelligence Artificielle (Google).",
         "category": "IA & Assistance",
-        "invert": false
+        "invert": false,
+        "tags": ["IA", "Google", "Gemini", "assistant", "Clanka", "Clanker"]
     },
     {
         "link": "https://claude.ai/",
@@ -55,16 +59,17 @@
         "logo": "claude.svg",
         "info": "Intelligence Artificielle.",
         "category": "IA & Assistance",
-        "invert": false
+        "invert": false,
+        "tags": ["IA", "Anthropic", "Claude", "chatbot", "Clanka", "Clanker"]
     },
-
     {
         "link": "https://cplusplus.com/reference/cctype/?kw=cctype",
         "name": "Prédicats C++",
         "logo": "cpp.svg",
         "info": "Liste des prédicats du langage C++.",
         "category": "Développement",
-        "invert": false
+        "invert": false,
+        "tags": ["C++", "documentation", "référence", "prédicats", "langage"]
     },
     {
         "link": "https://github.com/",
@@ -72,7 +77,8 @@
         "logo": "github.svg",
         "info": "Service en ligne d'hébergement de code.",
         "category": "Développement",
-        "invert": true
+        "invert": true,
+        "tags": ["Git", "dépôt", "versionning", "open source", "hébergement"]
     },
     {
         "link": "https://www.w3schools.com/howto/",
@@ -80,7 +86,8 @@
         "logo": "w3schools.svg",
         "info": "Site web éducatif pour l'apprentissage informatique.",
         "category": "Développement",
-        "invert": false
+        "invert": false,
+        "tags": ["HTML", "CSS", "JS", "tutoriels", "web"]
     },
     {
         "link": "https://www.figma.com/fr-fr/",
@@ -88,7 +95,8 @@
         "logo": "figma.svg",
         "info": "Éditeur de graphiques et outil de prototypage.",
         "category": "Développement",
-        "invert": false
+        "invert": false,
+        "tags": ["design", "UI", "UX", "maquettes", "prototypage"]
     },
     {
         "link": "https://graphonline.top/fr",
@@ -96,16 +104,17 @@
         "logo": "graph.svg",
         "info": "Outil de visualisation des graphes.",
         "category": "Développement",
-        "invert": true
+        "invert": true,
+        "tags": ["graphes", "visualisation", "algorithmique", "mathématiques"]
     },
-
     {
         "link": "https://drive.google.com/drive/my-drive?hl=fr",
         "name": "Google Drive",
         "logo": "gdrive.svg",
         "info": "Service de stockage cloud et suite bureautique.",
         "category": "Bureautique",
-        "invert": false
+        "invert": false,
+        "tags": ["Google", "cloud", "stockage", "documents", "collaboration"]
     },
     {
         "link": "https://docs.google.com/document/?usp=docs_home&hl=fr",
@@ -113,7 +122,8 @@
         "logo": "gdocs.svg",
         "info": "Service de traitement de texte en ligne.",
         "category": "Bureautique",
-        "invert": false
+        "invert": false,
+        "tags": ["Google", "texte", "bureautique", "document", "collaboration"]
     },
     {
         "link": "https://docs.google.com/presentation/?usp=slides_home&hl=fr",
@@ -121,7 +131,8 @@
         "logo": "gslides.svg",
         "info": "Service de présentation en ligne.",
         "category": "Bureautique",
-        "invert": false
+        "invert": false,
+        "tags": ["Google", "présentation", "bureautique", "slides", "cloud"]
     },
     {
         "link": "https://docs.google.com/forms/?usp=forms_home&hl=fr",
@@ -129,7 +140,8 @@
         "logo": "gforms.svg",
         "info": "Service d'administration d'enquêtes en ligne.",
         "category": "Bureautique",
-        "invert": false
+        "invert": false,
+        "tags": ["Google", "formulaire", "enquête", "sondage", "cloud"]
     },
     {
         "link": "https://docs.google.com/spreadsheets/?usp=sheets_home&hl=fr",
@@ -137,16 +149,17 @@
         "logo": "gsheets.svg",
         "info": "Service de tableur en ligne.",
         "category": "Bureautique",
-        "invert": false
+        "invert": false,
+        "tags": ["Google", "tableur", "Excel", "données", "cloud"]
     },
-
     {
         "link": "https://distrosea.com/fr/",
         "name": "Distrosea",
         "logo": "linux.svg",
         "info": "Outil d'essai de distribution Linux.",
         "category": "Utilitaires",
-        "invert": false
+        "invert": false,
+        "tags": ["Linux", "distribution", "essai", "système", "test"]
     },
     {
         "link": "https://discord.com/channels/@me",
@@ -154,7 +167,8 @@
         "logo": "discord.svg",
         "info": "Plateforme de messagerie instantanée.",
         "category": "Utilitaires",
-        "invert": false
+        "invert": false,
+        "tags": ["messagerie", "chat", "communauté", "voix", "gaming"]
     },
     {
         "link": "https://www.whitescreen.online/fr/ecran-fausse-mise-a-jour-windows-11/",
@@ -162,14 +176,61 @@
         "logo": "screen.svg",
         "info": "Outil de test d'écran.",
         "category": "Utilitaires",
-        "invert": true
+        "invert": true,
+        "tags": ["écran", "test", "fake update", "outil", "Windows"]
     },
     {
         "link": "https://www.reddit.com/r/infoaix/s/LghRj9T28B",
         "name": "Reddit",
         "logo": "reddit.svg",
-        "info": "Reddit du BUT",
+        "info": "Reddit du BUT.",
         "category": "Utilitaires",
-        "invert": false
+        "invert": false,
+        "tags": ["Reddit", "forum", "BUT", "communauté", "partage"]
+    },
+    {
+        "link": "https://torchin-maxence-24020376.github.io/prompt-builder/",
+        "name": "Prompt builder",
+        "logo": "prompt-builder.svg",
+        "info": "Structurateur de prompt.",
+        "category": "IA & Assistance",
+        "invert": false,
+        "tags": ["IA", "prompts", "structuration", "outil", "Clanka", "Clanker"]
+    },
+    {
+        "link": "https://grok.com/chat",
+        "name": "Grok",
+        "logo": "grok.svg",
+        "info": "Intelligence Artificielle (xAI).",
+        "category": "IA & Assistance",
+        "invert": true,
+        "tags": ["IA", "xAI", "chatbot", "assistant", "Clanka", "Clanker"]
+    },
+    {
+        "link": "https://dribbble.com/",
+        "name": "Dribbble",
+        "logo": "dribbble.svg",
+        "info": "Site de web design.",
+        "category": "Utilitaires",
+        "invert": false,
+        "tags": ["design", "UI", "UX", "graphisme", "inspiration"]
+    },
+    {
+        "link": "https://chat.mistral.ai/chat",
+        "name": "Mistral",
+        "logo": "mistral.svg",
+        "info": "Intelligence Artificielle française.",
+        "category": "IA & Assistance",
+        "invert": false,
+        "tags": ["IA", "Mistral", "chatbot", "assistant", "français", "Clanka", "Clanker"]
+    },
+    {
+        "link": "https://infoaix.sumupstore.com/",
+        "name": "Site du BDE",
+        "logo": "informaix.png",
+        "info": "Site du BDE du BUT",
+        "category": "Utilitaires",
+        "invert": false,
+        "tags": ["BDE", "BUT", "site", "étudiants", "AMU"]
     }
 ]

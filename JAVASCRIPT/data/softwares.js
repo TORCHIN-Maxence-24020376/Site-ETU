@@ -1,7 +1,7 @@
 // JAVASCRIPT/softwares.js
 (() => {
     const DATA_URL      = "JAVASCRIPT/data/softwares.json";
-    const LOGO_BASE     = "IMAGES/icons/";          // adapte si tes icônes sont ailleurs
+    const LOGO_BASE     = "IMAGES/icons/";
     const FALLBACK_LOGO = "logo.svg";
 
     // mapping slug -> titre affiché (doit matcher tes boutons data-category)
@@ -56,11 +56,12 @@
             name: String(it.name ?? "").trim(),
             logo: String(it.logo ?? "").trim(),
             info: String(it.info ?? "").trim(),
-            category: String(it.category ?? "other").trim(), // slug déjà prêt (ide/dev-tools/...)
-            // invert => "" ou "logo"
-            invert: (it.invert && String(it.invert).toLowerCase() !== "false") ? "logo" : ""
+            category: String(it.category ?? "other").trim(),
+            invert: (it.invert && String(it.invert).toLowerCase() !== "false") ? "logo" : "",
+            tags: Array.from(new Set(((it.tags ?? [])).map(t => String(t ?? "").trim()).filter(Boolean)))
         }));
     }
+    
 
     function stripAccents(s) {
         return s.normalize("NFD").replace(/\p{Diacritic}/gu, "");
@@ -68,11 +69,14 @@
 
     function applyFilters() {
         const q = stripAccents(currentQuery).toLowerCase();
+
         return ALL.filter(it => {
-            const name = stripAccents(it.name).toLowerCase();
-            const info = stripAccents(it.info).toLowerCase();
+            const name  = stripAccents(it.name).toLowerCase();
+            const info  = stripAccents(it.info).toLowerCase();
+            const tagsT = stripAccents((it.tags || []).join(' ')).toLowerCase();
+            
             const catOk = (currentCat === "all") || (it.category === currentCat);
-            const qOk = !q || name.includes(q) || info.includes(q);
+            const qOk   = !q || name.includes(q) || info.includes(q) || tagsT.includes(q);
             return catOk && qOk;
         }).sort((a, b) => a.name.localeCompare(b.name, "fr", { sensitivity: "base" }));
     }

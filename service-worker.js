@@ -1,182 +1,86 @@
 /**
- * service-worker.js
- * Service Worker pour la mise en cache et le support hors ligne
+ * SW minimaliste : ne met en cache QUE offline.html.
+ * - HTML -> network-first (no-store), fallback offline.html si hors-ligne/erreur
+ * - Pas de cache d’assets (images, css, js) => seul offline.html est conservé
+ * - À l’activation, supprime tous les anciens caches
+ * - Messages:
+ *    • SKIP_WAITING
+ *    • PURGE_ALL  (vide tous les caches puis réchauffe offline.html)
  */
+const VERSION = 'v1-offline-only';
+const SCOPE_PATH = new URL(self.registration.scope).pathname; // ex: "/Site-ETU/"
+const STATIC_CACHE = `offline-only-${VERSION}`;
+const OFFLINE_URL  = `${SCOPE_PATH}offline.html`;
 
-// Chemin de base pour GitHub Pages
-const BASE_PATH = '/Site-ETU/';
-
-// Nom et version du cache
-const CACHE_NAME = 'site-etu-cache-v3';
-const STATIC_CACHE_NAME = 'site-etu-static-v3';
-const DYNAMIC_CACHE_NAME = 'site-etu-dynamic-v3';
-
-// Liste des ressources statiques essentielles à mettre en cache
-const STATIC_RESOURCES = [
-  BASE_PATH,
-  BASE_PATH + 'index.html',
-  BASE_PATH + 'offline.html',
-  BASE_PATH + 'CSS/style.css',
-  BASE_PATH + 'CSS/clair.css',
-  BASE_PATH + 'CSS/CLAIR/blanc.css',
-  BASE_PATH + 'CSS/SOMBRE/aqua.css',
-  BASE_PATH + 'CSS/AMOLED/AMOLED.css',
-  BASE_PATH + 'JAVASCRIPT/main.js',
-  BASE_PATH + 'manifest.json'
-];
-
-// Installation du Service Worker - Pré-cache des ressources essentielles
+// INSTALL: pré-cache uniquement offline.html
 self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(STATIC_CACHE_NAME)
-      .then((cache) => {
-        return cache.addAll(STATIC_RESOURCES);
-      })
-      .then(() => {
-        return self.skipWaiting();
-      })
-  );
+  event.waitUntil((async () => {
+    const cache = await caches.open(STATIC_CACHE);
+    await cache.add(new Request(OFFLINE_URL, { cache: 'reload' }));
+    await self.skipWaiting();
+  })());
 });
 
-// Activation et nettoyage des anciens caches
+// ACTIVATE: supprime tous les vieux caches puis prend le contrôle
 self.addEventListener('activate', (event) => {
-  const currentCaches = [STATIC_CACHE_NAME, DYNAMIC_CACHE_NAME];
-  
-  event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (!currentCaches.includes(cacheName)) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-    .then(() => {
-      return self.clients.claim();
-    })
-  );
+  event.waitUntil((async () => {
+    const keep = new Set([STATIC_CACHE]);
+    const names = await caches.keys();
+    await Promise.all(names.map(n => (keep.has(n) ? null : caches.delete(n))));
+    await self.clients.claim();
+  })());
 });
 
-// Stratégie de cache : Network first with cache fallback pour les pages de navigation
-// Cache first pour les ressources statiques
+// FETCH: documents = réseau d’abord, sinon offline.html ; le reste = réseau direct
 self.addEventListener('fetch', (event) => {
-  // Ignorer les requêtes non GET
-  if (event.request.method !== 'GET') return;
-  
-  // Ignorer les requêtes provenant d'autres origines
-  if (!event.request.url.startsWith(self.location.origin)) return;
-  
-  // Ignorer les requêtes vers des API 
-  if (event.request.url.includes('/api/')) return;
-  
-  const requestUrl = new URL(event.request.url);
-  
-  // Stratégie pour les pages HTML: Network first, fallback to cache, then offline
-  if (event.request.mode === 'navigate' || event.request.destination === 'document') {
-    event.respondWith(
-      fetch(event.request)
-        .then(response => {
-          // Mettre en cache une copie de la réponse
-          const responseClone = response.clone();
-          caches.open(DYNAMIC_CACHE_NAME)
-            .then(cache => cache.put(event.request, responseClone));
-          return response;
-        })
-        .catch(() => {
-          return caches.match(event.request)
-            .then(cachedResponse => {
-              if (cachedResponse) {
-                return cachedResponse;
-              }
-              return caches.match(BASE_PATH + 'offline.html');
-            });
-        })
-    );
+  const { request } = event;
+  if (request.method !== 'GET') return;
+
+  const url = new URL(request.url);
+  if (url.origin !== self.location.origin) return;
+
+  const isDocument = request.mode === 'navigate' || request.destination === 'document';
+
+  if (isDocument) {
+    event.respondWith((async () => {
+      try {
+        // Tente le réseau en priorité (et évite tout cache HTTP)
+        const preload = await event.preloadResponse;
+        return preload || await fetch(request, { cache: 'no-store' });
+      } catch {
+        // Fallback strict: offline.html uniquement si échec réseau
+        const cached = await caches.match(OFFLINE_URL);
+        return cached || new Response('Offline', { status: 503, statusText: 'Service Unavailable' });
+      }
+    })());
     return;
   }
-  
-  // Stratégie cache-first pour les ressources statiques (CSS, JS, images)
-  if (
-    event.request.destination === 'style' || 
-    event.request.destination === 'script' || 
-    event.request.destination === 'image' || 
-    event.request.destination === 'font'
-  ) {
-    event.respondWith(
-      caches.match(event.request)
-        .then(cachedResponse => {
-          if (cachedResponse) {
-            return cachedResponse;
-          }
-          
-          return fetch(event.request)
-            .then(response => {
-              // Ne mettre en cache que les réponses valides
-              if (!response || response.status !== 200 || response.type !== 'basic') {
-                return response;
-              }
-              
-              const responseToCache = response.clone();
-              caches.open(DYNAMIC_CACHE_NAME)
-                .then(cache => cache.put(event.request, responseToCache));
-              
-              return response;
-            })
-            .catch(() => {
-              // Retourner une ressource par défaut selon le type
-              if (event.request.destination === 'image') {
-                return caches.match(BASE_PATH + 'IMAGES/offline-image.svg');
-              }
-            });
-        })
-    );
-    return;
-  }
-  
-  // Stratégie par défaut: cache puis réseau
-  event.respondWith(
-    caches.match(event.request)
-      .then(cachedResponse => {
-        if (cachedResponse) {
-          // Mise à jour en arrière-plan
-          fetch(event.request)
-            .then(response => {
-              if (response && response.status === 200) {
-                caches.open(DYNAMIC_CACHE_NAME)
-                  .then(cache => cache.put(event.request, response));
-              }
-            })
-            .catch(() => {/* ignore les erreurs */});
-          
-          return cachedResponse;
-        }
-        
-        return fetch(event.request)
-          .then(response => {
-            if (!response || response.status !== 200 || response.type !== 'basic') {
-              return response;
-            }
-            
-            const responseToCache = response.clone();
-            caches.open(DYNAMIC_CACHE_NAME)
-              .then(cache => cache.put(event.request, responseToCache));
-            
-            return response;
-          })
-          .catch(() => {
-            // Fallback
-            if (event.request.destination === 'document') {
-              return caches.match(BASE_PATH + 'offline.html');
-            }
-          });
-      })
-  );
+
+  // Pour tout le reste (assets…), ne rien mettre en cache → réseau direct
+  event.respondWith((async () => {
+    try {
+      return await fetch(request);
+    } catch {
+      // Pas de fallback assets (on n’a que offline.html)
+      return new Response('', { status: 504, statusText: 'Gateway Timeout' });
+    }
+  })());
 });
 
-// Traitement des messages envoyés au Service Worker
-self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
+// MESSAGES : SKIP_WAITING + purge totale à la demande du front
+self.addEventListener('message', async (event) => {
+  const type = event.data && event.data.type;
+
+  if (type === 'SKIP_WAITING') {
+    await self.skipWaiting();
+    return;
   }
-}); 
+
+  if (type === 'PURGE_ALL') {
+    const names = await caches.keys();
+    await Promise.all(names.map(n => caches.delete(n)));
+    const sc = await caches.open(STATIC_CACHE);
+    await sc.add(new Request(OFFLINE_URL, { cache: 'reload' }));
+    event.ports?.[0]?.postMessage({ ok: true });
+  }
+});

@@ -5,105 +5,142 @@
         "logo": "jetbrains.svg",
         "info": "Suite d'outils de développement professionnel.",
         "category": "ide",
-        "invert": false
+        "invert": false,
+        "tags": ["IDE", "IntelliJ IDEA", "PyCharm", "CLion", "PhpStorm", "RubyMine", "WebStorm", "Rider", "AppCode", "GoLand", "DataGrip", "HTML", "CSS", "C", "C++", "Java", "JavaFX", "Kotlin", "Python", "PHP", "Ruby", "SQL", "JavaScript", "TypeScript", "Bash", "Shell", "Assembleur"]
     },
-
     {
         "link": "https://code.visualstudio.com/download",
         "name": "Visual Studio Code",
         "logo": "vscode.svg",
         "info": "Editeur de code extensible.",
         "category": "ide",
-        "invert": false
+        "invert": false,
+        "tags": ["IDE", "HTML", "CSS", "C", "C++", "C#", "Java", "JavaFX", "Python", "PHP", "Ruby", "SQL", "JavaScript", "TypeScript", "Bash", "Shell", "Assembleur", "Extensions"]
     },
-
     {
         "link": "https://www.qt.io/download-dev",
         "name": "QT Creator",
         "logo": "qt.svg",
         "info": "Logiciel utilisé pour coder en C++.",
         "category": "ide",
-        "invert": false
+        "invert": false,
+        "tags": ["IDE", "C++", "C", "Qt", "QML", "Python", "JavaScript"]
     },
-
     {
         "link": "https://www.eclipse.org/downloads/",
         "name": "Eclipse",
         "logo": "eclipse.svg",
         "info": "IDE open source utilisé pour coder en Java.",
         "category": "ide",
-        "invert": false
+        "invert": false,
+        "tags": ["IDE", "Java", "JavaFX", "C", "C++", "Python", "PHP", "Ruby", "SQL", "JavaScript"]
     },
-
     {
         "link": "https://www.cursor.com/",
         "name": "Cursor",
         "logo": "cursor.svg",
         "info": "IDE assisté par IA.",
         "category": "ide",
-        "invert": true
+        "invert": true,
+        "tags": ["IDE", "IA", "HTML", "CSS", "C", "C++", "C#", "Java", "Python", "PHP", "SQL", "JavaScript", "TypeScript"]
     },
-
     {
         "link": "https://www.mysql.com/downloads/",
         "name": "MySQL",
         "logo": "mysql.svg",
         "info": "Système de gestion de base de données.",
         "category": "dev-tools",
-        "invert": false
+        "invert": false,
+        "tags": ["Base de données", "SQL", "Serveur", "Gestion"]
     },
-
     {
         "link": "https://jupyter.org/install",
         "name": "Jupyter",
         "logo": "jupyter.svg",
         "info": "Outil dédié à la programmation en Python.",
         "category": "dev-tools",
-        "invert": false
+        "invert": false,
+        "tags": ["Python", "Notebook", "Données", "Machine Learning"]
     },
-
     {
         "link": "https://www.spyder-ide.org/download/",
         "name": "Spyder",
         "logo": "spyder.svg",
         "info": "Environnement de développement en Python.",
         "category": "dev-tools",
-        "invert": false
+        "invert": false,
+        "tags": ["Python", "IDE", "Données", "Data Science"]
     },
-
     {
         "link": "https://dpetersanderson.github.io/download.html",
         "name": "MARS",
         "logo": "mars.svg",
         "info": "Emulateur pour coder en Assembleur.",
         "category": "dev-tools",
-        "invert": false
+        "invert": false,
+        "tags": ["Assembleur", "MIPS", "Emulateur", "Bas niveau"]
     },
-
     {
         "link": "https://staruml.io/",
         "name": "StarUML",
         "logo": "staruml.png",
         "info": "Outil de génie logiciel dédié à la modélisation UML.",
         "category": "modelisation",
-        "invert": false
+        "invert": false,
+        "tags": ["UML", "Diagrammes", "Modélisation", "Logiciel"]
     },
-
     {
         "link": "https://www.looping-mcd.fr/",
         "name": "Looping",
         "logo": "looping.svg",
         "info": "Logiciel pour visulaiser les MCD.",
         "category": "modelisation",
-        "invert": false
+        "invert": false,
+        "tags": ["MCD", "Modélisation", "Base de données", "Conception"]
     },
-
     {
         "link": "https://www.netacad.com/fr/resources/lab-downloads?courseLang=fr-FR",
         "name": "Packet Tracer",
         "logo": "cisco.svg",
         "info": "Simulateur de matériel réseau Cisco.",
         "category": "reseau",
-        "invert": true
+        "invert": true,
+        "tags": ["Cisco", "Réseau", "Simulation", "TCP/IP", "Routeur", "Switch"]
+    },
+    {
+        "link": "https://www.postgresql.org/download/",
+        "name": "PostgreSQL",
+        "logo": "postgresql.svg",
+        "info": "Système de gestion de base de données avec pgAdmin.",
+        "category": "dev-tools",
+        "invert": false,
+        "tags": ["Base de données", "SQL", "Postgres", "Serveur"]
+    },
+    {
+        "link": "https://www.figma.com/fr-fr/downloads/",
+        "name": "Figma",
+        "logo": "figma.svg",
+        "info": "Application de maquettes de sites web.",
+        "category": "modelisation",
+        "invert": false,
+        "tags": ["Design", "UI", "UX", "Web", "Prototype", "Maquettes"]
+    },
+    {
+        "link": "https://termius.com/download",
+        "name": "Termius",
+        "logo": "termius.svg",
+        "info": "Client SSH multi-plateforme.",
+        "category": "reseau",
+        "invert": true,
+        "tags": ["SSH", "Terminal", "Serveur", "Administration", "Réseau"]
+    },
+    {
+        "link": "https://filezilla-project.org/download.php",
+        "name": "FileZilla",
+        "logo": "filezilla.svg",
+        "info": "Client FTP/SFTP open source.",
+        "category": "reseau",
+        "invert": false,
+        "tags": ["FTP", "SFTP", "Transfert de fichiers", "Serveur", "Réseau"]
     }
 ]

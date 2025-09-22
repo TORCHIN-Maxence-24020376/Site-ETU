@@ -111,7 +111,7 @@
             const qOk  = !q || name.includes(q) || info.includes(q) || idt.includes(q);
             const cOk  = (currentCat === "all") || (it.category === currentCat);
             return qOk && cOk;
-        }).sort((a, b) => a.name.localeCompare(b.name, "fr", { sensitivity: "base" }));
+        })
     }
 
     function groupByCategory(list) {
@@ -124,7 +124,6 @@
         const orderedKnown = CATEGORY_ORDER.filter(s => map.has(s)).map(s => [s, map.get(s)]);
         const others = [...map.entries()]
             .filter(([s]) => !CATEGORY_ORDER.includes(s))
-            .sort((a, b) => a[0].localeCompare(b[0], "fr", { sensitivity: "base" }));
         return [...orderedKnown, ...others];
     }
 
