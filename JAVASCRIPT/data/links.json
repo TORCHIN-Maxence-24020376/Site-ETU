@@ -74,7 +74,7 @@
     {
         "link": "https://github.com/",
         "name": "GitHub",
-        "logo": "github.svg",
+        "logo": "GitHub.svg",
         "info": "Service en ligne d'hébergement de code.",
         "category": "Développement",
         "invert": true,
