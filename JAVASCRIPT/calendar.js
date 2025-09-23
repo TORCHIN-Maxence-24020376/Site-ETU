@@ -117,9 +117,12 @@
       return btn;
     };
 
-    const prev  = mkBtn("IMAGES/prev.svg",  "Semaine précédente", ()=>{ weekOffset--; loadAndRender(); });
-    const today = mkBtn("IMAGES/today.svg", "Aujourd’hui",         ()=>{ weekOffset=0;  loadAndRender(); });
-    const next  = mkBtn("IMAGES/next.svg",  "Semaine suivante",    ()=>{ weekOffset++; loadAndRender(); });
+    const prev  = mkBtn("IMAGES/prev.svg",  "Semaine précédente", ()=>{ weekOffset--; loadAndRender(); })
+    prev.classList.add("logo");
+    const today = mkBtn("IMAGES/today.svg", "Aujourd’hui",         ()=>{ weekOffset=0;  loadAndRender(); })
+    today.classList.add("logo");
+    const next  = mkBtn("IMAGES/next.svg",  "Semaine suivante",    ()=>{ weekOffset++; loadAndRender(); })
+    next.classList.add("logo");
 
     left.append(prev, today, next);
 

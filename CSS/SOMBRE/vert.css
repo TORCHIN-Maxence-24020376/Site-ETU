@@ -63,7 +63,7 @@ body::-webkit-scrollbar-thumb {
 
 .logo,
 #GitHub {
-    filter: invert(1);
+    filter: invert(1) !important;
 }
 
 .slides a,

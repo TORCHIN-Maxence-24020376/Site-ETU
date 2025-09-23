@@ -64,7 +64,7 @@ header {
 }
 
 .logo, #GitHub{
-    filter: invert(var(--filter-invert));
+    filter: invert(var(--filter-invert)) !important;
 }
 
 .slides a{
