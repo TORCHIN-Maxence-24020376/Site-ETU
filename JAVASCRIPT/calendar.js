@@ -1,14 +1,16 @@
 (function () {
   // --- Réglages d'affichage
   const START_HOUR = 7;
-  const END_HOUR   = 20;
-  const PX_PER_MIN = 1.2;
+  const END_HOUR   = 19;
+  const PX_PER_MIN = 1;
   const VIEW_MODE  = "auto"; // bascule sur demain après 21h
+  const MOBILE_BREAKPOINT = 768; // ≤768px => ouverture en modal
 
   // --- État
   let weekOffset = 0;
   let CURRENT_GROUP = null;
   const EVENTS_CACHE = new Map(); // key = group, value = array events
+  let _lastFocused = null; // pour rendre le focus après fermeture du modal
 
   // --- Utils dates
   function getTargetDate() {
@@ -26,8 +28,13 @@
   function frTime(d){ return `${pad2(d.getHours())}h${pad2(d.getMinutes())}`; }
   function minutesSinceStart(date){ return (date.getHours()-START_HOUR)*60 + date.getMinutes(); }
   function clamp(v,min,max){ return Math.max(min, Math.min(max,v)); }
+  function isSmallScreen(){ return (window.innerWidth || document.documentElement.clientWidth) <= MOBILE_BREAKPOINT; }
+  function frDayLabel(d){
+    const opts = { weekday:'long', day:'2-digit', month:'long' };
+    return d.toLocaleDateString('fr-FR', opts);
+  }
 
-  // --- ICS parsing (hérité et consolidé)
+  // --- ICS parsing
   function icsTimeToDate(ics){
     const y=+ics.slice(0,4), m=+ics.slice(4,6)-1, d=+ics.slice(6,8);
     const H=+ics.slice(9,11), M=+ics.slice(11,13), S=+(ics.slice(13,15)||"0");
@@ -35,7 +42,6 @@
   }
   function parseICS(text){
     const lines = text.replace(/\r/g,"\n").split(/\n/);
-    // dé-plie les lignes continuées (RFC 5545)
     for (let i=1;i<lines.length;i++){ if (lines[i].startsWith(" ")) { lines[i-1]+=lines[i].slice(1); lines[i]=""; } }
 
     const out = []; let ev=null;
@@ -44,15 +50,9 @@
       if (line.startsWith("BEGIN:VEVENT")) {
         ev = { extendedProps:{ professeur:"Inconnu", salle:"", salleUrl:null } };
       }
-      else if (line.startsWith("SUMMARY:")) {
-        ev.title = line.slice(8).trim();
-      }
-      else if (line.startsWith("DTSTART")) {
-        ev.start = icsTimeToDate(line.split(":")[1]);
-      }
-      else if (line.startsWith("DTEND")) {
-        ev.end = icsTimeToDate(line.split(":")[1]);
-      }
+      else if (line.startsWith("SUMMARY:"))   ev.title = line.slice(8).trim();
+      else if (line.startsWith("DTSTART"))    ev.start = icsTimeToDate(line.split(":")[1]);
+      else if (line.startsWith("DTEND"))      ev.end   = icsTimeToDate(line.split(":")[1]);
       else if (line.startsWith("LOCATION:")) {
         const salleClean=line.slice(9).trim().replace(/\\,/g,',');
         ev.extendedProps.salle = salleClean || "Salle inconnue";
@@ -73,10 +73,7 @@
           .trim();
         ev.extendedProps.professeur = cleaned || "Inconnu";
       }
-      else if (line.startsWith("END:VEVENT")) {
-        if (ev) out.push(ev);
-        ev=null;
-      }
+      else if (line.startsWith("END:VEVENT")) { if (ev) out.push(ev); ev=null; }
     }
     return out;
   }
@@ -92,7 +89,7 @@
     return events;
   }
 
-  // --- Header navigation (icônes => IMAGES/*)
+  // --- Header navigation
   function makeHeader(container, weekStart, weekEnd) {
     const hdr = document.createElement("div");
     Object.assign(hdr.style,{display:"flex",alignItems:"center",justifyContent:"space-between",gap:"0.5rem",margin:"0 0 0.5rem 0"});
@@ -135,13 +132,12 @@
     container.appendChild(hdr);
   }
 
-  // --- Rail des heures (unique, à gauche)
+  // --- Rail des heures
   function renderTimeRail(container, timelineHeight){
     const railWrap = document.createElement("div");
     Object.assign(railWrap.style,{
-      width:"64px", flex:"0 0 64px", position:"relative",
-      border:"1px solid var(--glass-border)", borderRadius:"12px",
-      background:"var(--glass-bg)", height:`${timelineHeight}px`,
+      flex:"0 0 64px", position:"relative",
+      height:`${timelineHeight}px`,
       boxSizing:"border-box", overflow:"hidden", zIndex:3
     });
 
@@ -216,8 +212,7 @@
     const col = document.createElement("div");
     col.className = "day-col";
     Object.assign(col.style,{
-      flex:"1 1 0", minWidth:"220px", position:"relative", scrollSnapAlign:"start",
-      borderLeft:"1px solid var(--glass-border)", padding:"0.25rem 0.5rem", boxSizing:"border-box",
+      flex:"1 1 0", position:"relative", scrollSnapAlign:"start", boxSizing:"border-box",
       zIndex:3, overflow:"hidden"
     });
 
@@ -241,12 +236,90 @@
     return { col, timeline };
   }
 
-  // --- Carte cours
+  // === MODALE (structure DOM + logique) ==================================
+  function ensureModal(){
+    if (document.getElementById('edt-modal')) return;
+
+    const root = document.createElement('div');
+    root.id = 'edt-modal';
+    root.innerHTML = `
+      <div class="backdrop" data-close="1" aria-hidden="true"></div>
+      <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="edt-modal-title">
+        <button class="close" aria-label="Fermer">×</button>
+        <h3 id="edt-modal-title" class="title"></h3>
+        <div class="meta"></div>
+      </div>`;
+    document.body.appendChild(root);
+
+    root.addEventListener('click', (e)=>{
+      if (e.target.dataset.close) closeModal();
+    });
+    root.querySelector('.close').addEventListener('click', closeModal);
+  }
+
+  function openCourseModal(ev, sourceEl){
+    ensureModal();
+
+    _lastFocused = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+
+    const root   = document.getElementById('edt-modal');
+    const dialog = root.querySelector('.dialog');
+    const titleEl= root.querySelector('#edt-modal-title');
+    const metaEl = root.querySelector('.meta');
+
+    // Appliquer la classe ressource sur la modale (couleur cohérente)
+    dialog.classList.forEach(c => { if (c.startsWith('resource-')) dialog.classList.remove(c); });
+    if (sourceEl && sourceEl.classList) {
+      const resClass = [...sourceEl.classList].find(c => c.startsWith('resource-'));
+      if (resClass) dialog.classList.add(resClass);
+    }
+
+    // Contenu — uniquement l'information (pas de "Quand :", "Prof :", "Salle :")
+    titleEl.textContent = ev.title || 'Cours';
+
+    const salleLabel = ev.extendedProps?.salle || 'Salle ?';
+    const salleHTML  = `<button type="button" class="salle-link" id="edt-modal-salle-link">${salleLabel}</button>`;
+
+    metaEl.innerHTML = `
+      <div>${frDayLabel(ev.start)} — ${frTime(ev.start)}–${frTime(ev.end)}</div>
+      <div>${ev.extendedProps?.professeur || 'Inconnu'}</div>
+      <div>${salleHTML}</div>
+    `;
+
+    // Clic sur la salle ⇒ afficheSalle() si dispo, sinon navigation
+    const salleBtn = document.getElementById('edt-modal-salle-link');
+    if (salleBtn) {
+      salleBtn.addEventListener('click', () => {
+        if (ev.extendedProps?.salleUrl) {
+          if (typeof window.afficheSalle === 'function') {
+            window.afficheSalle(ev.extendedProps.salleUrl);
+          } else {
+            window.location.href = ev.extendedProps.salleUrl;
+          }
+        }
+        closeModal();
+      }, { once: true });
+    }
+
+    // Afficher, bloquer le scroll, focus
+    root.classList.add('show');
+    document.documentElement.style.overflow = 'hidden';
+    const btnClose = root.querySelector('.close');
+    if (btnClose) btnClose.focus();
+  }
+
+  function closeModal(){
+    const root = document.getElementById('edt-modal');
+    if (root) root.classList.remove('show');
+    document.documentElement.style.overflow = '';
+    if (_lastFocused) { try{ _lastFocused.focus(); } catch(_){} }
+  }
+
+  // --- Carte cours (ouvre la modale sur petit écran)
   function placeEventCard(timeline, ev){
     const card = document.createElement("div");
     card.className = "cour";
 
-    // Attributions de classes (hérité)
     const t = ev.title || "";
     const match = t.match(/([RS]\d+(?:\.[A-Z]?(?:&[A-Z])?\.\d+|\.[A-Z]?\.\w+|\.\d+)|S\d+\.[A-Z]?\.\d+)/);
     if (match) card.classList.add("resource-" + match[1].replace(/\.|&|\s/g, "-"));
@@ -261,7 +334,8 @@
     if (ev.extendedProps?.salleUrl) {
       location.style.cursor = 'pointer';
       location.title = 'Ouvrir sur la carte des prises';
-      location.addEventListener('click', ()=>{
+      location.addEventListener('click', (e)=>{
+        e.stopPropagation();
         if (typeof window.afficheSalle === 'function') window.afficheSalle(ev.extendedProps.salleUrl);
         else window.location.href = ev.extendedProps.salleUrl;
       });
@@ -275,16 +349,26 @@
 
     card.append(topRow, bottomRow);
 
+    // Position verticale
     card.style.position="absolute";
     const startMin = minutesSinceStart(ev.start);
     const endMin   = minutesSinceStart(ev.end);
     const top = clamp(startMin,0,(END_HOUR-START_HOUR)*60) * PX_PER_MIN;
     const height = Math.max(32, (endMin - startMin) * PX_PER_MIN - 6);
     Object.assign(card.style,{left:"8px",right:"8px",top:`${top}px`,height:`${height}px`,boxShadow:"0 6px 14px rgba(0,0,0,0.15)",zIndex:2});
+
+    // Modal sur petit écran
+    card.addEventListener('click', (e)=>{
+      if (!isSmallScreen()) return;
+      e.preventDefault();
+      e.stopPropagation();
+      openCourseModal(ev, card);
+    });
+
     timeline.appendChild(card);
   }
 
-  // --- Résumé de semaine (reconstruction côté grille)
+  // --- Résumé de semaine
   function scanWeeks(allEvents, monday){
     const blocks = [
       { label:'Cette semaine',      base:new Date(monday),                     el:document.getElementById('summary-this-week') },
@@ -303,7 +387,7 @@
 
       for (let i=0;i<7;i++){
         const day = addDays(b.base, i);
-        const dow = day.getDay(); if (dow===0 || dow===6) continue; // skip dim/sam
+        const dow = day.getDay(); if (dow===0 || dow===6) continue;
         const dateLabel = day.toLocaleDateString('fr-FR', { day:'numeric', month:'long' });
         const dayEvents = allEvents.filter(e => sameYMD(e.start, day));
         if (dayEvents.length===0) empties.push(dateLabel);
@@ -348,17 +432,15 @@
     const monday = addDays(monday0, weekOffset*7);
     const sunday = addDays(monday,6);
 
-    // Header
     makeHeader(host, monday, sunday);
 
-    // Rangée
     const row = document.createElement("div");
     Object.assign(row.style,{display:"flex",gap:"0.5rem",alignItems:"flex-start"});
     host.appendChild(row);
 
     const hPx = timelineHeightPx();
 
-    // WRAPPER COMMUN => scroll vertical unique pour heures + jours
+    // Wrapper commun (scroll vertical unique)
     const scrollWrap = document.createElement("div");
     Object.assign(scrollWrap.style,{
       position:"relative",
@@ -366,16 +448,15 @@
       gap:"0.5rem",
       alignItems:"flex-start",
       height:`${hPx}px`,
-      overflowY:"auto",   // défilement vertical commun
+      overflowY:"auto",
       overflowX:"hidden",
       width:"100%"
     });
     row.appendChild(scrollWrap);
 
-    // Rail des heures dans le wrapper commun
+    // Rail des heures + zone jours
     renderTimeRail(scrollWrap, hPx);
 
-    // Zone jours (scroll horizontal uniquement)
     const daysArea = document.createElement("div");
     Object.assign(daysArea.style,{
       position:"relative", flex:"1 1 auto",
@@ -385,22 +466,19 @@
     });
     scrollWrap.appendChild(daysArea);
 
-    // Lignes horaires + "now" sur TOUTE la largeur (heures incluses)
     renderHourOverlay(scrollWrap, hPx);
 
-    // Récup des events
+    // Events
     let events;
     try { events = await loadICS(CURRENT_GROUP); }
     catch(e){ const p=document.createElement("p"); p.textContent="Impossible de charger l’EDT."; p.style.padding="1rem"; host.appendChild(p); return; }
 
-    // Filtrage semaine courante (borne haute EXCLUSIVE)
     const nextMonday = addDays(monday, 7);
     const weekEvents = events.filter(e => e.start >= monday && e.start < nextMonday);
     const byDay = Array.from({length:7}, ()=>[]);
     for (const ev of weekEvents){ const idx=(ev.start.getDay()+6)%7; byDay[idx].push(ev); }
     byDay.forEach(list=>list.sort((a,b)=>a.start-b.start));
 
-    // Masque sam/dim si vides
     const showSat = byDay[5].length>0;
     const showSun = byDay[6].length>0;
 
@@ -413,7 +491,7 @@
       columns.push({col, dateObj});
     }
 
-    // Auto-scroll vertical (sur le wrapper commun)
+    // Auto-scroll vertical
     const isCurrentWeek = getMonday(new Date()).getTime() === monday.getTime();
     if (isCurrentWeek && columns.length){
       const targetCol = columns.find(c => sameYMD(c.dateObj, new Date()));
@@ -432,12 +510,12 @@
       }
     }
 
-    // Résumés (semaine affichée + suivante)
+    // Résumé deux semaines
     const twoWeeksEvents = events.filter(e => e.start >= monday && e.start < addDays(monday, 14));
     scanWeeks(twoWeeksEvents, monday);
   }
 
-  // --- Sélection de groupe (réutilise le HTML existant #groupe-menu)
+  // --- Sélection de groupe
   function setupGroupMenu(){
     const nodes = document.querySelectorAll('#groupe-menu .subgroup');
     nodes.forEach(el => {
@@ -481,8 +559,12 @@
     if (document.querySelector('.calendar-grid')) window.initEDTGrid();
   });
 
-  // Raccourcis clavier
+  // --- Raccourcis clavier (inclut ESC pour fermer la modale)
   window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const m = document.getElementById('edt-modal');
+      if (m && m.classList.contains('show')) { e.preventDefault(); closeModal(); return; }
+    }
     if (e.key === 'ArrowLeft'){ e.preventDefault(); weekOffset--; loadAndRender(); }
     if (e.key === 'ArrowRight'){ e.preventDefault(); weekOffset++; loadAndRender(); }
     if (e.key.toLowerCase() === 't'){ e.preventDefault(); weekOffset=0; loadAndRender(); }
