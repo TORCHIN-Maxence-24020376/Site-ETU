@@ -117,11 +117,11 @@
       return btn;
     };
 
-    const prev  = mkBtn("IMAGES/prev.svg",  "Semaine précédente", ()=>{ weekOffset--; loadAndRender(); })
+    const prev  = mkBtn("IMAGES/prev.svg",  "Semaine précédente", ()=>{ weekOffset--; loadAndRender(); });
     prev.classList.add("logo");
-    const today = mkBtn("IMAGES/today.svg", "Aujourd’hui",         ()=>{ weekOffset=0;  loadAndRender(); })
+    const today = mkBtn("IMAGES/today.svg", "Aujourd’hui",         ()=>{ weekOffset=0;  loadAndRender(); });
     today.classList.add("logo");
-    const next  = mkBtn("IMAGES/next.svg",  "Semaine suivante",    ()=>{ weekOffset++; loadAndRender(); })
+    const next  = mkBtn("IMAGES/next.svg",  "Semaine suivante",    ()=>{ weekOffset++; loadAndRender(); });
     next.classList.add("logo");
 
     left.append(prev, today, next);
@@ -135,11 +135,91 @@
     container.appendChild(hdr);
   }
 
-  // --- Colonne jour
-  function renderDayColumn(grid, dateObj) {
+  // --- Rail des heures (unique, à gauche)
+  function renderTimeRail(container, timelineHeight){
+    const railWrap = document.createElement("div");
+    Object.assign(railWrap.style,{
+      width:"64px", flex:"0 0 64px", position:"relative",
+      border:"1px solid var(--glass-border)", borderRadius:"12px",
+      background:"var(--glass-bg)", height:`${timelineHeight}px`,
+      boxSizing:"border-box", overflow:"hidden", zIndex:3
+    });
+
+    for (let h=START_HOUR; h<=END_HOUR; h++){
+      const top = (h-START_HOUR)*60*PX_PER_MIN;
+      const tick = document.createElement("div");
+      Object.assign(tick.style,{position:"absolute", left:"0", right:"0", top:`${top}px`});
+      const dash = document.createElement("div");
+      Object.assign(dash.style,{position:"absolute", right:"8px", width:"10px", height:"1px",
+        background:"var(--glass-border)"});
+      const label = document.createElement("div");
+      Object.assign(label.style,{
+        position:"absolute", left:"8px", top:"-10px", fontSize:"11px",
+        color:"var(--less-important-text)", userSelect:"none", fontVariantNumeric:"tabular-nums"
+      });
+      label.textContent = `${pad2(h)}:00`;
+      tick.append(dash,label);
+      railWrap.appendChild(tick);
+    }
+    container.appendChild(railWrap);
+  }
+
+  // --- Grille horaire transversale + ligne "maintenant" sur le WRAPPER COMMUN
+  function renderHourOverlay(scrollWrap, timelineHeight){
+    const overlay = document.createElement("div");
+    Object.assign(overlay.style,{
+      position:"absolute", left:0, right:0, top:0, height:`${timelineHeight}px`,
+      pointerEvents:"none", zIndex:5
+    });
+    for (let h=START_HOUR; h<=END_HOUR; h++){
+      const top = (h-START_HOUR)*60*PX_PER_MIN;
+      const row = document.createElement("div");
+      Object.assign(row.style,{
+        position:"absolute", left:0, right:0, top:`${top}px`,
+        borderTop:"1px dashed var(--glass-border)", opacity:"0.6"
+      });
+      overlay.appendChild(row);
+    }
+    scrollWrap.appendChild(overlay);
+
+    const nowLine = document.createElement("div");
+    Object.assign(nowLine.style,{
+      position:"absolute", left:0, right:0, height:"2px",
+      background:"#e74c3c", boxShadow:"0 0 6px rgba(231,76,60,0.8)",
+      zIndex:20, display:"none", pointerEvents:"none"
+    });
+    scrollWrap.appendChild(nowLine);
+
+    function tick(){
+      const now = new Date();
+      const minutes = minutesSinceStart(now);
+      const total = (END_HOUR-START_HOUR)*60;
+      const baseMonday = getMonday(getTargetDate());
+      const showingMonday = addDays(baseMonday, weekOffset*7);
+      const isTodayInWeek = now >= showingMonday && now < addDays(showingMonday,7);
+      if (!isTodayInWeek || minutes<0 || minutes>total){ nowLine.style.display="none"; return; }
+      nowLine.style.display="block";
+      nowLine.style.top = `${minutes*PX_PER_MIN}px`;
+    }
+    tick();
+    clearInterval(scrollWrap._nowTimer);
+    scrollWrap._nowTimer = setInterval(tick, 60*1000);
+  }
+
+  function timelineHeightPx(){
+    const totalMinutes = (END_HOUR-START_HOUR)*60;
+    return Math.max(480, totalMinutes*PX_PER_MIN);
+  }
+
+  // --- Colonne d’un jour
+  function renderDayColumn(daysArea, dateObj, timelineHeight){
     const col = document.createElement("div");
     col.className = "day-col";
-    Object.assign(col.style,{flex:"1 1 0",minWidth:"220px",position:"relative",borderLeft:"1px solid var(--glass-border)",padding:"0.25rem 0.5rem",boxSizing:"border-box"});
+    Object.assign(col.style,{
+      flex:"1 1 0", minWidth:"220px", position:"relative", scrollSnapAlign:"start",
+      borderLeft:"1px solid var(--glass-border)", padding:"0.25rem 0.5rem", boxSizing:"border-box",
+      zIndex:3, overflow:"hidden"
+    });
 
     const head = document.createElement("div");
     Object.assign(head.style,{display:"flex",justifyContent:"space-between",alignItems:"baseline",marginBottom:"0.25rem"});
@@ -150,32 +230,15 @@
     col.appendChild(head);
 
     const timeline = document.createElement("div");
-    timeline.style.position = "relative";
-    const totalMinutes = (END_HOUR-START_HOUR)*60;
-    timeline.style.height = `${Math.max(480,totalMinutes*PX_PER_MIN)}px`;
-    timeline.style.borderTop = "1px solid var(--glass-border)";
-    timeline.style.borderRight = "1px solid var(--glass-border)";
-    timeline.style.borderRadius = "12px";
-    timeline.style.overflow = "hidden";
-
-    for (let h=START_HOUR; h<=END_HOUR; h++){
-      const top = (h-START_HOUR)*60*PX_PER_MIN;
-      const row = document.createElement("div");
-      Object.assign(row.style,{position:"absolute",left:0,right:0,top:`${top}px`,borderTop:"1px dashed var(--glass-border)",opacity:"0.6"});
-      const label = document.createElement("span");
-      Object.assign(label.style,{position:"absolute",left:"8px",top:"-10px",fontSize:"11px",color:"var(--less-important-text)"});
-      label.textContent = `${pad2(h)}:00`;
-      row.appendChild(label);
-      timeline.appendChild(row);
-    }
-
-    const nowLine = document.createElement("div");
-    Object.assign(nowLine.style,{position:"absolute",left:0,right:0,height:"2px",background:"#e74c3c",boxShadow:"0 0 6px rgba(231,76,60,0.8)",zIndex:5});
-    timeline.appendChild(nowLine);
-
+    Object.assign(timeline.style,{
+      position:"relative", height:`${timelineHeight}px`,
+      border:"1px solid var(--glass-border)", borderRadius:"12px",
+      overflow:"hidden", background:"var(--glass-bg-dark)"
+    });
     col.appendChild(timeline);
-    grid.appendChild(col);
-    return { col, timeline, nowLine };
+
+    daysArea.appendChild(col);
+    return { col, timeline };
   }
 
   // --- Carte cours
@@ -183,7 +246,7 @@
     const card = document.createElement("div");
     card.className = "cour";
 
-    // Attributions de classes (hérité de l'ancien)
+    // Attributions de classes (hérité)
     const t = ev.title || "";
     const match = t.match(/([RS]\d+(?:\.[A-Z]?(?:&[A-Z])?\.\d+|\.[A-Z]?\.\w+|\.\d+)|S\d+\.[A-Z]?\.\d+)/);
     if (match) card.classList.add("resource-" + match[1].replace(/\.|&|\s/g, "-"));
@@ -198,7 +261,10 @@
     if (ev.extendedProps?.salleUrl) {
       location.style.cursor = 'pointer';
       location.title = 'Ouvrir sur la carte des prises';
-      location.addEventListener('click', ()=>{ afficheSalle(ev.extendedProps.salleUrl); });
+      location.addEventListener('click', ()=>{
+        if (typeof window.afficheSalle === 'function') window.afficheSalle(ev.extendedProps.salleUrl);
+        else window.location.href = ev.extendedProps.salleUrl;
+      });
     }
     topRow.append(name, location);
 
@@ -216,23 +282,6 @@
     const height = Math.max(32, (endMin - startMin) * PX_PER_MIN - 6);
     Object.assign(card.style,{left:"8px",right:"8px",top:`${top}px`,height:`${height}px`,boxShadow:"0 6px 14px rgba(0,0,0,0.15)",zIndex:2});
     timeline.appendChild(card);
-  }
-
-  function updateNowLine(nowLine, containerDate){
-    const now = new Date();
-    const minutes = minutesSinceStart(now);
-    const total = (END_HOUR-START_HOUR)*60;
-    if (!sameYMD(now,containerDate) || minutes<0 || minutes>total){ nowLine.style.display="none"; return; }
-    nowLine.style.display="block";
-    nowLine.style.top = `${minutes*PX_PER_MIN}px`;
-  }
-
-  function shouldUpdateAt(){ const h=new Date().getHours(); return h<21?21:24; }
-  function scheduleNextUpdate(){
-    const now=new Date(); const targetHour=shouldUpdateAt(); const next=new Date(now);
-    next.setHours(targetHour,0,0,0); if (targetHour===24) next.setDate(now.getDate()+1);
-    const delay=next-now;
-    setTimeout(()=>{ loadAndRender(); scheduleNextUpdate(); }, Math.max(1000,delay));
   }
 
   // --- Résumé de semaine (reconstruction côté grille)
@@ -278,7 +327,15 @@
     });
   }
 
-  // --- Rendu principal
+  function shouldUpdateAt(){ const h=new Date().getHours(); return h<21?21:24; }
+  function scheduleNextUpdate(){
+    const now=new Date(); const targetHour=shouldUpdateAt(); const next=new Date(now);
+    next.setHours(targetHour,0,0,0); if (targetHour===24) next.setDate(now.getDate()+1);
+    const delay=next-now;
+    setTimeout(()=>{ loadAndRender(); scheduleNextUpdate(); }, Math.max(1000,delay));
+  }
+
+  // --- Rendu principal (heures + jours dans un SEUL wrapper scrollable verticalement)
   async function loadAndRender(){
     const host = document.querySelector(".calendar-grid");
     if (!host || !CURRENT_GROUP) return;
@@ -291,12 +348,47 @@
     const monday = addDays(monday0, weekOffset*7);
     const sunday = addDays(monday,6);
 
+    // Header
     makeHeader(host, monday, sunday);
 
-    const grid = document.createElement("div");
-    Object.assign(grid.style,{display:"flex",gap:"0.5rem",alignItems:"flex-start",overflowX:"auto",scrollSnapType:"x proximity"});
-    host.appendChild(grid);
+    // Rangée
+    const row = document.createElement("div");
+    Object.assign(row.style,{display:"flex",gap:"0.5rem",alignItems:"flex-start"});
+    host.appendChild(row);
 
+    const hPx = timelineHeightPx();
+
+    // WRAPPER COMMUN => scroll vertical unique pour heures + jours
+    const scrollWrap = document.createElement("div");
+    Object.assign(scrollWrap.style,{
+      position:"relative",
+      display:"flex",
+      gap:"0.5rem",
+      alignItems:"flex-start",
+      height:`${hPx}px`,
+      overflowY:"auto",   // défilement vertical commun
+      overflowX:"hidden",
+      width:"100%"
+    });
+    row.appendChild(scrollWrap);
+
+    // Rail des heures dans le wrapper commun
+    renderTimeRail(scrollWrap, hPx);
+
+    // Zone jours (scroll horizontal uniquement)
+    const daysArea = document.createElement("div");
+    Object.assign(daysArea.style,{
+      position:"relative", flex:"1 1 auto",
+      display:"flex", gap:"0.5rem", alignItems:"flex-start",
+      overflowX:"auto", overflowY:"hidden",
+      height:`${hPx}px`
+    });
+    scrollWrap.appendChild(daysArea);
+
+    // Lignes horaires + "now" sur TOUTE la largeur (heures incluses)
+    renderHourOverlay(scrollWrap, hPx);
+
+    // Récup des events
     let events;
     try { events = await loadICS(CURRENT_GROUP); }
     catch(e){ const p=document.createElement("p"); p.textContent="Impossible de charger l’EDT."; p.style.padding="1rem"; host.appendChild(p); return; }
@@ -316,37 +408,31 @@
     for (let i=0;i<7;i++){
       if ((i===5 && !showSat) || (i===6 && !showSun)) continue;
       const dateObj = addDays(monday,i);
-      const {col, timeline, nowLine} = renderDayColumn(grid, dateObj);
-      col.style.scrollSnapAlign="start";
+      const {col, timeline} = renderDayColumn(daysArea, dateObj, hPx);
       byDay[i].forEach(ev => placeEventCard(timeline, ev));
-      const tick = () => updateNowLine(nowLine, dateObj);
-      tick();
-      clearInterval(col._nowTimer);
-      col._nowTimer = setInterval(tick, 60*1000);
       columns.push({col, dateObj});
     }
 
+    // Auto-scroll vertical (sur le wrapper commun)
     const isCurrentWeek = getMonday(new Date()).getTime() === monday.getTime();
     if (isCurrentWeek && columns.length){
       const targetCol = columns.find(c => sameYMD(c.dateObj, new Date()));
       if (targetCol){
         const y = minutesSinceStart(new Date())*PX_PER_MIN - 120;
-        targetCol.col.scrollTo({ top: Math.max(0,y), behavior:"smooth" });
+        scrollWrap.scrollTo({ top: Math.max(0,y), behavior:"smooth" });
       }
     } else if (columns.length){
       const idxFirstWith = byDay.findIndex(d => d.length>0);
       if (idxFirstWith>=0){
-        const firstDate = addDays(monday, idxFirstWith);
-        const targetCol = columns.find(c => sameYMD(c.dateObj, firstDate));
         const firstEv = byDay[idxFirstWith][0];
-        if (targetCol && firstEv){
+        if (firstEv){
           const y = minutesSinceStart(firstEv.start)*PX_PER_MIN - 20;
-          targetCol.col.scrollTo({ top: Math.max(0,y) });
+          scrollWrap.scrollTo({ top: Math.max(0,y) });
         }
       }
     }
 
-    // Résumés (on scanne la semaine affichée **et** la suivante)
+    // Résumés (semaine affichée + suivante)
     const twoWeeksEvents = events.filter(e => e.start >= monday && e.start < addDays(monday, 14));
     scanWeeks(twoWeeksEvents, monday);
   }
@@ -385,7 +471,6 @@
       const node = document.querySelector(`#groupe-menu .subgroup[data-groupe="${CSS.escape(saved)}"]`);
       if (node) highlightPath(node);
     } else {
-      // défaut : premier sous-groupe disponible
       const first = document.querySelector('#groupe-menu .subgroup');
       if (first) { CURRENT_GROUP = first.getAttribute('data-groupe'); highlightPath(first); }
     }
@@ -402,4 +487,5 @@
     if (e.key === 'ArrowRight'){ e.preventDefault(); weekOffset++; loadAndRender(); }
     if (e.key.toLowerCase() === 't'){ e.preventDefault(); weekOffset=0; loadAndRender(); }
   });
+
 })();

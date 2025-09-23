@@ -65,7 +65,7 @@
     {
         "name": "I102",
         "type": "Salle",
-        "info": "Prise: Non • 4G: ? barres • IP: 10.203.28.***",
+        "info": "Prise: Oui • 4G: 2 barres • IP: 10.203.28.***",
         "ip": "10.203.28.***",
         "category": "etage-1",
         "idText": "TP%20I-102"
@@ -156,7 +156,7 @@
         "info": "Prise: Non • 4G: 1-2 barres",
         "ip": "",
         "category": "etage-2",
-        "idText": "TD%20I-206"
+        "idText": "Audio%20I-206"
     },
 
     {

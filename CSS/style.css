@@ -873,15 +873,35 @@ a{
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    width: 60%;
+    width: 50%;
 }
 
 .week-summary-block {
     flex: 1;
     border-radius: 20px;
     padding: 1rem;
+    min-height: 8em;
+    max-height: 8em;
+    overflow: auto;
+    width: 90%;
+
+    &::-webkit-scrollbar {
+        width: 12px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: var(--color-scrollbar-track);
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: var(--color-scrollbar-thumb);
+    }
 }
-  
+
 #groupe-menu .year.selected {
     background-color: #0366d6;
     color: white;

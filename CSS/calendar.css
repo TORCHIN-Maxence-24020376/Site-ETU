@@ -29,10 +29,9 @@
 
 .cour{
     background-color: #0099ff;
-    border-radius: 20px;
+    border-radius: 18px;
     padding-left: 1rem;
     padding-right: 1rem;
-    margin-left: 3rem;
     min-height: 1px;
     transition: all ease-in-out 0.3s;
     border: white 2px solid;
@@ -48,7 +47,6 @@
 
     display: flex;
     flex-direction: column;
-    color: var(--text);
 
     div{
         text-align: center;
@@ -74,14 +72,12 @@
 .location{
     font-weight: bold;
     font-size: 0.8em;
-    color: orange;
 }
 
 .prof, .time{
     color: var(--less-important-text);
     font-style: italic;
     font-size: 0.8em;
-    color: aquamarine;
 }
 
 @media (max-width: 768px) {
@@ -245,52 +241,6 @@
     background-repeat: no-repeat;
 }
 
-@media screen and (max-width: 768px) {
-    #calendar {
-        font-size: 0.9rem !important;
-        max-width: 98%;
-    }
-
-    .fc-timegrid-slot {
-        height: 35px !important;
-    }
-
-    .fc-event {
-        min-height: 35px !important;
-        padding: 3px !important;
-    }
-
-    .event-details {
-        padding: 3px !important;
-    }
-    .edt-du-jour{
-        width: 95%;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    #calendar {
-        font-size: 0.8rem !important;
-        max-width: 100%;
-    }
-
-    .fc-timegrid-slot {
-        height: 25px !important;
-    }
-
-    .fc-event {
-        min-height: 25px !important;
-        padding: 2px !important;
-        font-size: 0.5rem !important;
-    }
-
-    .event-details {
-        padding: 2px !important;
-        font-size: 0.5rem !important;
-    }
-
-    @keyframes clignoter {
-        0%, 100% { transform: scale(0.95); }
-        50% { transform: scale(1.1); }
-    }
+button{
+    border: solid black 1px !important;
 }

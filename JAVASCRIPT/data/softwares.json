@@ -142,5 +142,14 @@
         "category": "reseau",
         "invert": false,
         "tags": ["FTP", "SFTP", "Transfert de fichiers", "Serveur", "Réseau"]
+    },
+    {
+        "link": "https://www.apachefriends.org/fr/download.html",
+        "name": "XAMPP",
+        "logo": "xampp.svg",
+        "info": "Environnement de développement local intégrant Apache, MySQL, PHP et Perl.",
+        "category": "dev-tools",
+        "invert": false,
+        "tags": ["Apache", "MySQL", "PHP", "Perl", "Serveur local", "Base de données", "Développement web"]
     }
 ]
