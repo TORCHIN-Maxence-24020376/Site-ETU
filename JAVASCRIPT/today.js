@@ -1,4 +1,4 @@
-/* today.js — Vue jour unique (#edt-du-jour) avec classes CSS inspirées de la grille semaine */
+/* today.js*/
 (function () {
     const START_HOUR = 7;
     const END_HOUR   = 19;
@@ -13,6 +13,12 @@
       return `https://raw.githubusercontent.com/TORCHIN-Maxence-24020376/EDT/main/edt_data/${encodeURIComponent(group)}.ics`;
     }
   
+
+    function frDayLabel(d){
+      const opts = { weekday:'long', day:'2-digit', month:'long' };
+      return d.toLocaleDateString('fr-FR', opts);
+    }
+
     // ====== Date cible ======
     function getTargetDate(){
       const now = new Date();
@@ -217,6 +223,8 @@
         boxShadow:"0 6px 14px rgba(0,0,0,0.15)", zIndex:2
       });
   
+      card.addEventListener('click', (e)=>{ e.preventDefault(); e.stopPropagation(); openCourseModal(ev, card); });
+
       timeline.appendChild(card);
     }
   
@@ -281,6 +289,70 @@
         container.innerHTML = `<p style="padding:1rem">Impossible de charger l’EDT pour le groupe <b>${group}</b>.</p>`;
       }
     }
+
+    // === Modale ===========================================================
+  function ensureModal(){
+    if (document.getElementById('edt-modal')) return;
+    const root = document.createElement('div');
+    root.id = 'edt-modal';
+    root.innerHTML = `
+      <div class="backdrop" data-close="1" aria-hidden="true"></div>
+      <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="edt-modal-title">
+        <button class="close" aria-label="Fermer">×</button>
+        <h3 id="edt-modal-title" class="title"></h3>
+        <div class="meta"></div>
+      </div>`;
+    document.body.appendChild(root);
+    root.addEventListener('click', (e)=>{ if (e.target.dataset.close) closeModal(); });
+    root.querySelector('.close').addEventListener('click', closeModal);
+  }
+  function openCourseModal(ev, sourceEl){
+    ensureModal();
+    _lastFocused = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+
+    const root   = document.getElementById('edt-modal');
+    const dialog = root.querySelector('.dialog');
+    const titleEl= root.querySelector('#edt-modal-title');
+    const metaEl = root.querySelector('.meta');
+
+    // couleur de ressource sur la modale
+    dialog.classList.forEach(c => { if (c.startsWith('resource-')) dialog.classList.remove(c); });
+    if (sourceEl && sourceEl.classList) {
+      const resClass = [...sourceEl.classList].find(c => c.startsWith('resource-'));
+      if (resClass) dialog.classList.add(resClass);
+    }
+
+    // contenu sans libellés
+    titleEl.textContent = ev.title || 'Cours';
+    const salleLabel = ev.extendedProps?.salle || 'Salle ?';
+    const salleHTML  = `<button type="button" class="salle-link" id="edt-modal-salle-link">${salleLabel}</button>`;
+    metaEl.innerHTML = `
+      <div>${frDayLabel(ev.start)} - ${frTime(ev.start)}–${frTime(ev.end)}</div>
+      <div>${ev.extendedProps?.professeur || 'Inconnu'}</div>
+      <div>${salleHTML}</div>`;
+
+    const salleBtn = document.getElementById('edt-modal-salle-link');
+    if (salleBtn) {
+      salleBtn.addEventListener('click', () => {
+        if (ev.extendedProps?.salleUrl) {
+          if (typeof window.afficheSalle === 'function') window.afficheSalle(ev.extendedProps.salleUrl);
+          else window.location.href = ev.extendedProps.salleUrl;
+        }
+        closeModal();
+      }, { once:true });
+    }
+
+    root.classList.add('show');
+    document.documentElement.style.overflow = 'hidden';
+    const btnClose = root.querySelector('.close');
+    if (btnClose) btnClose.focus();
+  }
+  function closeModal(){
+    const root = document.getElementById('edt-modal');
+    if (root) root.classList.remove('show');
+    document.documentElement.style.overflow = '';
+    if (_lastFocused) { try{ _lastFocused.focus(); } catch(_){} }
+  }
   
     // ====== Boot ======
     document.addEventListener("DOMContentLoaded", () => {

@@ -1,13 +1,10 @@
-/* pwa.js — SW + bouton Installer + purge caches
-   — Adapté pour GitHub Pages (BASE_PATH = "/Site-ETU/")
-   — Si ton site est à la racine, mets BASE_PATH = "/"
-*/
+/* pwa.js — SW + bouton Installer + purge caches*/
 (function () {
   if (window.__pwaBootstrapped) return;
   window.__pwaBootstrapped = true;
 
   // === CONFIG ===
-  const BASE_PATH  = "/Site-ETU/";            // <- change si nécessaire
+  const BASE_PATH  = "/Site-ETU/";yyy
   const SW_FILE    = "service-worker.js";     // même dossier que manifest
   const SW_VERSION = "v1-offline-only";
   const MANIFEST_HREF = `${BASE_PATH}manifest.json?v=${SW_VERSION}`;

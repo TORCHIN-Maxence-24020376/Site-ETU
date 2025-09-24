@@ -7,9 +7,96 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <title>Hors ligne - Site ETU</title>
-    <link rel="stylesheet" href="CSS/style.css">
-    <link id="theme-link" rel="stylesheet" href="CSS/SOMBRE/aqua.css">
     <style>
+
+        :root {
+            --color-primary: #081b33;
+            --color-secondary: #0a2646;
+            --color-accent: #132f4d;
+            --color-hover: #205288;
+            --color-active: #4582c7;
+        
+            --color-bg-gradient: linear-gradient(135deg, #040f29, #0f317f);
+            --color-overlay-gradient: linear-gradient(135deg, #0a2646, #081b33);
+        
+            --color-text: #ffffff;
+            --color-link: #60d5e5;
+            --color-shadow: #222222;
+        
+            --color-scrollbar-track: var(--color-secondary);
+            --color-scrollbar-thumb: var(--color-accent);
+        }
+
+        body {
+            background: var(--color-bg-gradient);
+            color: var(--color-text);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #réseau-info{
+            display: flex;
+            flex-direction: column;
+        }
+
+        #réseau-info form{
+            display: flex;
+            flex-direction: column;
+            text-align: justify;
+        
+        }
+
+        #Selection-salle {
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .selection-menu {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .select-input {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .select-input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .réseau-info {
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        form div {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .champ-entree {
+            padding: 8px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            color: #333;
+        }
+
+        .champ-entree:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
         .offline-container {
             display: flex;
             flex-direction: column;
@@ -38,22 +125,6 @@
             color: var(--text-color-secondary);
             max-width: 600px;
         }
-        
-        .offline-button {
-            padding: 12px 24px;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin: 10px;
-        }
-        
-        .offline-button:hover {
-            background-color: var(--primary-color-dark);
-        }
 
         .connection-section {
             margin-top: 30px;
@@ -62,6 +133,25 @@
             border-radius: 10px;
             width: 90%;
             max-width: 600px;
+        }
+
+        button{
+            display: inline-block;
+            padding: 12px 24px;
+            margin-top: 15px;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            background-color: #0065e5;
+            color: white;
+            &:hover{
+                background-color: #0e76ff;
+            }
         }
     </style>
 </head>
@@ -127,7 +217,7 @@
 
         <div class="button-container">
             <button class="offline-button" onclick="window.location.reload()">Réessayer la connexion</button>
-            <button onclick="window.location.href='https://ent.univ-amu.fr/'">Se connecter à Aix-Marseille Université</button>
+            <button class="offline-button" onclick="window.location.href='https://ent.univ-amu.fr/'">Se connecter à Aix-Marseille Université</button>
             <button class="offline-button" onclick="window.location.href='index.html'">Retourner à l'accueil</button>
         </div>
     </main>

@@ -907,13 +907,13 @@ a{
     color: white;
     font-weight: bold;
 }
-  
+
 #groupe-menu .group.selected {
     background-color: #64b5f6;
     color: white;
     font-weight: bold;
 }
-  
+
 #groupe-menu .subgroup.selected {
     background-color: #bbdefb;
     color: #03396c;

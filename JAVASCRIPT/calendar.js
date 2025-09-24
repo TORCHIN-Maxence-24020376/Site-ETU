@@ -309,7 +309,6 @@
     const height = Math.max(32, (endMin - startMin) * PX_PER_MIN - 6);
     Object.assign(card.style,{left:"8px",right:"8px",top:`${top}px`,height:`${height}px`,boxShadow:"0 6px 14px rgba(0,0,0,0.15)",zIndex:2});
 
-    // Modale sur mobile
     card.addEventListener('click', (e)=>{ e.preventDefault(); e.stopPropagation(); openCourseModal(ev, card); });
 
     timeline.appendChild(card);
