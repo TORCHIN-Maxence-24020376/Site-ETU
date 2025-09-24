@@ -33,11 +33,12 @@
     min-height: 1px;
     transition: all ease-in-out 0.3s;
     border: white 2px solid;
+    cursor: pointer;
 
     overflow-y: scroll;
 
     &:hover{
-        background-color: rgb(70, 70, 70);
+        background-color: #007ed2;
         backdrop-filter: blur(5px);
         min-height: 13em;
         z-index: 1000 !important;
@@ -286,9 +287,9 @@
     width: min(92vw, 640px);
     max-height: 86vh;
     overflow: auto;
-    background: var(--glass-bg-dark, #1e1e1e);
+    background-color: #0099ff;
     color: inherit;
-    border: 1px solid var(--glass-border, rgba(255,255,255,.15));
+    border: 1px solid rgba(255, 255, 255);
     border-radius: 18px;
     padding: 16px;
     box-shadow: 0 30px 80px rgba(0,0,0,.35);
@@ -301,6 +302,7 @@
     font-weight: 700;
     line-height: 1.25;
     text-align: center;
+    padding: 20px;
 }
 
 /* Les infos (jour/heure, prof, salle) seules, sans libellés */
@@ -314,8 +316,8 @@
   /* Bouton de fermeture */
 #edt-modal .close {
     position: absolute;
-    right: 8px;
-    top: 8px;
+    right: 2px;
+    top: 2px;
     border: none;
     background: transparent;
     color: inherit;
@@ -346,4 +348,51 @@
 @media (max-width: 480px) {
     #edt-modal .dialog { width: 96vw; padding: 14px; }
     #edt-modal .title  { font-size: 1rem; }
+}
+
+
+/* ===== Entête des jours (au-dessus de l'EDT) ========================= */
+.edt-days-header {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;               /* Doit matcher le gap horizontal de la grille */
+    margin: 0 0 0.25rem 0;
+}
+
+  /* espace à gauche pour aligner le header avec le rail des heures */
+.edt-days-header .hours-spacer {
+    flex: 0 0 64px;            /* même largeur que le rail des heures */
+}
+
+  /* ligne qui contient les libellés de jours */
+.edt-days-header .days-labels {
+    position: relative;
+    flex: 1 1 auto;
+    display: flex;
+    gap: 0.5rem;               /* même gap que les colonnes de jours */
+}
+
+  /* cellule “jour” (doit matcher les colonnes : minWidth identique) */
+.edt-days-header .day-label {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0 0.5rem;
+    box-sizing: border-box;
+    font-weight: 600;
+    opacity: 0.95;
+}
+
+  /* date allégée à droite */
+.edt-days-header .day-label .date {
+    opacity: 0.7;
+    font-weight: 500;
+}
+
+@media (max-width: 720px) {
+    .days-labels{
+        font-size: 0.7em;
+    }
 }
