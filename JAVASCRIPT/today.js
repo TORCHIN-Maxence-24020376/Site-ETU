@@ -119,7 +119,7 @@
         const row = document.createElement("div");
         row.style.position = "absolute";
         row.style.left = 0; row.style.right = 0; row.style.top = `${top}px`;
-        row.style.borderTop = "1px solid var(--glass-border)";
+        row.style.borderTop = "1px dashed gray";
         row.style.opacity = "0.6";
   
         const label = document.createElement("span");
@@ -222,6 +222,8 @@
         top:`${top}px`, height:`${height}px`,
         boxShadow:"0 6px 14px rgba(0,0,0,0.15)", zIndex:2
       });
+
+      card.classList.add("journalier")
   
       card.addEventListener('click', (e)=>{ e.preventDefault(); e.stopPropagation(); openCourseModal(ev, card); });
 
