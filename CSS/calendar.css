@@ -295,7 +295,6 @@
     box-shadow: 0 30px 80px rgba(0,0,0,.35);
 }
 
-/* Le titre reste centré, sans préfixes "Titre :" etc. */
 #edt-modal .title {
     margin: 0 28px 8px 0;
     font-size: 1.05rem;
@@ -305,7 +304,6 @@
     padding: 20px;
 }
 
-/* Les infos (jour/heure, prof, salle) seules, sans libellés */
 #edt-modal .meta {
     display: grid;
     gap: 8px;
@@ -313,7 +311,7 @@
     text-align: center;
 }
 
-  /* Bouton de fermeture */
+/* Bouton de fermeture */
 #edt-modal .close {
     position: absolute;
     right: 2px;
