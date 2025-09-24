@@ -34,6 +34,8 @@
     transition: all ease-in-out 0.3s;
     border: white 2px solid;
     cursor: pointer;
+    width: 100%;
+    margin-left: -8px;
 
     overflow-y: scroll;
 
@@ -100,6 +102,9 @@
     }
     .edt-du-jour{
         width: 100%;
+        .cour{
+            width: 75%;
+        }
     }
 }
 
@@ -391,7 +396,7 @@
 
 @media (max-width: 720px) {
     .days-labels{
-        font-size: 0.7em;
+        font-size: 0.5em;
     }
 }
 

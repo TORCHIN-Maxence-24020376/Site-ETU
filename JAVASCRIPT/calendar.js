@@ -156,8 +156,8 @@
   function renderHourOverlay(scrollWrap, timelineHeight){
     const overlay = document.createElement("div");
     Object.assign(overlay.style,{position:"absolute", left:0, right:0, top:0, height:`${timelineHeight}px`, pointerEvents:"none", zIndex:1});
-    for (let h=START_HOUR; h< END_HOUR; h++){
-      const top = (h-START_HOUR)*60*PX_PER_MIN;
+    for (let h=START_HOUR; h< END_HOUR*1.6; h++){
+      const top = (h-START_HOUR)*30*PX_PER_MIN;
       const row = document.createElement("div");
       Object.assign(row.style,{position:"absolute", left:0, right:0, top:`${top}px`, borderTop:"1px dashed gray", opacity:"0.6"});
       overlay.appendChild(row);
@@ -193,7 +193,7 @@
   function renderDayColumn(daysArea, timelineHeight){
     const col = document.createElement("div");
     col.className = "day-col";
-    Object.assign(col.style,{flex:"1 1 0", position:"relative", scrollSnapAlign:"start", boxSizing:"border-box", zIndex:3, overflow:"hidden"});
+    Object.assign(col.style,{flex:"1 1 0", position:"relative", scrollSnapAlign:"start", zIndex:3, overflow:"hidden"});
 
     const timeline = document.createElement("div");
     Object.assign(timeline.style,{position:"relative", height:`${timelineHeight}px`, borderLeft:"1px solid gray", borderRight:"1px solid gray", overflow:"hidden"});
@@ -348,7 +348,7 @@
     if (!host || !CURRENT_GROUP) return;
 
     host.innerHTML="";
-    Object.assign(host.style,{display:"flex",flexDirection:"column",gap:"0.5rem"});
+    Object.assign(host.style,{display:"flex",flexDirection:"column"});
 
     const base   = getTargetDate();
     const monday0= getMonday(base);
@@ -375,21 +375,21 @@
 
     // Rangée grille
     const row = document.createElement("div");
-    Object.assign(row.style,{display:"flex",gap:"0.5rem",alignItems:"flex-start"});
+    Object.assign(row.style,{display:"flex",alignItems:"flex-start"});
     host.appendChild(row);
 
     const hPx = timelineHeightPx();
 
     // Wrapper commun (scroll vertical unique)
     const scrollWrap = document.createElement("div");
-    Object.assign(scrollWrap.style,{position:"relative",display:"flex",gap:"0.5rem",alignItems:"flex-start",height:`${hPx}px`,overflowY:"auto",overflowX:"hidden",width:"100%"});
+    Object.assign(scrollWrap.style,{position:"relative",display:"flex",alignItems:"flex-start",height:`${hPx}px`,overflowY:"auto",overflowX:"hidden",width:"100%"});
     row.appendChild(scrollWrap);
 
     // Rail des heures + zone jours
     renderTimeRail(scrollWrap, hPx);
 
     const daysArea = document.createElement("div");
-    Object.assign(daysArea.style,{position:"relative", flex:"1 1 auto", display:"flex", gap:"0.5rem", alignItems:"flex-start", overflowX:"auto", overflowY:"hidden", height:`${hPx}px`});
+    Object.assign(daysArea.style,{position:"relative", flex:"1 1 auto", display:"flex", alignItems:"flex-start", overflowX:"auto", overflowY:"hidden", height:`${hPx}px`});
     scrollWrap.appendChild(daysArea);
 
     // Lignes horaires globales (mais PAS de barre rouge ici)
