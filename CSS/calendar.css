@@ -62,7 +62,7 @@
     }
     
     &::-webkit-scrollbar-corner {
-        background: transparent; /* ou une couleur */
+        background: transparent;
     }
 }
 
@@ -84,16 +84,22 @@
 
 @media (max-width: 768px) {
 
-    .cour{
-        border-radius: 10px;
-    }
-    .name{
-        font-size: 0.5em;
-    }
-    .prof, .time, .location{
-        font-size: 0.5em;
+    #calendar-grid{
+        .cour{
+            border-radius: 8px;
+            overflow: hidden;
+            .name{
+                font-size: 0.5em;
+            }
+            .prof, .time, .location{
+                font-size: 0.5em;
+            }
     }
 
+    }
+    .edt-du-jour{
+        width: 100%;
+    }
 }
 
 .calendar-grid button img { width: 20px; height: 20px; }
