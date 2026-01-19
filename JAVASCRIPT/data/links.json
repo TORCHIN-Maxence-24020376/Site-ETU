@@ -231,6 +231,15 @@
         "info": "Site du BDE du BUT",
         "category": "Utilitaires",
         "invert": false,
-        "tags": ["BDE", "BUT", "site", "étudiants", "AMU"]
+        "tags": ["BDE", "BUT", "site", "étudiants", "AMU", "IUT"]
+    },
+    {
+        "link": "https://etupedia.netlify.app",
+        "name": "Etupedia",
+        "logo": "etupedia.svg",
+        "info": "Encyclopédie étudiante (WIP)",
+        "category": "Utilitaires",
+        "invert": true,
+        "tags": ["Encyclopédie", "savoir", "etu", "wikipedia", "wiki", "web"]
     }
 ]

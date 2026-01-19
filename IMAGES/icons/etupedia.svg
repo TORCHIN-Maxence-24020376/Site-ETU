@@ -1,0 +1,31 @@
+<svg width="600" height="600" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="500" cy="480" r="440" fill="none" stroke="#000000" stroke-width="35"/>
+
+    <defs>
+        <filter id="glow">
+            <feGaussianBlur stdDeviation="6" result="blur"/>
+            <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <path d="M500 600
+           C380 540, 260 560, 200 680
+           C260 640, 360 650, 500 710Z"
+          fill="#000000" opacity="1" filter="url(#glow)"/>
+
+    <path d="M500 600
+           C620 540, 740 560, 800 680
+           C740 640, 640 650, 500 710Z"
+          fill="#000000" opacity="1" filter="url(#glow)"/>
+
+    <path d="M500 600 C500 680, 500 680, 500 710"
+          stroke="#000000" stroke-width="6" stroke-linecap="round"/>
+
+    <polygon points="500,250 512,280 542,285 520,305 525,335 500,320 475,335 480,305 458,285 488,280"
+             fill="#000000" filter="url(#glow)"/>
+
+    <ellipse cx="500" cy="720" rx="240" ry="25" fill="#00000055"/>
+</svg>
