@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ce site web est un site web contenant plusieurs liens afin qu'ils soient facile d'accès pour les étudiants du BUT info d'Aix Marseille">
+    <meta name="description"
+        content="Ce site web est un site web contenant plusieurs liens afin qu'ils soient facile d'accès pour les étudiants du BUT info d'Aix Marseille">
     <meta name="theme-color" content="#0078d7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -15,8 +17,39 @@
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="IMAGES/Logo_Site.ico">
     <link rel="stylesheet" href="CSS/calendar.css">
+
+    <!-- SEO & Social Media Tags -->
+    <link rel="canonical" href="https://torchin-maxence-24020376.github.io/Site-ETU/index.html">
+    <meta property="og:title" content="Site ETU - Tableau de bord étudiant">
+    <meta property="og:description"
+        content="Ce site web est un site web contenant plusieurs liens afin qu'ils soient facile d'accès pour les étudiants du BUT info d'Aix Marseille">
+    <meta property="og:image" content="https://torchin-maxence-24020376.github.io/Site-ETU/IMAGES/logo-etu.svg">
+    <meta property="og:url" content="https://torchin-maxence-24020376.github.io/Site-ETU/index.html">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Site ETU - Tableau de bord étudiant">
+    <meta name="twitter:description"
+        content="Ce site web est un site web contenant plusieurs liens afin qu'ils soient facile d'accès pour les étudiants du BUT info d'Aix Marseille">
+    <meta name="twitter:image" content="https://torchin-maxence-24020376.github.io/Site-ETU/IMAGES/logo-etu.svg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Site ETU",
+      "url": "https://torchin-maxence-24020376.github.io/Site-ETU/",
+      "description": "Ressources pour les étudiants du BUT Informatique d'Aix-Marseille",
+      "author": {
+        "@type": "Person",
+        "name": "Maxence TORCHIN"
+      }
+    }
+    </script>
 </head>
+
 <body>
+    <h1 style="display: none;">Site ETU - Tableau de bord étudiant</h1>
     <div id="chargement" class="app">
         <div class="circle">
         </div>
@@ -32,21 +65,29 @@
     <header id="main-header">
         <div class="options">
             <a href="index.html" title="Retour à l'accueil"><img src="IMAGES/home.svg" alt="accueil" class="logo"></a>
-            <a href="edt.html" title="Accéder à son emploi du temps"><img class="logo" src="IMAGES/calendar.svg" alt="Emploi du temps"></a>
+            <a href="edt.html" title="Accéder à son emploi du temps"><img class="logo" src="IMAGES/calendar.svg"
+                    alt="Emploi du temps"></a>
             <div id="mails">
-                <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank" title="Redirection vers la messagerie Gmail"><img class="logo mails" src="IMAGES/gmail.svg" alt="gmail"></a>
-                <a href="https://outlook.office.com/mail/" target="_blank" title="Redirection vers la messagerie Outlook"><img class="logo mails" src="IMAGES/outlook.svg" alt="outlook"></a>
+                <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank"
+                    title="Redirection vers la messagerie Gmail"><img class="logo mails" src="IMAGES/gmail.svg"
+                        alt="gmail"></a>
+                <a href="https://outlook.office.com/mail/" target="_blank"
+                    title="Redirection vers la messagerie Outlook"><img class="logo mails" src="IMAGES/outlook.svg"
+                        alt="outlook"></a>
             </div>
 
         </div>
         <nav>
             <!-- Barre de Navigation téléphone -->
             <div class="tel-header">
-                <button class="respons" onclick="togglePanel('myNav', 'myTheme')"><img class="logo" src="IMAGES/sommaire-logo.svg" alt="Logo affichant le sommaire"></button>
+                <button class="respons" onclick="togglePanel('myNav', 'myTheme')"><img class="logo"
+                        src="IMAGES/sommaire-logo.svg" alt="Logo affichant le sommaire"></button>
                 <div id="clock"></div>
                 <div class="respons">
-                    <a href="#modeVeille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen()"><img src="IMAGES/veille.svg" class="logo" alt="Veille"></a>
-                    <button class="respons" onclick="togglePanel('myTheme', 'myNav')"><img class="logo" src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></button>
+                    <a href="#modeVeille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen()"><img
+                            src="IMAGES/veille.svg" class="logo" alt="Veille"></a>
+                    <button class="respons" onclick="togglePanel('myTheme', 'myNav')"><img class="logo"
+                            src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></button>
                 </div>
             </div>
             <!-- Barre de Navigation Ordinateur-->
@@ -58,8 +99,10 @@
             </div>
         </nav>
         <div class="disparait options">
-            <a href="#modeVeille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen()"><img src="IMAGES/veille.svg" class="logo" alt="Veille"></a>
-            <a href="#" id="theme"><img class="logo" src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></a>
+            <a href="#modeVeille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen()"><img
+                    src="IMAGES/veille.svg" class="logo" alt="Veille"></a>
+            <a href="#" id="theme"><img class="logo" src="IMAGES/soleil-logo.svg"
+                    alt="Logo affichant le changement de thème"></a>
         </div>
     </header>
 
@@ -68,7 +111,8 @@
             <ul>
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="edt.html">Voir mon EDT</a></li>
-                <li><a href="https://discord.gg/qj9hJC3bTK" target="_blank" title="Rejoindre le serveur discord">Rejoindre le serveur discord</a></li>
+                <li><a href="https://discord.gg/qj9hJC3bTK" target="_blank"
+                        title="Rejoindre le serveur discord">Rejoindre le serveur discord</a></li>
             </ul>
         </div>
         <div>
@@ -84,13 +128,16 @@
         </div>
         <div>
             <h4>ACCUEIL</h4>
-            <p>Ce site a pour but de partager les différentes ressources utiles au cursus de BUT Informatique à l'IUT d'Aix-Marseille.</p>
+            <p>Ce site a pour but de partager les différentes ressources utiles au cursus de BUT Informatique à l'IUT
+                d'Aix-Marseille.</p>
             <p>On y retrouve différents types de contenu. Pour plus de détails, consultez les pages ci-dessous : </p>
             <a class="tkt-frr" href="Snake.html">.</a>
         </div>
     </section>
     <section id="theme-contenu" class="mega-menu">
-        <div><h3>Changer de thème</h3></div>
+        <div>
+            <h3>Changer de thème</h3>
+        </div>
         <section id="theme-select">
             <article class="theme-type">
                 <article>
@@ -124,23 +171,45 @@
             <p>Changer de thème</p>
             <div class="menu-item" onclick="toggleSousMenu('clair-menu')">Clair ▼</div>
             <ul id="clair-menu" class="sous-menu">
-                <li><div onclick="changeTheme('CSS/CLAIR/blanc.css'); closeTheme();">Blanc</div></li>
-                <li><div onclick="changeTheme('CSS/CLAIR/diamant.css'); closeTheme();">Diamant</div></li>
-                <li><div onclick="changeTheme('CSS/CLAIR/noisette.css'); closeTheme();">Noisette</div></li>
+                <li>
+                    <div onclick="changeTheme('CSS/CLAIR/blanc.css'); closeTheme();">Blanc</div>
+                </li>
+                <li>
+                    <div onclick="changeTheme('CSS/CLAIR/diamant.css'); closeTheme();">Diamant</div>
+                </li>
+                <li>
+                    <div onclick="changeTheme('CSS/CLAIR/noisette.css'); closeTheme();">Noisette</div>
+                </li>
             </ul>
             <div class="menu-item" onclick="toggleSousMenu('sombre-menu')">Sombre ▼</div>
             <ul id="sombre-menu" class="sous-menu">
-                <li><div onclick="changeTheme('CSS/SOMBRE/aqua.css'); closeTheme();">Aqua</div></li>
-                <li><div onclick="changeTheme('CSS/SOMBRE/vert.css'); closeTheme();">Vert</div></li>
-                <li><div onclick="changeTheme('CSS/SOMBRE/cristal.css'); closeTheme();">Cristal (Violet)</div></li>
-                <li><div onclick="changeTheme('CSS/SOMBRE/4b00.css'); closeTheme();">4b00</div></li>
+                <li>
+                    <div onclick="changeTheme('CSS/SOMBRE/aqua.css'); closeTheme();">Aqua</div>
+                </li>
+                <li>
+                    <div onclick="changeTheme('CSS/SOMBRE/vert.css'); closeTheme();">Vert</div>
+                </li>
+                <li>
+                    <div onclick="changeTheme('CSS/SOMBRE/cristal.css'); closeTheme();">Cristal (Violet)</div>
+                </li>
+                <li>
+                    <div onclick="changeTheme('CSS/SOMBRE/4b00.css'); closeTheme();">4b00</div>
+                </li>
             </ul>
             <div class="menu-item" onclick="toggleSousMenu('AMOLED-menu')">AMOLED ▼</div>
             <ul id="AMOLED-menu" class="sous-menu">
-                <li><div onclick="changeTheme('CSS/AMOLED/AMOLED.css'); closeTheme();">AMOLED</div></li>
-                <li><div onclick="changeTheme('CSS/AMOLED/violet.css'); closeTheme();">Violet</div></li>
-                <li><div onclick="changeTheme('CSS/AMOLED/vert.css'); closeTheme();">Vert</div></li>
-                <li><div onclick="changeTheme('CSS/AMOLED/bleu.css'); closeTheme();">Bleu</div></li>
+                <li>
+                    <div onclick="changeTheme('CSS/AMOLED/AMOLED.css'); closeTheme();">AMOLED</div>
+                </li>
+                <li>
+                    <div onclick="changeTheme('CSS/AMOLED/violet.css'); closeTheme();">Violet</div>
+                </li>
+                <li>
+                    <div onclick="changeTheme('CSS/AMOLED/vert.css'); closeTheme();">Vert</div>
+                </li>
+                <li>
+                    <div onclick="changeTheme('CSS/AMOLED/bleu.css'); closeTheme();">Bleu</div>
+                </li>
             </ul>
         </div>
     </section>
@@ -154,11 +223,13 @@
                     <a href="edt.html">Voir mon EDT</a>
                 </div>
                 <div>
-                    <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank" title="Redirection vers la messagerie Gmail">Gmail</a>
-                    <a href="https://outlook.office.com/mail/" target="_blank" title="Redirection vers la messagerie Outlook">Outlook</a>
+                    <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank"
+                        title="Redirection vers la messagerie Gmail">Gmail</a>
+                    <a href="https://outlook.office.com/mail/" target="_blank"
+                        title="Redirection vers la messagerie Outlook">Outlook</a>
                 </div>
             </div>
-                    
+
             <hr>
             <a href="#" onclick="toggleSousMenu('sous-menu')">Navigation ▼</a>
             <ul id="sous-menu" class="sous-menu">
@@ -171,7 +242,8 @@
             <hr>
             <a href="https://ent.univ-amu.fr/" target="_blank">ENT</a><br>
             <a href="https://ametice.univ-amu.fr" target="_blank">AMeTICE</a><br>
-            <a href="https://discord.gg/qj9hJC3bTK" target="_blank" title="Rejoindre le serveur discord">Serveur discord</a>
+            <a href="https://discord.gg/qj9hJC3bTK" target="_blank" title="Rejoindre le serveur discord">Serveur
+                discord</a>
         </div>
     </section>
 
@@ -188,7 +260,7 @@
         <a class="Site edt" href="edt.html">
             <p>Emploi du temps</p>
         </a>
-        
+
     </section>
     <hr>
     <h2>Tableau de bord étudiant</h2>
@@ -212,7 +284,7 @@
                     <option value="I106">I106</option>
                 </select>
             </div>
-            
+
             <div id="réseau-info" class="réseau-info">
                 <h3>Configuration Réseau</h3>
                 <form>
@@ -240,34 +312,48 @@
         <div id="meteo">
             <div class="informations-meteo">
                 <div class="meteo-header">
-                  <p id="meteo-date"></p>
-                  <p id="meteo-logo"></p>
+                    <p id="meteo-date"></p>
+                    <p id="meteo-logo"></p>
                 </div>
                 <div class="meteo-main">
-                  <p id="temperature"></p>
-                  <p id="nom"></p>
-                  <p><span id="vent"></span>  <span id="precipitations"></span></p>
+                    <p id="temperature"></p>
+                    <p id="nom"></p>
+                    <p><span id="vent"></span> <span id="precipitations"></span></p>
                 </div>
                 <div class="meteo-footer">
-                  <p id="temp_max"></p>
-                  <p id="temp_min"></p>
+                    <p id="temp_max"></p>
+                    <p id="temp_min"></p>
                 </div>
             </div>
         </div>
-        
+
     </section>
     <section class="Container Container-meteo">
         <div class="previsions">
-            <div id="jour1"><div id="Jour1Date"></div></div>
-            <div id="jour2"><div id="Jour2Date"></div></div>
-            <div id="jour3"><div id="Jour3Date"></div></div>
-            <div id="jour4"><div id="Jour4Date"></div></div>
-            <div id="jour5"><div id="Jour5Date"></div></div>
-            <div id="jour6"><div id="Jour6Date"></div></div>
-            <div id="jour7"><div id="Jour7Date"></div></div>
+            <div id="jour1">
+                <div id="Jour1Date"></div>
+            </div>
+            <div id="jour2">
+                <div id="Jour2Date"></div>
+            </div>
+            <div id="jour3">
+                <div id="Jour3Date"></div>
+            </div>
+            <div id="jour4">
+                <div id="Jour4Date"></div>
+            </div>
+            <div id="jour5">
+                <div id="Jour5Date"></div>
+            </div>
+            <div id="jour6">
+                <div id="Jour6Date"></div>
+            </div>
+            <div id="jour7">
+                <div id="Jour7Date"></div>
+            </div>
         </div>
     </section>
-    
+
     <script src="JAVASCRIPT/loader.js"></script>
     <script src="JAVASCRIPT/main.js"></script>
     <script src="JAVASCRIPT/meteo.js"></script>
@@ -279,24 +365,29 @@
         <section>
             <h3>Apporter ma contribution</h3>
             <p>Vous pouvez apporter votre contribution à ce projet via le lien GitHub en cliquant sur le logo.</p>
-            <a href="https://GitHub.com/TORCHIN-Maxence-24020376/Site-ETU" target="_blank" title="Lien vers le repo GitHub"><img src="IMAGES/GitHub.svg" alt="GitHub" id="GitHub"></a>
+            <a href="https://GitHub.com/TORCHIN-Maxence-24020376/Site-ETU" target="_blank"
+                title="Lien vers le repo GitHub"><img src="IMAGES/GitHub.svg" alt="GitHub" id="GitHub"></a>
         </section>
 
         <section>
             <h3>Description</h3>
-            <p>Site de ressources du département Informatique de l'IUT d'Aix-en-Provence. Réalisé par Maxence TORCHIN en 2024.</p>
+            <p>Site de ressources du département Informatique de l'IUT d'Aix-en-Provence. Réalisé par Maxence TORCHIN en
+                2024.</p>
             <p>Ce site contient tout ce qui vous sera utiles lors de vos années de BUT info à Aix-en-Provence.</p>
         </section>
 
         <section>
             <article>
                 <h3>Créateur</h3>
-                <iframe title="signature TORCHIN Maxence" src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/bleu.html"  style="height: 150px; width: 300px;"></iframe>
+                <iframe title="signature TORCHIN Maxence"
+                    src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/bleu.html"
+                    style="height: 150px; width: 300px;"></iframe>
             </article>
             <article>
                 <h3>Contributeurs</h3>
                 <ul>
-                    <li><a href="https://github.com/TAMINE-CYRIL" target="_blank" title="Cyril tamine">Cyril TAMINE</a></li>
+                    <li><a href="https://github.com/TAMINE-CYRIL" target="_blank" title="Cyril tamine">Cyril TAMINE</a>
+                    </li>
                 </ul>
             </article>
         </section>
@@ -307,5 +398,5 @@
         <div id="modeVeille" style="height: calc(100vh + 200px);"></div>
     </div>
 </body>
-</html>
 
+</html>

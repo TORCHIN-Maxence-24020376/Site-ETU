@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,21 @@
     <link rel="stylesheet" href="CSS/calendar.css">
     <link rel="shortcut icon" href="IMAGES/logo-etu.svg" type="image/x-icon">
 
+    <!-- SEO & Social Media Tags -->
+    <link rel="canonical" href="https://torchin-maxence-24020376.github.io/Site-ETU/edt.html">
+    <meta property="og:title" content="Emploi du Temps - Site ETU">
+    <meta property="og:description" content="Cette page permet d'accéder à son emploi du temps">
+    <meta property="og:image" content="https://torchin-maxence-24020376.github.io/Site-ETU/IMAGES/logo-etu.svg">
+    <meta property="og:url" content="https://torchin-maxence-24020376.github.io/Site-ETU/edt.html">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Emploi du Temps - Site ETU">
+    <meta name="twitter:description" content="Cette page permet d'accéder à son emploi du temps">
+    <meta name="twitter:image" content="https://torchin-maxence-24020376.github.io/Site-ETU/IMAGES/logo-etu.svg">
+
 </head>
+
 <body>
     <div id="chargement" class="app">
         <div class="circle">
@@ -25,93 +40,106 @@
     </div>
     <!-- Barre de navigation -->
     <header id="main-header">
-            <div class="options">
-                <a href="index.html" title="Retour à l'accueil"><img src="IMAGES/home.svg" alt="accueil" class="logo"></a>
-                <a href="edt.html" title="Accéder à son emploi du temps"><img class="logo" src="IMAGES/calendar.svg" alt="Emploi du temps"></a>
-                <div id="mails">
-                    <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank" title="Redirection vers la messagerie Gmail"><img class="logo mails" src="IMAGES/gmail.svg" alt="gmail"></a>
-                    <a href="https://outlook.office.com/mail/" target="_blank" title="Redirection vers la messagerie Outlook"><img class="logo mails" src="IMAGES/outlook.svg" alt="outlook"></a>
+        <div class="options">
+            <a href="index.html" title="Retour à l'accueil"><img src="IMAGES/home.svg" alt="accueil" class="logo"></a>
+            <a href="edt.html" title="Accéder à son emploi du temps"><img class="logo" src="IMAGES/calendar.svg"
+                    alt="Emploi du temps"></a>
+            <div id="mails">
+                <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank"
+                    title="Redirection vers la messagerie Gmail"><img class="logo mails" src="IMAGES/gmail.svg"
+                        alt="gmail"></a>
+                <a href="https://outlook.office.com/mail/" target="_blank"
+                    title="Redirection vers la messagerie Outlook"><img class="logo mails" src="IMAGES/outlook.svg"
+                        alt="outlook"></a>
+            </div>
+        </div>
+        <nav>
+            <!-- Barre de Navigation téléphone -->
+            <div class="tel-header">
+                <button class="respons" onclick="togglePanel('myNav', 'myTheme')"><img class="logo"
+                        src="IMAGES/sommaire-logo.svg" alt="Logo affichant le sommaire"></button>
+                <div id="clock"></div>
+                <div class="respons">
+                    <a href="#modeVeille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen()"><img
+                            src="IMAGES/veille.svg" class="logo" alt="Veille"></a>
+                    <button class="respons" onclick="togglePanel('myTheme', 'myNav')"><img class="logo"
+                            src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></button>
                 </div>
             </div>
-            <nav>
-                <!-- Barre de Navigation téléphone -->
-                <div class="tel-header">
-                    <button class="respons" onclick="togglePanel('myNav', 'myTheme')"><img class="logo" src="IMAGES/sommaire-logo.svg" alt="Logo affichant le sommaire"></button>
-                    <div id="clock"></div>
-                    <div class="respons">
-                        <a href="#modeVeille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen()"><img src="IMAGES/veille.svg" class="logo" alt="Veille"></a>
-                        <button class="respons" onclick="togglePanel('myTheme', 'myNav')"><img class="logo" src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></button>
-                    </div>
-                </div>
-                <!-- Barre de Navigation Ordinateur-->
-                <div class="navigation">
-                    <a href="#" id="navigation">Navigation</a>
-                    <a id="ent" href="https://ent.univ-amu.fr/" target="_blank">ENT</a>
-                    <a id="ametice" href="https://ametice.univ-amu.fr/" target="_blank">AMeTICE</a>
-                    <!--Rajouter des liens ici-->
-                </div>
-            </nav>
-            <div class="disparait options">
-                <a href="#modeVeille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen()"><img src="IMAGES/veille.svg" class="logo" alt="Veille"></a>
-                <a href="#" id="theme"><img class="logo" src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></a>
+            <!-- Barre de Navigation Ordinateur-->
+            <div class="navigation">
+                <a href="#" id="navigation">Navigation</a>
+                <a id="ent" href="https://ent.univ-amu.fr/" target="_blank">ENT</a>
+                <a id="ametice" href="https://ametice.univ-amu.fr/" target="_blank">AMeTICE</a>
+                <!--Rajouter des liens ici-->
             </div>
+        </nav>
+        <div class="disparait options">
+            <a href="#modeVeille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen()"><img
+                    src="IMAGES/veille.svg" class="logo" alt="Veille"></a>
+            <a href="#" id="theme"><img class="logo" src="IMAGES/soleil-logo.svg"
+                    alt="Logo affichant le changement de thème"></a>
+        </div>
     </header>
     <section id="navigation-contenu" class="mega-menu">
-            <div>
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="edt.html">Voir mon EDT</a></li>
-                    <li><a href="https://discord.gg/qj9hJC3bTK" target="_blank" title="Rejoindre le serveur discord">Rejoindre le serveur discord</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>AUTRES PAGES</h4>
-                <ul>
-                    <li><a href="prof.html">👨‍🏫Sites des profs</a></li>
-                    <li><a href="links.html">🖇️Liens utiles</a></li>
-                    <li><a href="logiciels.html">💿Logiciels utiles</a></li>
-                    <li><a href="carte.html">🔌Carte des prises</a></li>
-                    <li><a href="index.html#Selection-salle">🛜Connexion réseau</a></li>
-                </ul>
+        <div>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="edt.html">Voir mon EDT</a></li>
+                <li><a href="https://discord.gg/qj9hJC3bTK" target="_blank"
+                        title="Rejoindre le serveur discord">Rejoindre le serveur discord</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>AUTRES PAGES</h4>
+            <ul>
+                <li><a href="prof.html">👨‍🏫Sites des profs</a></li>
+                <li><a href="links.html">🖇️Liens utiles</a></li>
+                <li><a href="logiciels.html">💿Logiciels utiles</a></li>
+                <li><a href="carte.html">🔌Carte des prises</a></li>
+                <li><a href="index.html#Selection-salle">🛜Connexion réseau</a></li>
+            </ul>
 
-                <a class="tkt-frr" href="Snake.html">.</a>
-            </div>
-            <div>
-                <h4>Emploi du temps</h4>
-                <p>Cette page vous permet de consulter votre emploi du temps en sélectionant votre groupe.</p>
-                <p>Ils sont actualisé au levé du soleil, 12h15 et 20h00</p>
-                <a class="tkt-frr" href="Snake.html">.</a>
-            </div>
+            <a class="tkt-frr" href="Snake.html">.</a>
+        </div>
+        <div>
+            <h4>Emploi du temps</h4>
+            <p>Cette page vous permet de consulter votre emploi du temps en sélectionant votre groupe.</p>
+            <p>Ils sont actualisé au levé du soleil, 12h15 et 20h00</p>
+            <a class="tkt-frr" href="Snake.html">.</a>
+        </div>
     </section>
     <section id="theme-contenu" class="mega-menu">
-            <div><h3>Changer de thème</h3></div>
-            <section id="theme-select">
-                <article class="theme-type">
-                    <article>
-                        <h4>Clair</h4>
-                        <div class="theme" onclick="changeTheme('CSS/CLAIR/blanc.css')">Blanc</div>
-                        <div class="theme" onclick="changeTheme('CSS/CLAIR/diamant.css')">Diamant</div>
-                        <div class="theme" onclick="changeTheme('CSS/CLAIR/noisette.css')">Noisette</div>
-                    </article>
-                    <article>
-                        <h4>Sombre</h4>
-                        <div class="theme" onclick="changeTheme('CSS/SOMBRE/aqua.css')">Aqua</div>
-                        <div class="theme" onclick="changeTheme('CSS/SOMBRE/vert.css')">Vert</div>
-                        <div class="theme" onclick="changeTheme('CSS/SOMBRE/cristal.css')">Cristal (Violet)</div>
-                        <div class="theme" onclick="changeTheme('CSS/SOMBRE/4b00.css')">4b00</div>
-                    </article>
-                    <article>
-                        <h4>AMOLED</h4>
-                        <div class="theme" onclick="changeTheme('CSS/AMOLED/AMOLED.css')">AMOLED</div>
-                        <div class="theme" onclick="changeTheme('CSS/AMOLED/violet.css')">Violet</div>
-                        <div class="theme" onclick="changeTheme('CSS/AMOLED/vert.css')">Vert</div>
-                        <div class="theme" onclick="changeTheme('CSS/AMOLED/bleu.css')">Bleu</div>
-                    </article>
+        <div>
+            <h3>Changer de thème</h3>
+        </div>
+        <section id="theme-select">
+            <article class="theme-type">
+                <article>
+                    <h4>Clair</h4>
+                    <div class="theme" onclick="changeTheme('CSS/CLAIR/blanc.css')">Blanc</div>
+                    <div class="theme" onclick="changeTheme('CSS/CLAIR/diamant.css')">Diamant</div>
+                    <div class="theme" onclick="changeTheme('CSS/CLAIR/noisette.css')">Noisette</div>
                 </article>
-            </section>
+                <article>
+                    <h4>Sombre</h4>
+                    <div class="theme" onclick="changeTheme('CSS/SOMBRE/aqua.css')">Aqua</div>
+                    <div class="theme" onclick="changeTheme('CSS/SOMBRE/vert.css')">Vert</div>
+                    <div class="theme" onclick="changeTheme('CSS/SOMBRE/cristal.css')">Cristal (Violet)</div>
+                    <div class="theme" onclick="changeTheme('CSS/SOMBRE/4b00.css')">4b00</div>
+                </article>
+                <article>
+                    <h4>AMOLED</h4>
+                    <div class="theme" onclick="changeTheme('CSS/AMOLED/AMOLED.css')">AMOLED</div>
+                    <div class="theme" onclick="changeTheme('CSS/AMOLED/violet.css')">Violet</div>
+                    <div class="theme" onclick="changeTheme('CSS/AMOLED/vert.css')">Vert</div>
+                    <div class="theme" onclick="changeTheme('CSS/AMOLED/bleu.css')">Bleu</div>
+                </article>
+            </article>
+        </section>
     </section>
-        
-    
+
+
     <!-- Changement de thème format mobile -->
     <section id="myTheme" class="overlay">
         <button class="closebtn" onclick="closeTheme()">&times;</button>
@@ -119,136 +147,161 @@
             <p>Changer de thème</p>
             <div class="menu-item" onclick="toggleSousMenu('clair-menu')">Clair ▼</div>
             <ul id="clair-menu" class="sous-menu">
-                <li><div onclick="changeTheme('CSS/CLAIR/blanc.css'); closeTheme();">Blanc</div></li>
-                <li><div onclick="changeTheme('CSS/CLAIR/diamant.css'); closeTheme();">Diamant</div></li>
-                <li><div onclick="changeTheme('CSS/CLAIR/noisette.css'); closeTheme();">Noisette</div></li>
+                <li>
+                    <div onclick="changeTheme('CSS/CLAIR/blanc.css'); closeTheme();">Blanc</div>
+                </li>
+                <li>
+                    <div onclick="changeTheme('CSS/CLAIR/diamant.css'); closeTheme();">Diamant</div>
+                </li>
+                <li>
+                    <div onclick="changeTheme('CSS/CLAIR/noisette.css'); closeTheme();">Noisette</div>
+                </li>
             </ul>
             <div class="menu-item" onclick="toggleSousMenu('sombre-menu')">Sombre ▼</div>
             <ul id="sombre-menu" class="sous-menu">
-                <li><div onclick="changeTheme('CSS/SOMBRE/aqua.css'); closeTheme();">Aqua</div></li>
-                <li><div onclick="changeTheme('CSS/SOMBRE/vert.css'); closeTheme();">Vert</div></li>
-                <li><div onclick="changeTheme('CSS/SOMBRE/cristal.css'); closeTheme();">Cristal (Violet)</div></li>
-                <li><div onclick="changeTheme('CSS/SOMBRE/4b00.css'); closeTheme();">4b00</div></li>
+                <li>
+                    <div onclick="changeTheme('CSS/SOMBRE/aqua.css'); closeTheme();">Aqua</div>
+                </li>
+                <li>
+                    <div onclick="changeTheme('CSS/SOMBRE/vert.css'); closeTheme();">Vert</div>
+                </li>
+                <li>
+                    <div onclick="changeTheme('CSS/SOMBRE/cristal.css'); closeTheme();">Cristal (Violet)</div>
+                </li>
+                <li>
+                    <div onclick="changeTheme('CSS/SOMBRE/4b00.css'); closeTheme();">4b00</div>
+                </li>
             </ul>
             <div class="menu-item" onclick="toggleSousMenu('AMOLED-menu')">AMOLED ▼</div>
             <ul id="AMOLED-menu" class="sous-menu">
-                <li><div onclick="changeTheme('CSS/AMOLED/AMOLED.css'); closeTheme();">AMOLED</div></li>
-                <li><div onclick="changeTheme('CSS/AMOLED/violet.css'); closeTheme();">Violet</div></li>
-                <li><div onclick="changeTheme('CSS/AMOLED/vert.css'); closeTheme();">Vert</div></li>
-                <li><div onclick="changeTheme('CSS/AMOLED/bleu.css'); closeTheme();">Bleu</div></li>
+                <li>
+                    <div onclick="changeTheme('CSS/AMOLED/AMOLED.css'); closeTheme();">AMOLED</div>
+                </li>
+                <li>
+                    <div onclick="changeTheme('CSS/AMOLED/violet.css'); closeTheme();">Violet</div>
+                </li>
+                <li>
+                    <div onclick="changeTheme('CSS/AMOLED/vert.css'); closeTheme();">Vert</div>
+                </li>
+                <li>
+                    <div onclick="changeTheme('CSS/AMOLED/bleu.css'); closeTheme();">Bleu</div>
+                </li>
             </ul>
         </div>
     </section>
-    
+
     <section id="myNav" class="overlay">
-            <button class="closebtn" onclick="closeNav()">&times;</button>
-            <div class="overlay-content">
-                <div class="liens-principaux">
-                    <div>
-                        <a href="index.html">Accueil</a>
-                        <a href="edt.html">Voir mon EDT</a>
-                    </div>
-                    <div>
-                        <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank" title="Redirection vers la messagerie Gmail">Gmail</a>
-                        <a href="https://outlook.office.com/mail/" target="_blank" title="Redirection vers la messagerie Outlook">Outlook</a>
-                    </div>
+        <button class="closebtn" onclick="closeNav()">&times;</button>
+        <div class="overlay-content">
+            <div class="liens-principaux">
+                <div>
+                    <a href="index.html">Accueil</a>
+                    <a href="edt.html">Voir mon EDT</a>
                 </div>
-                <hr>
-                <a href="#" onclick="toggleSousMenu()">Navigation ▼</a>
-                <ul id="sous-menu">
-                    <li><a href="prof.html">👨‍🏫Sites des profs</a></li>
-                    <li><a href="links.html">🖇️Liens utiles</a></li>
-                    <li><a href="logiciels.html">💿Logiciels utiles</a></li>
-                    <li><a href="carte.html">🔌Carte des prises</a></li>
-                    <li><a href="index.html#Selection-salle">🛜Connexion réseau</a></li>
-                </ul>
-                <hr>
-                <a href="https://ent.univ-amu.fr/" target="_blank">ENT</a> <br>
-                <a href="https://ametice.univ-amu.fr" target="_blank">AMeTICE</a><br>
-                <a href="https://discord.gg/qj9hJC3bTK" target="_blank" title="Rejoindre le serveur discord">Serveur discord</a>
+                <div>
+                    <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank"
+                        title="Redirection vers la messagerie Gmail">Gmail</a>
+                    <a href="https://outlook.office.com/mail/" target="_blank"
+                        title="Redirection vers la messagerie Outlook">Outlook</a>
+                </div>
             </div>
+            <hr>
+            <a href="#" onclick="toggleSousMenu()">Navigation ▼</a>
+            <ul id="sous-menu">
+                <li><a href="prof.html">👨‍🏫Sites des profs</a></li>
+                <li><a href="links.html">🖇️Liens utiles</a></li>
+                <li><a href="logiciels.html">💿Logiciels utiles</a></li>
+                <li><a href="carte.html">🔌Carte des prises</a></li>
+                <li><a href="index.html#Selection-salle">🛜Connexion réseau</a></li>
+            </ul>
+            <hr>
+            <a href="https://ent.univ-amu.fr/" target="_blank">ENT</a> <br>
+            <a href="https://ametice.univ-amu.fr" target="_blank">AMeTICE</a><br>
+            <a href="https://discord.gg/qj9hJC3bTK" target="_blank" title="Rejoindre le serveur discord">Serveur
+                discord</a>
+        </div>
     </section>
-    
+
 
     <section class="Container">
         <!-- Calendrier -->
         <section class="container-calendar">
-                <h1>Emploi du Temps</h1>
+            <h1>Emploi du Temps</h1>
             <section class="Container">
                 <div id="groupe-menu">
-                <!-- Première année -->
-                <div class="year" onclick="toggleSousMenu('premiere-annee')">Première année</div>
+                    <!-- Première année -->
+                    <div class="year" onclick="toggleSousMenu('premiere-annee')">Première année</div>
                     <div id="premiere-annee" class="sous-menu">
                         <!-- Groupe 1 -->
                         <div class="group" onclick="toggleSousMenu('g1-1')">Groupe 1</div>
-                            <div id="g1-1" class="sous-menu">
-                                <div class="subgroup" data-groupe="1G1A">1G1A</div>
-                                <div class="subgroup" data-groupe="1G1B">1G1B</div>
-                            </div>
+                        <div id="g1-1" class="sous-menu">
+                            <div class="subgroup" data-groupe="1G1A">1G1A</div>
+                            <div class="subgroup" data-groupe="1G1B">1G1B</div>
+                        </div>
                         <!-- Groupe 2 -->
                         <div class="group" onclick="toggleSousMenu('g1-2')">Groupe 2</div>
-                            <div id="g1-2" class="sous-menu">
-                                <div class="subgroup" data-groupe="1G2A">1G2A</div>
-                                <div class="subgroup" data-groupe="1G2B">1G2B</div>
-                            </div>
+                        <div id="g1-2" class="sous-menu">
+                            <div class="subgroup" data-groupe="1G2A">1G2A</div>
+                            <div class="subgroup" data-groupe="1G2B">1G2B</div>
+                        </div>
                         <!-- Groupe 3 -->
                         <div class="group" onclick="toggleSousMenu('g1-3')">Groupe 3</div>
-                            <div id="g1-3" class="sous-menu">
-                                <div class="subgroup" data-groupe="1G3A">1G3A</div>
-                                <div class="subgroup" data-groupe="1G3B">1G3B</div>
-                            </div>
+                        <div id="g1-3" class="sous-menu">
+                            <div class="subgroup" data-groupe="1G3A">1G3A</div>
+                            <div class="subgroup" data-groupe="1G3B">1G3B</div>
+                        </div>
                         <!-- Groupe 4 -->
                         <div class="group" onclick="toggleSousMenu('g1-4')">Groupe 4</div>
-                            <div id="g1-4" class="sous-menu">
-                                <div class="subgroup" data-groupe="1G4A">1G4A</div>
-                                <div class="subgroup" data-groupe="1G4B">1G4B</div>
-                            </div>
+                        <div id="g1-4" class="sous-menu">
+                            <div class="subgroup" data-groupe="1G4A">1G4A</div>
+                            <div class="subgroup" data-groupe="1G4B">1G4B</div>
+                        </div>
                     </div>
 
-                <!-- Deuxième année -->
-                <div class="year" onclick="toggleSousMenu('deuxieme-annee')">Deuxième année</div>
+                    <!-- Deuxième année -->
+                    <div class="year" onclick="toggleSousMenu('deuxieme-annee')">Deuxième année</div>
                     <div id="deuxieme-annee" class="sous-menu">
                         <!-- GA1 -->
                         <div class="group" onclick="toggleSousMenu('g2-ga1')">GA1</div>
-                            <div id="g2-ga1" class="sous-menu">
-                                <div class="subgroup" data-groupe="2GA1-1">2GA1-1</div>
-                                <div class="subgroup" data-groupe="2GA1-2">2GA1-2</div>
-                            </div>
+                        <div id="g2-ga1" class="sous-menu">
+                            <div class="subgroup" data-groupe="2GA1-1">2GA1-1</div>
+                            <div class="subgroup" data-groupe="2GA1-2">2GA1-2</div>
+                        </div>
                         <!-- GA2 -->
                         <div class="group" onclick="toggleSousMenu('g2-ga2')">GA2</div>
-                            <div id="g2-ga2" class="sous-menu">
-                                <div class="subgroup" data-groupe="2GA2-1">2GA2-1</div>
-                                <div class="subgroup" data-groupe="2GA2-2">2GA2-2</div>
-                            </div>
+                        <div id="g2-ga2" class="sous-menu">
+                            <div class="subgroup" data-groupe="2GA2-1">2GA2-1</div>
+                            <div class="subgroup" data-groupe="2GA2-2">2GA2-2</div>
+                        </div>
                         <!-- GB -->
                         <div class="group" onclick="toggleSousMenu('g2-gb')">B</div>
-                            <div id="g2-gb" class="sous-menu">
-                                <div class="subgroup" data-groupe="2GB-1">2GB-1</div>
-                                <div class="subgroup" data-groupe="2GB-2">2GB-2</div>
-                            </div>
+                        <div id="g2-gb" class="sous-menu">
+                            <div class="subgroup" data-groupe="2GB-1">2GB-1</div>
+                            <div class="subgroup" data-groupe="2GB-2">2GB-2</div>
+                        </div>
                     </div>
 
-                <!-- Troisième année -->
-                <div class="year" onclick="toggleSousMenu('troisieme-annee')">Troisième année</div>
+                    <!-- Troisième année -->
+                    <div class="year" onclick="toggleSousMenu('troisieme-annee')">Troisième année</div>
                     <div id="troisieme-annee" class="sous-menu">
                         <!-- A1 -->
                         <div class="group" onclick="toggleSousMenu('g3-a1')">A1</div>
-                            <div id="g3-a1" class="sous-menu">
-                                <div class="subgroup" data-groupe="3A1-1">3A1-1</div>
-                                <div class="subgroup" data-groupe="3A1-2">3A1-2</div>
-                            </div>
+                        <div id="g3-a1" class="sous-menu">
+                            <div class="subgroup" data-groupe="3A1-1">3A1-1</div>
+                            <div class="subgroup" data-groupe="3A1-2">3A1-2</div>
+                        </div>
                         <!-- A2 -->
                         <div class="group" onclick="toggleSousMenu('g3-a2')">A2</div>
-                            <div id="g3-a2" class="sous-menu">
-                                <div class="subgroup" data-groupe="3A2-1">3A2-1</div>
-                                <div class="subgroup" data-groupe="3A2-2">3A2-2</div>
-                            </div>
+                        <div id="g3-a2" class="sous-menu">
+                            <div class="subgroup" data-groupe="3A2-1">3A2-1</div>
+                            <div class="subgroup" data-groupe="3A2-2">3A2-2</div>
+                        </div>
                         <!-- B -->
                         <div class="group" onclick="toggleSousMenu('g3-b')">B</div>
-                            <div id="g3-b" class="sous-menu">
-                                <div class="subgroup" data-groupe="3B-1">3B-1</div>
-                                <div class="subgroup" data-groupe="3B-2">3B-2</div>
-                            </div>
+                        <div id="g3-b" class="sous-menu">
+                            <div class="subgroup" data-groupe="3B-1">3B-1</div>
+                            <div class="subgroup" data-groupe="3B-2">3B-2</div>
+                        </div>
                     </div>
                 </div>
                 <div id="week-summary">
@@ -270,24 +323,29 @@
         <section>
             <h3>Apporter ma contribution</h3>
             <p>Vous pouvez apporter votre contribution à ce projet via le lien GitHub en cliquant sur le logo.</p>
-            <a href="https://GitHub.com/TORCHIN-Maxence-24020376/Site-ETU" target="_blank" title="Lien vers le repo GitHub"><img src="IMAGES/GitHub.svg" alt="GitHub" id="GitHub"></a>
+            <a href="https://GitHub.com/TORCHIN-Maxence-24020376/Site-ETU" target="_blank"
+                title="Lien vers le repo GitHub"><img src="IMAGES/GitHub.svg" alt="GitHub" id="GitHub"></a>
         </section>
 
         <section>
             <h3>Description</h3>
-            <p>Site de ressources du département Informatique de l'IUT d'Aix-en-Provence. Réalisé par Maxence TORCHIN en 2024.</p>
+            <p>Site de ressources du département Informatique de l'IUT d'Aix-en-Provence. Réalisé par Maxence TORCHIN en
+                2024.</p>
             <p>Ce site contient tout ce qui vous sera utiles lors de vos années de BUT info à Aix-en-Provence.</p>
         </section>
 
         <section>
             <article>
                 <h3>Créateur</h3>
-                <iframe title="signature TORCHIN Maxence" src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/bleu.html"  style="height: 150px; width: 300px;"></iframe>
+                <iframe title="signature TORCHIN Maxence"
+                    src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/bleu.html"
+                    style="height: 150px; width: 300px;"></iframe>
             </article>
             <article>
                 <h3>Contributeurs</h3>
                 <ul>
-                    <li><a href="https://github.com/TAMINE-CYRIL" target="_blank" title="Cyril tamine">Cyril TAMINE</a></li>
+                    <li><a href="https://github.com/TAMINE-CYRIL" target="_blank" title="Cyril tamine">Cyril TAMINE</a>
+                    </li>
                 </ul>
             </article>
         </section>
@@ -298,6 +356,5 @@
         <div id="modeVeille" style="height: calc(100vh + 200px);"></div>
     </div>
 </body>
+
 </html>
-    
-    

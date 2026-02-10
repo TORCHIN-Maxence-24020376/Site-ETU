@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://torchin-maxence-24020376.github.io/Site-ETU/sitemap.xml
