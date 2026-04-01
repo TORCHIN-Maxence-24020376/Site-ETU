@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compte à rebours</title>
+    <link id="theme-link" rel="stylesheet" href="CSS/SOMBRE/aqua.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="shortcut icon" href="IMAGES/logo-etu.svg" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0 !important;
+            background: #0a0a0f;
+            color: #e0e0e0;
+            font-family: 'Share Tech Mono', monospace;
+            overflow: hidden;
+        }
+
+        .countdown-container {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            padding: 60px;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 200, 255, 0.15);
+            box-shadow: 0 0 80px rgba(0, 100, 255, 0.05), inset 0 0 80px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 90%;
+            width: 600px;
+            z-index: 20;
+            position: relative;
+        }
+
+        #timer {
+            font-size: 5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            font-family: 'Share Tech Mono', monospace;
+            display: block;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(0, 150, 255, 0.5), 0 0 60px rgba(0, 100, 255, 0.2);
+            letter-spacing: 8px;
+            position: relative;
+        }
+
+        #cryptic-msg {
+            font-size: 0.8rem;
+            opacity: 0.3;
+            letter-spacing: 3px;
+            color: #0af;
+            min-height: 1.2em;
+            margin-top: 10px;
+        }
+
+        #reveal-link {
+            display: none;
+            padding: 18px 45px;
+            font-size: 1.4rem;
+            text-decoration: none;
+            border-radius: 5px;
+            background: transparent;
+            color: #0af;
+            border: 1px solid #0af;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 0 30px rgba(0, 170, 255, 0.2);
+            animation: fadeIn 1.2s ease forwards;
+            font-family: 'Share Tech Mono', monospace;
+            letter-spacing: 2px;
+        }
+
+        #reveal-link:hover {
+            transform: scale(1.08) translateY(-5px);
+            background: #0af;
+            color: #000;
+            box-shadow: 0 0 60px rgba(0, 170, 255, 0.5);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            #timer {
+                font-size: 2.8rem;
+                letter-spacing: 4px;
+            }
+
+            .countdown-container {
+                padding: 40px 20px;
+            }
+        }
+
+        /* ═══ GLITCH TEXT ═══ */
+        .glitch {
+            position: relative;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .glitch::before {
+            color: #f0f;
+            z-index: -1;
+            animation: glitch-slice-1 0.2s infinite linear alternate-reverse;
+        }
+
+        .glitch::after {
+            color: #0ff;
+            z-index: -2;
+            animation: glitch-slice-2 0.3s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-slice-1 {
+            0% {
+                clip-path: polygon(0 0, 100% 0, 100% 5%, 0 5%);
+                transform: translateX(-15px);
+            }
+
+            10% {
+                clip-path: polygon(0 15%, 100% 15%, 100% 20%, 0 20%);
+                transform: translateX(10px);
+            }
+
+            20% {
+                clip-path: polygon(0 30%, 100% 30%, 100% 35%, 0 35%);
+                transform: translateX(-8px);
+            }
+
+            30% {
+                clip-path: polygon(0 45%, 100% 45%, 100% 55%, 0 55%);
+                transform: translateX(15px);
+            }
+
+            40% {
+                clip-path: polygon(0 60%, 100% 60%, 100% 62%, 0 62%);
+                transform: translateX(-12px);
+            }
+
+            50% {
+                clip-path: polygon(0 70%, 100% 70%, 100% 75%, 0 75%);
+                transform: translateX(8px);
+            }
+
+            60% {
+                clip-path: polygon(0 80%, 100% 80%, 100% 82%, 0 82%);
+                transform: translateX(-15px);
+            }
+
+            70% {
+                clip-path: polygon(0 88%, 100% 88%, 100% 93%, 0 93%);
+                transform: translateX(12px);
+            }
+
+            80% {
+                clip-path: polygon(0 10%, 100% 10%, 100% 12%, 0 12%);
+                transform: translateX(-10px);
+            }
+
+            90% {
+                clip-path: polygon(0 40%, 100% 40%, 100% 48%, 0 48%);
+                transform: translateX(15px);
+            }
+
+            100% {
+                clip-path: polygon(0 95%, 100% 95%, 100% 100%, 0 100%);
+                transform: translateX(-8px);
+            }
+        }
+
+        @keyframes glitch-slice-2 {
+            0% {
+                clip-path: polygon(0 5%, 100% 5%, 100% 10%, 0 10%);
+                transform: translateX(12px);
+            }
+
+            10% {
+                clip-path: polygon(0 22%, 100% 22%, 100% 28%, 0 28%);
+                transform: translateX(-10px);
+            }
+
+            20% {
+                clip-path: polygon(0 35%, 100% 35%, 100% 40%, 0 40%);
+                transform: translateX(15px);
+            }
+
+            30% {
+                clip-path: polygon(0 52%, 100% 52%, 100% 58%, 0 58%);
+                transform: translateX(-8px);
+            }
+
+            40% {
+                clip-path: polygon(0 65%, 100% 65%, 100% 68%, 0 68%);
+                transform: translateX(10px);
+            }
+
+            50% {
+                clip-path: polygon(0 75%, 100% 75%, 100% 80%, 0 80%);
+                transform: translateX(-15px);
+            }
+
+            60% {
+                clip-path: polygon(0 85%, 100% 85%, 100% 90%, 0 90%);
+                transform: translateX(8px);
+            }
+
+            70% {
+                clip-path: polygon(0 3%, 100% 3%, 100% 8%, 0 8%);
+                transform: translateX(-12px);
+            }
+
+            80% {
+                clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+                transform: translateX(15px);
+            }
+
+            90% {
+                clip-path: polygon(0 92%, 100% 92%, 100% 98%, 0 98%);
+                transform: translateX(-10px);
+            }
+
+            100% {
+                clip-path: polygon(0 18%, 100% 18%, 100% 25%, 0 25%);
+                transform: translateX(12px);
+            }
+        }
+
+        /* ═══ JITTER / DISTORTION ═══ */
+        .active-jitter {
+            animation: jitter 0.08s infinite;
+        }
+
+        @keyframes jitter {
+            0% {
+                transform: translate(0) skewX(0);
+            }
+
+            20% {
+                transform: translate(-8px, 5px) skewX(2deg);
+            }
+
+            40% {
+                transform: translate(8px, -5px) skewX(-3deg);
+            }
+
+            60% {
+                transform: translate(-5px, -8px) skewX(1deg);
+            }
+
+            80% {
+                transform: translate(5px, 8px) skewX(-2deg);
+            }
+
+            100% {
+                transform: translate(0) skewX(0);
+            }
+        }
+
+        /* ═══ HEAVY GLITCH (rare) ═══ */
+        .heavy-glitch {
+            animation: heavy-distort 0.1s infinite;
+            filter: contrast(200%) hue-rotate(90deg) saturate(300%);
+        }
+
+        @keyframes heavy-distort {
+            0% {
+                transform: translate(0) scale(1) skew(0);
+                clip-path: inset(0);
+            }
+
+            25% {
+                transform: translate(-20px, 10px) scale(1.02, 0.98) skew(5deg, -2deg);
+                clip-path: inset(10% 0 5% 0);
+            }
+
+            50% {
+                transform: translate(15px, -15px) scale(0.98, 1.03) skew(-8deg, 3deg);
+                clip-path: inset(30% 5% 20% 0);
+            }
+
+            75% {
+                transform: translate(10px, 20px) scale(1.05, 0.95) skew(3deg, -5deg);
+                clip-path: inset(5% 0 40% 10%);
+            }
+
+            100% {
+                transform: translate(-15px, -5px) scale(0.97, 1.02) skew(-3deg, 2deg);
+                clip-path: inset(0);
+            }
+        }
+
+        /* ═══ ATMOSPHERE ═══ */
+        .vignette {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, transparent 30%, rgba(0, 0, 0, 0.9) 100%);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 0, 0, 0.15) 2px,
+                    rgba(0, 0, 0, 0.15) 4px);
+            pointer-events: none;
+            z-index: 15;
+            animation: scanline-scroll 8s linear infinite;
+        }
+
+        @keyframes scanline-scroll {
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: 0 100vh;
+            }
+        }
+
+        .noise {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 5;
+            animation: noise-drift 0.15s infinite steps(5);
+        }
+
+        @keyframes noise-drift {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(-2%, 3%);
+            }
+
+            50% {
+                transform: translate(3%, -2%);
+            }
+
+            75% {
+                transform: translate(-3%, -1%);
+            }
+
+            100% {
+                transform: translate(1%, 2%);
+            }
+        }
+
+        #particles-container,
+        #ghosts-container,
+        #glitch-blocks-container,
+        #data-rain-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        #glitch-blocks-container {
+            z-index: 18;
+        }
+
+        #data-rain-container {
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            background: #0af;
+            border-radius: 50%;
+            opacity: 0;
+            filter: blur(1px);
+            animation: float-particle var(--duration) infinite ease-in-out;
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translate(var(--x), var(--y)) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* ═══ GHOST LOGOS ═══ */
+        .ghost {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0;
+            z-index: 3;
+            filter: grayscale(100%) brightness(0.3) drop-shadow(0 0 15px rgba(0, 170, 255, 0.3));
+            transition: opacity 3s ease-in-out;
+        }
+
+        .ghost.ghost-active {
+            opacity: 0.08;
+        }
+
+        .ghost.ghost-glitching {
+            opacity: 0.2 !important;
+            animation: ghost-corrupt 0.15s infinite;
+            filter: grayscale(0%) brightness(1) hue-rotate(180deg) drop-shadow(0 0 30px rgba(255, 0, 255, 0.5));
+        }
+
+        @keyframes ghost-corrupt {
+            0% {
+                transform: var(--base-rotation) translate(0) scaleX(1);
+            }
+
+            25% {
+                transform: var(--base-rotation) translate(10px, -5px) scaleX(1.3);
+            }
+
+            50% {
+                transform: var(--base-rotation) translate(-15px, 10px) scaleX(0.7);
+                clip-path: inset(20% 0 30% 0);
+            }
+
+            75% {
+                transform: var(--base-rotation) translate(5px, 15px) scaleX(1.1);
+                clip-path: inset(50% 0 10% 0);
+            }
+
+            100% {
+                transform: var(--base-rotation) translate(-10px, -10px) scaleX(0.9);
+                clip-path: inset(0);
+            }
+        }
+
+        /* ═══ GLITCH BLOCKS ═══ */
+        .glitch-block {
+            position: fixed;
+            pointer-events: none;
+            z-index: 19;
+            animation: block-flash 0.15s forwards;
+        }
+
+        @keyframes block-flash {
+            0% {
+                opacity: 0.8;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* ═══ DATA RAIN ═══ */
+        .data-char {
+            position: fixed;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 14px;
+            color: #0af;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 1;
+            animation: data-fall var(--fall-duration) linear forwards;
+        }
+
+        @keyframes data-fall {
+            0% {
+                opacity: 0.6;
+                transform: translateY(0);
+            }
+
+            80% {
+                opacity: 0.3;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(100vh);
+            }
+        }
+
+        /* ═══ SCREEN FLASH ═══ */
+        .screen-flash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            animation: flash 0.1s forwards;
+        }
+
+        @keyframes flash {
+            0% {
+                opacity: 0.6;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* ═══ SCREEN TEAR ═══ */
+        .screen-tear {
+            position: fixed;
+            left: 0;
+            width: 100%;
+            pointer-events: none;
+            z-index: 25;
+            animation: tear-sweep 0.3s forwards;
+            mix-blend-mode: difference;
+        }
+
+        @keyframes tear-sweep {
+            0% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(30px);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+        }
+
+        /* ═══ PULSE GLOW ═══ */
+        #timer {
+            animation: pulse-glow 4s infinite ease-in-out;
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                text-shadow: 0 0 20px rgba(0, 150, 255, 0.3);
+            }
+
+            50% {
+                text-shadow: 0 0 40px rgba(0, 150, 255, 0.6), 0 0 80px rgba(0, 100, 255, 0.2);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="vignette"></div>
+    <div class="noise"></div>
+    <div class="scanlines"></div>
+    <div id="particles-container"></div>
+    <div id="ghosts-container"></div>
+    <div id="glitch-blocks-container"></div>
+    <div id="data-rain-container"></div>
+
+    <div class="countdown-container" id="main-container">
+        <div id="timer" data-text="--:--:--">--:--:--</div>
+        <div id="cryptic-msg"></div>
+        <a id="reveal-link" href="#" target="_blank">[ ACCÉDER ]</a>
+    </div>
+
+    <script>
+        const timer = document.getElementById('timer');
+        const mainContainer = document.getElementById('main-container');
+        const revealLink = document.getElementById('reveal-link');
+        const ghostsCtn = document.getElementById('ghosts-container');
+        const glitchBlocksCtn = document.getElementById('glitch-blocks-container');
+        const dataRainCtn = document.getElementById('data-rain-container');
+        const crypticMsg = document.getElementById('cryptic-msg');
+
+        const secret = "aHR0cHM6Ly9ldHUtYWl4LmFsd2F5c2RhdGEubmV0Lw==";
+
+        const crypticMessages = [
+            "SIGNAL INTERCEPTÉ...",
+            "CONNEXION INSTABLE",
+            "DONNÉES CORROMPUES",
+            "TRANSFERT EN COURS...",
+            "ACCÈS RESTREINT",
+            "PROTOCOLE #6756 ACTIF",
+            "DÉCRYPTAGE...",
+            "FLUX ALTÉRÉ",
+            "SYNCHRONISATION...",
+            "ERREUR 0x7F2A",
+            "BRÈCHE DÉTECTÉE",
+            "RECONSTRUCTION...",
+            "SEGMENT PERDU",
+            "MATRICE INSTABLE",
+            "RÉSEAU FANTÔME",
+            "ANOMALIE TEMPORELLE",
+            "▓▒░ CORRUPTION ░▒▓",
+            ">>> PATIENTEZ <<<",
+        ];
+
+        const glitchChars = "█▓▒░╔╗╚╝║═╬╣╠╩╦┼─│┌┐└┘├┤┴┬▀▄▌▐";
+
+        // ─── TIMER ───
+        function updateTimer() {
+            const now = new Date();
+            const target = new Date();
+            target.setHours(22, 0, 0, 0);
+
+            if (now >= target) {
+                timer.style.display = 'none';
+                crypticMsg.style.display = 'none';
+                revealLink.style.display = 'inline-block';
+                revealLink.href = atob(secret);
+                return;
+            }
+
+            const diff = target - now;
+            const h = String(Math.floor(diff / 3600000)).padStart(2, '0');
+            const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+            const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+            const timeStr = `${h}:${m}:${s}`;
+            timer.textContent = timeStr;
+            timer.setAttribute('data-text', timeStr);
+        }
+
+        // ─── GLITCH (normal) ───
+        function triggerGlitch() {
+            mainContainer.classList.add('active-jitter');
+            timer.classList.add('glitch');
+
+            if (Math.random() > 0.5) flashScreen();
+            if (Math.random() > 0.4) spawnGlitchBlocks(3 + Math.floor(Math.random() * 8));
+            if (Math.random() > 0.6) screenTear();
+
+            const dur = 80 + Math.random() * 250;
+            setTimeout(() => {
+                mainContainer.classList.remove('active-jitter');
+                timer.classList.remove('glitch');
+            }, dur);
+        }
+
+        // ─── HEAVY GLITCH (rare, intense) ───
+        function triggerHeavyGlitch() {
+            document.body.classList.add('heavy-glitch');
+            mainContainer.classList.add('heavy-glitch');
+            timer.classList.add('glitch');
+
+            flashScreen('#f0f');
+            spawnGlitchBlocks(15 + Math.floor(Math.random() * 20));
+            screenTear();
+            screenTear();
+            screenTear();
+            corruptTimer();
+
+            // Spawn multiple ghosts at once
+            for (let i = 0; i < 3; i++) setTimeout(() => spawnGhost(true), i * 100);
+
+            setTimeout(() => {
+                document.body.classList.remove('heavy-glitch');
+                mainContainer.classList.remove('heavy-glitch');
+                timer.classList.remove('glitch');
+                updateTimer(); // restore timer text
+            }, 300 + Math.random() * 500);
+        }
+
+        // ─── CORRUPT TIMER TEXT ───
+        function corruptTimer() {
+            let text = timer.textContent;
+            let corrupted = '';
+            for (let i = 0; i < text.length; i++) {
+                if (Math.random() > 0.4) {
+                    corrupted += glitchChars[Math.floor(Math.random() * glitchChars.length)];
+                } else {
+                    corrupted += text[i];
+                }
+            }
+            timer.textContent = corrupted;
+            timer.setAttribute('data-text', corrupted);
+        }
+
+        // ─── SCREEN FLASH ───
+        function flashScreen(color = 'rgba(0, 170, 255, 0.15)') {
+            const flash = document.createElement('div');
+            flash.className = 'screen-flash';
+            flash.style.background = color;
+            document.body.appendChild(flash);
+            setTimeout(() => flash.remove(), 150);
+        }
+
+        // ─── SCREEN TEAR ───
+        function screenTear() {
+            const tear = document.createElement('div');
+            tear.className = 'screen-tear';
+            const h = 2 + Math.random() * 30;
+            tear.style.top = `${Math.random() * 100}%`;
+            tear.style.height = `${h}px`;
+            tear.style.background = `linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.3), rgba(255, 0, 255, 0.2), transparent)`;
+            document.body.appendChild(tear);
+            setTimeout(() => tear.remove(), 350);
+        }
+
+        // ─── GLITCH BLOCKS ───
+        function spawnGlitchBlocks(count) {
+            for (let i = 0; i < count; i++) {
+                const block = document.createElement('div');
+                block.className = 'glitch-block';
+                const w = 20 + Math.random() * 200;
+                const h = 2 + Math.random() * 15;
+                block.style.width = `${w}px`;
+                block.style.height = `${h}px`;
+                block.style.left = `${Math.random() * 100}%`;
+                block.style.top = `${Math.random() * 100}%`;
+
+                const colors = ['#0ff', '#f0f', '#0f0', '#ff0', '#f00', '#00f', 'rgba(255,255,255,0.8)'];
+                block.style.background = colors[Math.floor(Math.random() * colors.length)];
+                block.style.mixBlendMode = Math.random() > 0.5 ? 'screen' : 'difference';
+
+                glitchBlocksCtn.appendChild(block);
+                setTimeout(() => block.remove(), 100 + Math.random() * 200);
+            }
+        }
+
+        // ─── GHOST LOGOS ───
+        function spawnGhost(intense = false) {
+            const ghost = document.createElement('img');
+            ghost.src = 'IMAGES/logo.svg';
+            ghost.className = 'ghost';
+
+            const size = 100 + Math.random() * 400;
+            const rotation = Math.random() * 360;
+            ghost.style.width = `${size}px`;
+            ghost.style.left = `${Math.random() * 90 - 5}%`;
+            ghost.style.top = `${Math.random() * 90 - 5}%`;
+            ghost.style.setProperty('--base-rotation', `rotate(${rotation}deg)`);
+            ghost.style.transform = `rotate(${rotation}deg)`;
+
+            ghostsCtn.appendChild(ghost);
+
+            setTimeout(() => ghost.classList.add(intense ? 'ghost-glitching' : 'ghost-active'), 50);
+
+            const lifespan = intense ? 500 + Math.random() * 1000 : 3000 + Math.random() * 5000;
+            setTimeout(() => {
+                ghost.classList.remove('ghost-active', 'ghost-glitching');
+                setTimeout(() => ghost.remove(), 3000);
+            }, lifespan);
+        }
+
+        // ─── DATA RAIN ───
+        function spawnDataRain() {
+            const chars = '01アイウエオカキクケコ█▓▒░ABCDEF0123456789';
+            const x = Math.random() * 100;
+            const colLength = 5 + Math.floor(Math.random() * 15);
+
+            for (let i = 0; i < colLength; i++) {
+                setTimeout(() => {
+                    const ch = document.createElement('div');
+                    ch.className = 'data-char';
+                    ch.textContent = chars[Math.floor(Math.random() * chars.length)];
+                    ch.style.left = `${x}%`;
+                    ch.style.top = `-20px`;
+                    ch.style.setProperty('--fall-duration', `${2 + Math.random() * 4}s`);
+                    ch.style.opacity = `${0.1 + Math.random() * 0.4}`;
+                    dataRainCtn.appendChild(ch);
+                    setTimeout(() => ch.remove(), 6000);
+                }, i * 80);
+            }
+        }
+
+        // ─── CRYPTIC MESSAGES ───
+        function showCrypticMessage() {
+            const msg = crypticMessages[Math.floor(Math.random() * crypticMessages.length)];
+            crypticMsg.textContent = '';
+
+            // Typewriter effect
+            let i = 0;
+            const typing = setInterval(() => {
+                if (i < msg.length) {
+                    // Randomly glitch some characters while typing
+                    if (Math.random() > 0.8) {
+                        crypticMsg.textContent += glitchChars[Math.floor(Math.random() * glitchChars.length)];
+                        setTimeout(() => {
+                            const t = crypticMsg.textContent;
+                            crypticMsg.textContent = t.slice(0, -1) + msg[i - 1];
+                        }, 50);
+                    } else {
+                        crypticMsg.textContent += msg[i];
+                    }
+                    i++;
+                } else {
+                    clearInterval(typing);
+                    setTimeout(() => {
+                        // Fade/glitch out
+                        crypticMsg.style.opacity = '0';
+                        setTimeout(() => {
+                            crypticMsg.textContent = '';
+                            crypticMsg.style.opacity = '0.3';
+                        }, 500);
+                    }, 2000);
+                }
+            }, 40 + Math.random() * 30);
+        }
+
+        // ─── PARTICLES ───
+        function createParticles() {
+            const c = document.getElementById('particles-container');
+            for (let i = 0; i < 50; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                const size = Math.random() * 3 + 1;
+                p.style.width = `${size}px`;
+                p.style.height = `${size}px`;
+                p.style.left = `${Math.random() * 100}%`;
+                p.style.top = `${Math.random() * 100}%`;
+                p.style.setProperty('--x', `${(Math.random() - 0.5) * 400}px`);
+                p.style.setProperty('--y', `${(Math.random() - 0.5) * 400}px`);
+                p.style.setProperty('--duration', `${Math.random() * 6 + 6}s`);
+                p.style.animationDelay = `${Math.random() * -15}s`;
+                c.appendChild(p);
+            }
+        }
+
+        // ─── SCHEDULERS ───
+        function scheduleGlitch() {
+            setTimeout(() => {
+                triggerGlitch();
+                scheduleGlitch();
+            }, 1500 + Math.random() * 4000);
+        }
+
+        function scheduleHeavyGlitch() {
+            setTimeout(() => {
+                triggerHeavyGlitch();
+                scheduleHeavyGlitch();
+            }, 15000 + Math.random() * 30000);
+        }
+
+        function scheduleGhost() {
+            setTimeout(() => {
+                spawnGhost();
+                scheduleGhost();
+            }, 4000 + Math.random() * 10000);
+        }
+
+        function scheduleDataRain() {
+            setTimeout(() => {
+                spawnDataRain();
+                scheduleDataRain();
+            }, 500 + Math.random() * 2000);
+        }
+
+        function scheduleCrypticMsg() {
+            setTimeout(() => {
+                showCrypticMessage();
+                scheduleCrypticMsg();
+            }, 5000 + Math.random() * 10000);
+        }
+
+        // ─── INIT ───
+        setInterval(updateTimer, 1000);
+        updateTimer();
+        createParticles();
+        scheduleGlitch();
+        scheduleHeavyGlitch();
+        scheduleGhost();
+        scheduleDataRain();
+        scheduleCrypticMsg();
+
+        // Initial dramatic entrance
+        setTimeout(() => triggerHeavyGlitch(), 2000);
+    </script>
+</body>
+
+</html>

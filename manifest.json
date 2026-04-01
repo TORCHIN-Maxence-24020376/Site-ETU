@@ -9,7 +9,7 @@
   "theme_color": "#0065e5",
   "icons": [
     {
-      "src": "IMAGES/logo.svg",
+      "src": "IMAGES/logo-etu.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
