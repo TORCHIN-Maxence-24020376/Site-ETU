@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
     
-    alert = fetch(safetyUrl)
+    alert = fetch(safetyUrl + "?t=" + Date.now())
     .then(res => res.json())
     .then(data => {
         if (data[0].alert == true){
