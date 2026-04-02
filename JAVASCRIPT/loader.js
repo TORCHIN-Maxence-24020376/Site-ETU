@@ -27,11 +27,8 @@ window.addEventListener("load", () => {
     setInterval(step, 750);
 
     const loadTime = performance.now() - startTime;
-    /*
     const extraTime = loadTime * 1;
     const totalTime = Math.max(loadTime + extraTime);
-    */
-    const totalTime = 2000; // Le loader reste 2 secondes
     const phrases = [
         "De base, ce site était conçu uniquement pour une seule personne: Maxence TORCHIN.",
         "La version originale était bien différente de la version d'aujourd'hui.\nPas de changement de thèmes... Une seule page... juste une horloge et des cases pour des liens.",

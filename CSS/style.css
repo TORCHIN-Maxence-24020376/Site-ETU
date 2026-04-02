@@ -1239,7 +1239,7 @@ a {
     width: 300px;
     border-radius: 50%;
     background: linear-gradient(0deg, blue, purple);
-    background-image: linear-gradient(0deg, blue, purple), url("../IMAGES/pedro-raccoon-raccoon.gif");
+    background-image: linear-gradient(0deg, blue, purple), url("../IMAGES/logo-etu.svg");
     background-blend-mode: overlay;
     background-size: cover;
     position: relative;
