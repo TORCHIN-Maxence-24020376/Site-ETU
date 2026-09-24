@@ -294,12 +294,39 @@ h1 {
     font-size: 1.5em;
     width: 0;
     position: fixed;
-    z-index: 1;
     top: 0;
     left: 0;
     overflow-x: hidden;
+    overflow-y: auto;
     transition: 0.3s;
     z-index: 9999;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-scrollbar-thumb, #888) var(--color-scrollbar-track, rgba(0, 0, 0, 0.1));
+}
+
+/* Stylisation de la scrollbar du menu mobile */
+.overlay::-webkit-scrollbar,
+.mega-menu::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.overlay::-webkit-scrollbar-track,
+.mega-menu::-webkit-scrollbar-track {
+    background: var(--color-scrollbar-track, rgba(0, 0, 0, 0.08));
+    border-radius: 10px;
+    margin: 6px 0;
+}
+
+.overlay::-webkit-scrollbar-thumb,
+.mega-menu::-webkit-scrollbar-thumb {
+    background: var(--color-scrollbar-thumb, var(--color-link, #60d5e5));
+    border-radius: 10px;
+}
+
+.overlay::-webkit-scrollbar-thumb:hover,
+.mega-menu::-webkit-scrollbar-thumb:hover {
+    background: var(--color-link, #0078d7);
 }
 
 .overlay-content {
