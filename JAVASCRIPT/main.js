@@ -272,3 +272,28 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(highlightSalle, 500);
     }
 });
+
+// --- Gestion de la bannière et du bouton flottant ETU 2 ---
+function dismissEtu2Banner() {
+    const banner = document.querySelector(".etu2-banner-wrapper");
+    if (banner) {
+        banner.classList.add("hidden");
+    }
+    try {
+        sessionStorage.setItem("etu2_banner_dismissed", "1");
+    } catch (e) {
+        console.warn(e);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    try {
+        const isDismissed = sessionStorage.getItem("etu2_banner_dismissed") === "1";
+        const banner = document.querySelector(".etu2-banner-wrapper");
+        if (isDismissed && banner) {
+            banner.classList.add("hidden");
+        }
+    } catch (e) {
+        console.warn(e);
+    }
+});

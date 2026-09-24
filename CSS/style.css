@@ -176,101 +176,83 @@ h1 {
 }
 
 
-.google {
+.Site.google,
+.Site.amu,
+.Site.ametice,
+.Site.edt,
+.Site.etu2 {
     position: relative;
-    width: 300px;
-    height: 50px;
+    width: min(380px, 90%);
+    height: 54px;
+    border-radius: 27px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    transition: all 0.3s ease-in-out;
-    overflow: hidden;
+    justify-content: center;
+    margin: 10px auto;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
 }
 
-.google::before {
+.Site.google:hover {
+    transform: translateY(-2px) scale(1.02);
+}
+
+.Site.google::before {
     content: '';
     position: absolute;
     top: 50%;
     left: 20%;
     transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     background-image: url('../IMAGES/google-logo.webp');
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.35s ease;
+    z-index: 4;
 }
 
-.google.hovered {
-    width: 50%;
-    transform: scale(1.5);
-}
-
-.google.hovered::before {
+.Site.google:hover::before,
+.Site.google.hovered::before {
     opacity: 1;
-    left: 5%;
-    transform: translate(-80%, -50%) scale(1.2);
+    left: 26px;
+    transform: translate(0, -50%) scale(1.05);
 }
 
-.google.clicked::before {
-    opacity: 1;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
+.Site.google:hover p,
+.Site.google.hovered p {
+    color: #1a73e8;
 }
 
-.google.clicked {
-    background-color: white;
-    color: white;
-    width: 90%;
-    height: 100px;
-    scale: 0.9;
-}
-
-.amu {
-    width: 300px;
-    height: 50px;
-    transition: all 0.3s ease-in-out;
-}
-
-.amu:hover {
-    width: 50%;
-    transform: scale(1.5);
+.Site.amu:hover {
+    transform: translateY(-2px) scale(1.02);
     background-color: #0065e5;
 }
 
-.amu:active {
-    background-color: #004298;
+.Site.amu:hover p {
+    color: #ffffff;
 }
 
-.ametice {
-    width: 300px;
-    height: 50px;
-    transition: all 0.3s ease-in-out;
+.Site.ametice:hover {
+    transform: translateY(-2px) scale(1.02);
+    background-color: #7c2ae8;
 }
 
-.ametice:hover {
-    width: 50%;
-    transform: scale(1.5);
-    background-color: #5a0cb9;
-    color: white;
+.Site.ametice:hover p {
+    color: #ffffff;
 }
 
-.ametice:active {
-    background-color: #370771;
-}
-
-.edt {
-    width: 300px;
-    height: 50px;
-    transition: all 0.3s ease-in-out;
-}
-
-.edt:hover {
-    width: 50%;
-    transform: scale(1.5);
+.Site.edt:hover {
+    transform: translateY(-2px) scale(1.02);
     background-color: #00d4aa;
-    color: white;
+}
+
+.Site.edt:hover p {
+    color: #041c2c;
 }
 
 .respons {
@@ -328,6 +310,7 @@ h1 {
     text-align: left;
     line-height: 2em;
     display: flex;
+    flex-direction: column;
     padding: 8px;
 }
 
@@ -1286,3 +1269,602 @@ a {
     font-family: monospace;
     text-align: center;
 }
+
+/* =========================================================
+   CAMPAGNE PROMOTION SITE ETU 2 (etu-aix.alwaysdata.net)
+   En accord avec la DA de Site ETU
+   ========================================================= */
+
+/* Lien de navigation dans le header */
+#etu2:hover {
+    background-color: #0078d7;
+    color: white;
+}
+
+#etu2:active {
+    background-color: #005a9e;
+}
+
+/* Grosse promotion sur la page d'accueil */
+.promo-container {
+    justify-content: center;
+    margin: 20px auto 30px auto;
+}
+
+.promo-etu2 {
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+    border-radius: 20px;
+    padding: 30px 40px;
+    width: 80%;
+    box-shadow: 0 8px 25px var(--color-shadow, rgba(0, 0, 0, 0.2));
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.promo-etu2:hover {
+    transform: translateY(-2px);
+}
+
+.promo-etu2 h2 {
+    margin: 0;
+    font-size: 1.8em;
+    color: var(--color-text);
+}
+
+.promo-description {
+    font-size: 1.1em;
+    max-width: 750px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.promo-points {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.promo-point {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    border-radius: 15px;
+    padding: 16px 20px;
+    flex: 1;
+    min-width: 220px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.promo-point h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.1em;
+    color: var(--color-text);
+}
+
+.promo-point p {
+    margin: 0;
+    font-size: 0.9em;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+.promo-btn {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-text) !important;
+    padding: 14px 42px;
+    border-radius: 30px;
+    font-size: 1.15em;
+    font-weight: bold;
+    text-decoration: none !important;
+    border: 2px solid var(--color-link, #60d5e5);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+    --blob-color: var(--color-hover);
+    --glow-color: var(--color-shadow);
+    --glow-accent: var(--color-link);
+}
+
+/* Bandeau non-intrusif sur les pages secondaires */
+.etu2-banner-wrapper {
+    width: 80%;
+    margin: 15px auto 25px auto;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.etu2-banner-wrapper.hidden {
+    opacity: 0;
+    max-height: 0;
+    margin: 0 auto;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.etu2-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 22px;
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px var(--color-shadow, rgba(0, 0, 0, 0.15));
+    border: 1px solid var(--color-accent);
+    text-align: left;
+}
+
+.etu2-banner-text {
+    font-size: 0.95em;
+    line-height: 1.4;
+}
+
+.etu2-banner-text strong {
+    font-weight: bold;
+}
+
+.etu2-banner-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.etu2-banner-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 22px;
+    background-color: var(--color-primary);
+    color: var(--color-text) !important;
+    font-weight: bold;
+    font-size: 0.92em;
+    border-radius: 20px;
+    text-decoration: none !important;
+    border: 1.5px solid var(--color-link, #60d5e5);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+    --blob-color: var(--color-hover);
+    --glow-color: var(--color-shadow);
+    --glow-accent: var(--color-link);
+}
+
+.etu2-banner-close {
+    background: transparent;
+    border: none;
+    color: var(--color-text);
+    opacity: 0.7;
+    font-size: 1.3em;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 5px;
+    transition: opacity 0.2s ease;
+}
+
+.etu2-banner-close:hover {
+    opacity: 1;
+    background-color: var(--color-hover);
+}
+
+/* Pastille flottante discrète de rappel (Logo seul en bas à droite) */
+.etu2-floating-pill {
+    position: fixed !important;
+    bottom: 24px;
+    right: 24px;
+    z-index: 150 !important;
+    width: 52px;
+    height: 52px;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    background-color: var(--color-secondary);
+    color: var(--color-text) !important;
+    border: 2px solid var(--color-accent, #60d5e5);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25), 0 0 12px rgba(0, 120, 215, 0.35);
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+    overflow: visible !important;
+    isolation: isolate;
+    cursor: pointer;
+    --blob-color: #0078d7;
+    --glow-color: rgba(0, 120, 215, 0.4);
+    --glow-accent: rgba(96, 213, 229, 0.6);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                box-shadow 0.4s ease, 
+                border-color 0.3s ease,
+                background-color 0.3s ease;
+}
+
+.etu2-floating-pill:hover {
+    background-color: var(--color-hover);
+    transform: translateY(-4px) scale(1.12);
+    box-shadow: 0 12px 28px -4px var(--glow-color, rgba(0, 120, 215, 0.5)),
+                0 0 20px 2px var(--glow-accent, rgba(96, 213, 229, 0.6));
+    border-color: #60d5e5;
+}
+
+@media (max-width: 768px) {
+    .promo-etu2 {
+        width: 90%;
+        padding: 20px 15px;
+    }
+
+    .promo-points {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .promo-point {
+        min-width: 100%;
+    }
+
+    .promo-btn {
+        width: 80%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .etu2-banner-wrapper {
+        width: 90%;
+    }
+
+    .etu2-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .etu2-banner-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .etu2-banner-btn {
+        flex: 1;
+        text-align: center;
+    }
+
+    .Site.amu,
+    .Site.ametice,
+    .Site.edt,
+    .Site.etu2,
+    .Site.google,
+    .etu2 {
+        width: 90% !important;
+    }
+
+    .etu2-floating-pill {
+        bottom: 16px;
+        right: 16px;
+        width: 48px;
+        height: 48px;
+    }
+
+    .etu2-floating-pill .etu2-logo-icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* Style spécifique pour le bouton ETU 2 du mode téléphone (menu overlay #myNav) */
+#myNav a[href*="etu-aix.alwaysdata.net"],
+.overlay-content a[href*="etu-aix.alwaysdata.net"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px;
+    width: min(85%, 280px) !important;
+    margin: 14px auto !important;
+    padding: 12px 22px !important;
+    border-radius: 25px !important;
+    background-color: var(--color-primary, #1e1e24) !important;
+    border: 1.5px solid var(--color-link, #60d5e5) !important;
+    color: var(--color-text, #ffffff) !important;
+    font-size: 1.1em !important;
+    font-weight: bold !important;
+    text-align: center;
+    text-decoration: none !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#myNav a[href*="etu-aix.alwaysdata.net"]:hover,
+.overlay-content a[href*="etu-aix.alwaysdata.net"]:hover {
+    background-color: #0078d7 !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 120, 215, 0.4);
+}
+
+/* ============================================================
+   ANIMATIONS BOUTONS DE FOU STYLE BLOB (HILWAT) & BUBBLE (GRSMTO)
+   ============================================================ */
+
+/* Filtres SVG invisibles fixés */
+.goo-filters-svg {
+    position: fixed;
+    top: -9999px;
+    left: -9999px;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+/* Logo ETU 2 et disposition dans les boutons */
+.etu2-logo-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    margin-right: 10px;
+    vertical-align: middle;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.25));
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    flex-shrink: 0;
+}
+
+.promo-btn .etu2-logo-icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 12px;
+}
+
+.etu2-banner-btn .etu2-logo-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.etu2-floating-pill .etu2-logo-icon {
+    width: 28px;
+    height: 28px;
+    margin: 0 !important;
+    display: block;
+}
+
+.nav-etu2-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+    vertical-align: middle;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Interactivité du logo au survol */
+.etu2-crazy-btn:hover .etu2-logo-icon,
+.promo-btn:hover .etu2-logo-icon,
+.etu2-banner-btn:hover .etu2-logo-icon,
+.etu2-floating-pill:hover .etu2-logo-icon,
+.Site.etu2:hover .etu2-logo-icon,
+#etu2:hover .nav-etu2-icon {
+    transform: scale(1.25) rotate(8deg);
+}
+
+/* Alignement flex des boutons ETU 2 */
+.promo-btn,
+.etu2-banner-btn,
+.etu2-floating-pill,
+.Site.etu2,
+#etu2 {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Specificité pour #etu2 dans la barre de navigation header */
+.navigation #etu2 {
+    height: 100% !important;
+    max-height: none !important;
+    align-self: stretch !important;
+    flex: 1 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-size: 1.5em !important;
+    border-radius: 0 !important;
+    border: none !important;
+    background-color: transparent;
+    color: var(--color-text) !important;
+    white-space: nowrap;
+}
+
+@media (max-width: 940px) {
+    .navigation #etu2 {
+        font-size: 1em !important;
+    }
+}
+
+.navigation #etu2 .nav-etu2-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Annulation du growth/scale transformation sur le bouton du header */
+.navigation #etu2,
+.navigation #etu2:hover,
+.navigation #etu2:active {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.navigation #etu2:hover {
+    background-color: #0078d7 !important;
+    color: #ffffff !important;
+}
+
+/* Base pour tous les boutons animés ETU 2 */
+.etu2-crazy-btn,
+.promo-btn,
+.etu2-banner-btn,
+.Site.etu2,
+#etu2 {
+    position: relative;
+    z-index: 1;
+    overflow: visible !important;
+    isolation: isolate;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                box-shadow 0.4s ease, 
+                border-color 0.3s ease,
+                color 0.3s ease;
+    will-change: transform, box-shadow;
+    --blob-color: #0078d7;
+    --glow-color: rgba(0, 120, 215, 0.4);
+    --glow-accent: rgba(96, 213, 229, 0.6);
+}
+
+/* Hover élastique + Glow ETU 2 */
+.etu2-crazy-btn:hover,
+.promo-btn:hover,
+.etu2-banner-btn:hover,
+.etu2-floating-pill:hover,
+.Site.etu2:hover,
+#etu2:hover,
+.etu2-crazy-btn.hovered {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 12px 28px -4px var(--glow-color, rgba(0, 120, 215, 0.4)),
+                0 0 20px 2px var(--glow-accent, rgba(96, 213, 229, 0.5));
+}
+
+/* Clic élastique pressé ETU 2 */
+.etu2-crazy-btn:active,
+.promo-btn:active,
+.etu2-banner-btn:active,
+.etu2-floating-pill:active,
+.Site.etu2:active,
+#etu2:active {
+    transform: translateY(1px) scale(0.97);
+    transition-duration: 0.12s;
+}
+
+/* Contenu textuel et icônes protégés au premier plan */
+.etu2-crazy-btn > *:not(.blob-btn__inner):not(.btn-bubbles-outer),
+.promo-btn > *,
+.etu2-banner-btn > *,
+.etu2-floating-pill > *,
+.Site.etu2 > p {
+    position: relative;
+    z-index: 3;
+    pointer-events: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Structure interne Blob (Hilwat style) */
+.blob-btn__inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+    margin: 0;
+    padding: 0;
+}
+
+.blob-btn__blobs {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    filter: url('#goo-inner');
+    pointer-events: none;
+}
+
+.blob-btn__blob {
+    position: absolute;
+    top: -20%;
+    width: 36%;
+    height: 140%;
+    background: var(--blob-color, #0078d7);
+    border-radius: 100%;
+    transform: translate3d(0, 160%, 0) scale(1.7);
+    transition: transform 0.45s cubic-bezier(0.19, 1, 0.22, 1);
+    will-change: transform;
+    pointer-events: none;
+}
+
+.blob-btn__blob:nth-child(1) {
+    left: -5%;
+    transition-delay: 0s;
+}
+
+.blob-btn__blob:nth-child(2) {
+    left: 26%;
+    transition-delay: 0.08s;
+}
+
+.blob-btn__blob:nth-child(3) {
+    left: 56%;
+    transition-delay: 0.16s;
+}
+
+.blob-btn__blob:nth-child(4) {
+    left: 84%;
+    transition-delay: 0.24s;
+}
+
+/* Déclenchement au hover : les gouttes liquides montent et fusionnent */
+.etu2-crazy-btn:hover .blob-btn__blob,
+.etu2-crazy-btn.hovered .blob-btn__blob,
+.promo-btn:hover .blob-btn__blob,
+.etu2-banner-btn:hover .blob-btn__blob,
+.etu2-floating-pill:hover .blob-btn__blob,
+.Site.etu2:hover .blob-btn__blob,
+#etu2:hover .blob-btn__blob {
+    transform: translate3d(0, 0, 0) scale(1.8);
+}
+
+/* Bulles extérieures qui éclatent (Grsmto style) */
+.btn-bubbles-outer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    overflow: visible;
+    filter: url('#goo-outer');
+}
+
+.goo-particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    will-change: transform, opacity;
+    animation-name: bubblePopAnim;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-fill-mode: forwards;
+}
+
+@keyframes bubblePopAnim {
+    0% {
+        transform: translate(0, 0) scale(0.2);
+        opacity: 0;
+    }
+    18% {
+        opacity: 1;
+        transform: translate(calc(var(--dest-x) * 0.4), calc(var(--dest-y) * 0.4)) scale(1.25);
+    }
+    65% {
+        opacity: 0.85;
+        transform: translate(calc(var(--dest-x) * 0.8), calc(var(--dest-y) * 0.8)) scale(0.9);
+    }
+    100% {
+        transform: translate(var(--dest-x), var(--dest-y)) scale(0);
+        opacity: 0;
+    }
+}
+
+

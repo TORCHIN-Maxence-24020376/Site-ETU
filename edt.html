@@ -71,6 +71,7 @@
                 <a href="#" id="navigation">Navigation</a>
                 <a id="ent" href="https://ent.univ-amu.fr/" target="_blank">ENT</a>
                 <a id="ametice" href="https://ametice.univ-amu.fr/" target="_blank">AMeTICE</a>
+                <a id="etu2" href="https://etu-aix.alwaysdata.net/?sources=etu1" target="_blank"><img src="IMAGES/logo-etu.svg" alt="Logo ETU" class="nav-etu2-icon">Site ETU 2</a>
                 <!--Rajouter des liens ici-->
             </div>
         </nav>
@@ -86,18 +87,17 @@
             <ul>
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="edt.html">Voir mon EDT</a></li>
-                <li><a href="https://discord.gg/qj9hJC3bTK" target="_blank"
-                        title="Rejoindre le serveur discord">Rejoindre le serveur discord</a></li>
+                <li><a href="https://etu-aix.alwaysdata.net/?sources=etu1" target="_blank">Site ETU 2</a></li>
             </ul>
         </div>
         <div>
             <h4>AUTRES PAGES</h4>
             <ul>
-                <li><a href="prof.html">👨‍🏫Sites des profs</a></li>
-                <li><a href="links.html">🖇️Liens utiles</a></li>
-                <li><a href="logiciels.html">💿Logiciels utiles</a></li>
-                <li><a href="carte.html">🔌Carte des prises</a></li>
-                <li><a href="index.html#Selection-salle">🛜Connexion réseau</a></li>
+                <li><a href="prof.html">Sites des profs</a></li>
+                <li><a href="links.html">Liens utiles</a></li>
+                <li><a href="logiciels.html">Logiciels utiles</a></li>
+                <li><a href="carte.html">Carte des prises</a></li>
+                <li><a href="index.html#Selection-salle">Connexion réseau</a></li>
             </ul>
 
             <a class="tkt-frr" href="Snake.html">.</a>
@@ -206,22 +206,43 @@
                 </div>
             </div>
             <hr>
+            <a href="https://etu-aix.alwaysdata.net/?sources=etu1" target="_blank">Site ETU 2</a>
+            <hr>
             <a href="#" onclick="toggleSousMenu()">Navigation ▼</a>
             <ul id="sous-menu">
-                <li><a href="prof.html">👨‍🏫Sites des profs</a></li>
-                <li><a href="links.html">🖇️Liens utiles</a></li>
-                <li><a href="logiciels.html">💿Logiciels utiles</a></li>
-                <li><a href="carte.html">🔌Carte des prises</a></li>
-                <li><a href="index.html#Selection-salle">🛜Connexion réseau</a></li>
+                <li><a href="prof.html">Sites des profs</a></li>
+                <li><a href="links.html">Liens utiles</a></li>
+                <li><a href="logiciels.html">Logiciels utiles</a></li>
+                <li><a href="carte.html">Carte des prises</a></li>
+                <li><a href="index.html#Selection-salle">Connexion réseau</a></li>
             </ul>
             <hr>
             <a href="https://ent.univ-amu.fr/" target="_blank">ENT</a> <br>
             <a href="https://ametice.univ-amu.fr" target="_blank">AMeTICE</a><br>
-            <a href="https://discord.gg/qj9hJC3bTK" target="_blank" title="Rejoindre le serveur discord">Serveur
-                discord</a>
         </div>
     </section>
 
+    <!-- Incitation non-intrusive Site ETU 2 -->
+    <div class="etu2-banner-wrapper">
+        <aside class="etu2-banner" aria-label="Annonce Site ETU 2">
+            <div class="etu2-banner-text">
+                <strong>Site ETU 2 est en ligne !</strong> Découvrez le nouvel emploi du temps synchronisé avec affichage optimisé.
+            </div>
+            <div class="etu2-banner-actions">
+                <a href="https://etu-aix.alwaysdata.net/?sources=etu1" target="_blank" rel="noopener noreferrer" class="etu2-banner-btn" title="Consulter l'EDT sur Site ETU 2">
+                    <span class="blob-btn__inner" aria-hidden="true"><span class="blob-btn__blobs"><span class="blob-btn__blob"></span><span class="blob-btn__blob"></span><span class="blob-btn__blob"></span><span class="blob-btn__blob"></span></span></span>
+                    <img src="IMAGES/logo-etu.svg" alt="Logo ETU" class="etu2-logo-icon">
+                    <span>Tester sur ETU 2</span>
+                </a>
+                <button class="etu2-banner-close" onclick="dismissEtu2Banner()" title="Fermer cette notification" aria-label="Fermer">&times;</button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Bouton flottant Site ETU 2 (Logo seul) -->
+    <a href="https://etu-aix.alwaysdata.net/?sources=etu1" target="_blank" rel="noopener noreferrer" class="etu2-floating-pill" title="Accéder au Site ETU 2" aria-label="Accéder au Site ETU 2">
+        <img src="IMAGES/logo-etu.svg" alt="Logo ETU" class="etu2-logo-icon">
+    </a>
 
     <section class="Container">
         <!-- Calendrier -->
@@ -315,8 +336,25 @@
         </section>
     </section>
 
+    <!-- Filtres SVG pour animations boutons Blob (Hilwat) et Bubbles (Grsmto) -->
+    <svg id="goo-filters-svg" class="goo-filters-svg" xmlns="http://www.w3.org/2000/svg" version="1.1" aria-hidden="true">
+        <defs>
+            <filter id="goo-inner">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -8" result="goo" />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+            </filter>
+            <filter id="goo-outer">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -7" result="goo" />
+                <feBlend in="SourceGraphic" in2="goo" />
+            </filter>
+        </defs>
+    </svg>
+
     <script src="JAVASCRIPT/loader.js"></script>
     <script src="JAVASCRIPT/main.js"></script>
+    <script src="JAVASCRIPT/bubbles.js"></script>
     <script src="JAVASCRIPT/calendar.js"></script>
     <script src="JAVASCRIPT/edt-warn.js"></script>
     <footer>

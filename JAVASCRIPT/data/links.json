@@ -1,5 +1,14 @@
 [
     {
+        "link": "https://etu-aix.alwaysdata.net/?sources=etu1",
+        "name": "Site ETU 2",
+        "logo": "logo-etu.svg",
+        "info": "Nouvelle version du Site ETU : interface moderne, EDT optimisé et nouveaux outils.",
+        "category": "Outils académiques",
+        "invert": false,
+        "tags": ["ETU", "ETU 2", "nouveau", "v2", "EDT", "outils", "ressources"]
+    },
+    {
         "link": "https://labtech.univ-amu.fr/portal/webclient/#/launchitems",
         "name": "VDI",
         "logo": "vdi.svg",
